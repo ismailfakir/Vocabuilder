@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="appName">
+        Voca Builder
+    </string>
+
+    <string name="some_text">
+        Some North American Countries!
+    </string>
+    <string name="some_hint">
+        Search Wors&#8230;
+    </string>
+
+    <string-array name="menu_array">
+        <item>Add new </item>
+        <item>Random Test</item>
+        <item>Stastics</item>
+        <item>About</item>
+    </string-array>
+
+
+</resources>

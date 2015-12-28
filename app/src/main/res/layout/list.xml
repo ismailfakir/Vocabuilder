@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="6dip">
+
+    <ImageView
+        android:id="@+id/swedishFlag"
+        android:layout_width="32dp"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/sweden"
+        android:scaleType="fitCenter"
+        />
+
+    <ImageView
+        android:id="@+id/englishFlag"
+        android:layout_width="32dp"
+        android:layout_height="20dp"
+        android:layout_alignLeft="@+id/swedishFlag"
+        android:layout_below="@+id/swedishFlag"
+        android:background="@drawable/english"
+        android:scaleType="fitCenter" />
+
+    <ImageView
+        android:id="@+id/exampleFlag"
+        android:layout_width="32dp"
+        android:layout_height="20dp"
+        android:layout_alignLeft="@+id/englishFlag"
+        android:layout_below="@+id/englishFlag"
+        android:background="@drawable/example"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/example"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/exampleFlag"
+        android:layout_alignBottom="@+id/exampleFlag"
+        android:layout_toRightOf="@+id/exampleFlag"
+        android:text="example text" />
+
+    <TextView
+        android:id="@+id/english"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/englishFlag"
+        android:layout_alignBottom="@+id/englishFlag"
+        android:layout_toRightOf="@+id/englishFlag"
+        android:text="example text" />
+
+    <TextView
+        android:id="@+id/swedish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/swedishFlag"
+        android:layout_alignBottom="@+id/swedishFlag"
+        android:layout_toRightOf="@+id/swedishFlag"
+        android:text="example text"
+        />
+
+</RelativeLayout>
