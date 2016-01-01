@@ -62,7 +62,7 @@ public class MainActivity extends Activity {
 
     private void displaySpinner() {
         Spinner spinner = (Spinner) findViewById(R.id.menu_spinner);
-        String[] items = new String[]{"Menu", "Add new", "Random Test", "Stastics", "About"};
+        String[] items = new String[]{"Menu", "Add new", "Random Test", "Statistics", "About"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, items);
@@ -84,6 +84,13 @@ public class MainActivity extends Activity {
                         // Start AddNewActivity.class
                         myIntent = new Intent(MainActivity.this,
                                 AddNewActivity.class);
+                        startActivity(myIntent);
+                        break;
+                    case 4:
+
+                        // Start AboutActivity.class
+                        myIntent = new Intent(MainActivity.this,
+                                AboutActivity.class);
                         startActivity(myIntent);
                         break;
                     case 2:

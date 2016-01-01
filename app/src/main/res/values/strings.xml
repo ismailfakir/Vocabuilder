@@ -5,6 +5,10 @@
 
     <string name="searchHint">Swedish Words</string>
 
+    <string name="developer">Ismail Fakir</string>
+
+    <string name="aboutText">ismail.fakir@cloudcentrik.net</string>
+
     <string-array name="menu_array">
         <item>Add new </item>
         <item>Random Test</item>
