@@ -12,7 +12,7 @@
 
         <EditText android:id="@+id/myFilter" android:layout_width="156dp"
             android:layout_height="wrap_content" android:ems="10"
-            android:hint="@string/some_hint">
+            android:hint="@string/searchHint">
             <requestFocus />
         </EditText>
 

@@ -41,4 +41,6 @@ public class Word {
     public void setExample(String example) {
         this.example = example;
     }
+
+
 }

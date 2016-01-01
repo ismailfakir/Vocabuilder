@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">Vocabuilder</string>
+
+    <string name="appName">Voca Builder</string>
+    <string name="appSlogan">Voca Builder</string>
+
+    <string name="searchHint">Swedish Words</string>
+
+    <string-array name="menu_array">
+        <item>Add new </item>
+        <item>Random Test</item>
+        <item>Statistics</item>
+        <item>About</item>
+    </string-array>
+
 </resources>

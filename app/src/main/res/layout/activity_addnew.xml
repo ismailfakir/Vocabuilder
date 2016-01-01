@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appbackground"
+    android:stretchColumns="1">
+
+    <TableRow
+        android:paddingRight="10dp"
+        android:paddingTop="10dp">
+        <!--TextView
+            android:layout_column="2"
+            android:text="Add New Word"
+            android:padding="3dip"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textColor="#0445dc"
+            android:typeface="monospace"
+            android:textSize="@dimen/abc_text_size_title_material" /-->
+
+        <com.beardedhen.androidbootstrap.BootstrapLabel
+            android:id="@+id/txtHeding"
+            style="@style/wrapping_button"
+            android:layout_column="2"
+            android:text="Add New Word"
+            app:bootstrapBrand="warning"
+            app:bootstrapHeading="h6" />
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:gravity="right"
+            android:padding="10dip"
+            android:text="Swedish" />
+
+        <!--EditText
+            android:id="@+id/txtSwedish"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" /-->
+
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/txtSwedish"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:paddingRight="10dp"
+            app:bootstrapBrand="success"
+            app:roundedCorners="true" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            style="@style/shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:gravity="right"
+            android:padding="10dip"
+            android:text="English" />
+
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/txtEnglish"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:paddingRight="10dp"
+            app:bootstrapBrand="success"
+            app:roundedCorners="true" />
+    </TableRow>
+
+
+    <TableRow>
+
+        <TextView
+            style="@style/shadow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:gravity="right"
+            android:padding="10dip"
+            android:text="Example" />
+
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/txtExample"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:paddingRight="10dp"
+            app:bootstrapBrand="success"
+            app:roundedCorners="true" />
+    </TableRow>
+
+    <TableRow>
+
+        <LinearLayout
+            android:layout_column="2"
+            android:weightSum="1">
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/buttonCancel"
+                style="@style/wrapping_button"
+                android:text="Cancel"
+                app:bootstrapBrand="primary"
+                app:buttonMode="regular"
+                app:roundedCorners="true"
+                app:showOutline="false" />
+
+            <!--Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ADD"
+                android:id="@+id/buttonAdd"
+                android:layout_weight="0.45" /-->
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:id="@+id/buttonAdd"
+                style="@style/wrapping_button"
+                android:text="ADD"
+                app:bootstrapBrand="primary"
+                app:buttonMode="regular"
+                app:roundedCorners="true"
+                app:showOutline="false" />
+
+
+        </LinearLayout>
+
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </TableRow>
+
+
+</TableLayout>
