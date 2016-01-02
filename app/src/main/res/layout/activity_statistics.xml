@@ -1,0 +1,242 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBackground">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:gravity="center_horizontal"
+            android:padding="10dip"
+            android:text="Statistics"
+            android:textColor="@color/white"
+            android:textSize="@dimen/abc_text_size_title_material" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/StatisticsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:gravity="right"
+
+            android:text="Noun" />
+
+        <TextView
+            android:id="@+id/txtNoun"
+            style="@style/MyTextViewStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:text="17"
+            android:textColor="@color/bootstrap_brand_primary" />
+
+        <TextView
+            style="@style/StatisticsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:gravity="right"
+
+            android:text="Pronoun" />
+
+        <TextView
+            android:id="@+id/txtProNoun"
+            style="@style/MyTextViewStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:text="09"
+            android:textColor="@color/bootstrap_brand_primary" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/StatisticsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:gravity="right"
+
+            android:text="Adjective" />
+
+        <TextView
+            android:id="@+id/txtAdjective"
+            style="@style/MyTextViewStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:text="23"
+            android:textColor="@color/bootstrap_brand_primary" />
+
+        <TextView
+            style="@style/StatisticsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:gravity="right"
+
+            android:text="Verb" />
+
+        <TextView
+            android:id="@+id/txtVerb"
+            style="@style/MyTextViewStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:text="13"
+            android:textColor="@color/bootstrap_brand_primary" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/StatisticsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:gravity="right"
+
+            android:text="Adverb" />
+
+        <TextView
+            android:id="@+id/txtAdverb"
+            style="@style/MyTextViewStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:text="05"
+            android:textColor="@color/bootstrap_brand_primary" />
+
+        <TextView
+            style="@style/StatisticsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:gravity="right"
+
+            android:text="Preposition" />
+
+        <TextView
+            android:id="@+id/txtPrePosition"
+            style="@style/MyTextViewStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:text="11"
+            android:textColor="@color/bootstrap_brand_primary" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            style="@style/StatisticsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:gravity="right"
+
+            android:text="Conjuction" />
+
+        <TextView
+            android:id="@+id/txtConjunction"
+            style="@style/MyTextViewStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:text="04"
+            android:textColor="@color/bootstrap_brand_primary" />
+
+        <TextView
+            style="@style/StatisticsTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:gravity="right"
+            android:text="Interjection" />
+
+        <TextView
+            android:id="@+id/txtInterjection"
+            style="@style/MyTextViewStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:text="06"
+            android:textColor="@color/bootstrap_brand_primary" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/btnGoBack"
+            style="@style/wrapping_button"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_column="3"
+            android:layout_gravity="center_horizontal"
+            android:text="Go Back"
+            app:bootstrapBrand="primary"
+            app:buttonMode="regular"
+            app:roundedCorners="true"
+            app:showOutline="false" />
+    </TableRow>
+</TableLayout>

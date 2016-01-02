@@ -86,6 +86,13 @@ public class MainActivity extends Activity {
                                 AddNewActivity.class);
                         startActivity(myIntent);
                         break;
+                    case 3:
+
+                        // Start AboutActivity.class
+                        myIntent = new Intent(MainActivity.this,
+                                StatisticsActivity.class);
+                        startActivity(myIntent);
+                        break;
                     case 4:
 
                         // Start AboutActivity.class

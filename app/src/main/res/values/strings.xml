@@ -1,13 +1,13 @@
 <resources>
 
     <string name="appName">Voca Builder</string>
-    <string name="appSlogan">Voca Builder</string>
+    <string name="appSlogan">A tool to help you building your vocabulary in swedish</string>
 
     <string name="searchHint">Swedish Words</string>
 
-    <string name="developer">Ismail Fakir</string>
+    <string name="developer">Ismail Fakir : ismail.fakir@cloudcentrik.net</string>
 
-    <string name="aboutText">ismail.fakir@cloudcentrik.net</string>
+    <string name="aboutText">Voca Builder is an application to help new language learner to develop their vocabulary. User can check their progress to new language by random test and spastics.</string>
 
     <string-array name="menu_array">
         <item>Add new </item>

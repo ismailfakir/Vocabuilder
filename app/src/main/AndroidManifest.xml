@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher1"
         android:label="@string/appName"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -30,6 +30,8 @@
 
         <!-- AboutActivity -->
         <activity android:name=".AboutActivity"></activity>
+        <!-- StatisticsActivity -->
+        <activity android:name=".StatisticsActivity"></activity>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
