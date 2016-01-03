@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/appBackground"
+    android:orientation="vertical"
+    android:padding="5dip">
+
+    <TextView
+        android:id="@+id/sv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:padding="1dp"
+        android:scaleType="fitCenter"
+        android:text="[SV]"
+        android:textColor="@color/bootstrap_gray"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/en"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sv"
+        android:layout_below="@+id/sv"
+        android:padding="1dp"
+        android:scaleType="fitCenter"
+        android:text="[EN]"
+        android:textColor="@color/bootstrap_gray"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/ex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/en"
+        android:layout_below="@+id/en"
+        android:padding="1dp"
+        android:text="[EX]"
+        android:textColor="@color/bootstrap_gray"
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/textSV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/sv"
+        android:layout_alignBottom="@+id/sv"
+
+        android:layout_toRightOf="@+id/sv"
+        android:text="Göra"
+        android:textColor="@color/bootstrap_brand_primary" />
+
+    <TextView
+        android:id="@+id/textEN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/en"
+        android:layout_alignBottom="@+id/en"
+
+        android:layout_toRightOf="@+id/en"
+        android:text="DO"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/textEX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/ex"
+        android:layout_alignBottom="@+id/ex"
+
+        android:layout_toRightOf="@+id/ex"
+        android:text="Vad ska göra?"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
+

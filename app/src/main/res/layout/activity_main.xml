@@ -13,7 +13,7 @@
 
         <EditText
             android:id="@+id/myFilter"
-            android:layout_width="200dp"
+            android:layout_width="178dp"
             android:layout_height="wrap_content" android:ems="10"
             android:hint="@string/searchHint">
             <requestFocus />
@@ -21,8 +21,8 @@
 
         <Spinner
             android:id="@+id/menu_spinner"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_width="132dp"
+            android:layout_height="match_parent"
             android:layout_alignBaseline="@+id/myFilter"
 
             android:layout_alignBottom="@+id/myFilter"

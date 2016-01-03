@@ -25,7 +25,7 @@
         <!--com.beardedhen.androidbootstrap.BootstrapLabel
             android:id="@+id/txtHeding"
             android:layout_column="2"
-            android:text="Add New Word"
+            android:text="Add New Word2"
             app:bootstrapBrand="warning"
             app:bootstrapHeading="h6" /-->
 

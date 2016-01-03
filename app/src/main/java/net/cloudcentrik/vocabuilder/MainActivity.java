@@ -82,13 +82,23 @@ public class MainActivity extends Activity {
                     case 1:
 
                         // Start AddNewActivity.class
+                        parent.setSelection(0);
                         myIntent = new Intent(MainActivity.this,
                                 AddNewActivity.class);
+                        startActivity(myIntent);
+                        break;
+                    case 2:
+
+                        // Start QuizActivity.class
+                        parent.setSelection(0);
+                        myIntent = new Intent(MainActivity.this,
+                                QuizActivity.class);
                         startActivity(myIntent);
                         break;
                     case 3:
 
                         // Start AboutActivity.class
+                        parent.setSelection(0);
                         myIntent = new Intent(MainActivity.this,
                                 StatisticsActivity.class);
                         startActivity(myIntent);
@@ -96,19 +106,18 @@ public class MainActivity extends Activity {
                     case 4:
 
                         // Start AboutActivity.class
+                        parent.setSelection(0);
                         myIntent = new Intent(MainActivity.this,
                                 AboutActivity.class);
                         startActivity(myIntent);
                         break;
-                    case 2:
 
+                    default:
+                        //
                         Toast.makeText(getApplicationContext(),
                                 (String) parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
                         break;
-                    default:
-                        //
                 }
-
 
             }
 
@@ -135,15 +144,15 @@ public class MainActivity extends Activity {
 
         // the XML defined views which the data will be bound to
         int[] to = new int[]{
-                R.id.swedish,
-                R.id.english,
-                R.id.example,
+                R.id.textSV,
+                R.id.textEN,
+                R.id.textEX,
         };
 
         // create the adapter using the cursor pointing to the desired data
         //as well as the layout information
         dataAdapter = new SimpleCursorAdapter(
-                this, R.layout.list,
+                this, R.layout.word_list,
                 cursor,
                 columns,
                 to,
@@ -162,10 +171,21 @@ public class MainActivity extends Activity {
                 Cursor cursor = (Cursor) listView.getItemAtPosition(position);
 
                 // Get the state's capital from this row in the database.
-                String countryCode =
+                String swedish =
                         cursor.getString(cursor.getColumnIndexOrThrow("swedish"));
-                Toast.makeText(getApplicationContext(),
-                        countryCode, Toast.LENGTH_SHORT).show();
+                String english =
+                        cursor.getString(cursor.getColumnIndexOrThrow("english"));
+                String example =
+                        cursor.getString(cursor.getColumnIndexOrThrow("example"));
+
+                Word w = new Word(swedish, english, example);
+
+                Intent i = new Intent(MainActivity.this, WordActivity.class);
+
+                i.putExtra("word", w);
+
+                startActivity(i);
+
 
             }
         });

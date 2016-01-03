@@ -1,9 +1,25 @@
 package net.cloudcentrik.vocabuilder;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
- * Created by ismail on 2015-12-27.
+ * Created by ismail on 2016-01-03.
  */
-public class Word {
+
+public class Word implements Parcelable {
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Word> CREATOR = new Parcelable.Creator<Word>() {
+        @Override
+        public Word createFromParcel(Parcel in) {
+            return new Word(in);
+        }
+
+        @Override
+        public Word[] newArray(int size) {
+            return new Word[size];
+        }
+    };
     private String swedish;
     private String english;
     private String example;
@@ -16,6 +32,12 @@ public class Word {
 
     public Word() {
 
+    }
+
+    protected Word(Parcel in) {
+        swedish = in.readString();
+        english = in.readString();
+        example = in.readString();
     }
 
     public String getSwedish() {
@@ -42,5 +64,16 @@ public class Word {
         this.example = example;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(swedish);
+        dest.writeString(english);
+        dest.writeString(example);
+    }
 }
+

@@ -233,7 +233,7 @@
             android:layout_centerVertical="true"
             android:layout_column="3"
             android:layout_gravity="center_horizontal"
-            android:text="Go Back"
+            android:text="Back"
             app:bootstrapBrand="primary"
             app:buttonMode="regular"
             app:roundedCorners="true"
