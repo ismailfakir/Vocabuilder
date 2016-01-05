@@ -7,27 +7,31 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.TextView;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+
 
 /**
  * Created by ismail on 2015-12-27.
  */
 public class MainActivity extends Activity {
 
+    TextView count;
     private WordDbAdapter dbHelper;
     private SimpleCursorAdapter dataAdapter;
     /**
@@ -41,6 +45,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         dbHelper = new WordDbAdapter(this);
         dbHelper.open();
 
@@ -53,14 +58,117 @@ public class MainActivity extends Activity {
         displayListView();
 
         //Generate Spinner menue
-        displaySpinner();
+        //displaySpinner();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+
+        ImageButton menuButton = (ImageButton) findViewById(R.id.btnMenu);
+        menuButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                showPopup(v);
+            }
+        });
+
+
     }
 
-    private void displaySpinner() {
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.main_menue, popup.getMenu());
+
+        //registering popup with OnMenuItemClickListener
+        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            public boolean onMenuItemClick(MenuItem item) {
+                //Toast.makeText(MainActivity.this, "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
+                final Intent myIntent;
+
+                switch (item.getItemId()) {
+
+                    case R.id.add:
+                        // Start AddNewActivity.class
+                        myIntent = new Intent(MainActivity.this,
+                                AddNewActivity.class);
+                        startActivity(myIntent);
+                        return (true);
+                    case R.id.test:
+                        // Start QuizActivity.class
+
+                        myIntent = new Intent(MainActivity.this,
+                                QuizActivity.class);
+                        startActivity(myIntent);
+                        return (true);
+                    case R.id.stat:
+                        // Start AboutActivity.class
+                        myIntent = new Intent(MainActivity.this,
+                                StatisticsActivity.class);
+                        startActivity(myIntent);
+                        return (true);
+                    case R.id.about:
+                        // Start AboutActivity.class
+                        myIntent = new Intent(MainActivity.this,
+                                AboutActivity.class);
+                        startActivity(myIntent);
+                        return (true);
+
+                }
+                return true;
+            }
+        });
+
+        popup.show();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menue, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        final Intent myIntent;
+
+        switch (item.getItemId()) {
+
+            case R.id.add:
+                // Start AddNewActivity.class
+                myIntent = new Intent(MainActivity.this,
+                        AddNewActivity.class);
+                startActivity(myIntent);
+                return (true);
+            case R.id.test:
+                // Start QuizActivity.class
+
+                myIntent = new Intent(MainActivity.this,
+                        QuizActivity.class);
+                startActivity(myIntent);
+                return (true);
+            case R.id.stat:
+                // Start AboutActivity.class
+                myIntent = new Intent(MainActivity.this,
+                        StatisticsActivity.class);
+                startActivity(myIntent);
+                return (true);
+            case R.id.about:
+                // Start AboutActivity.class
+                myIntent = new Intent(MainActivity.this,
+                        AboutActivity.class);
+                startActivity(myIntent);
+                return (true);
+
+        }
+        return (super.onOptionsItemSelected(item));
+    }
+
+    /*private void displaySpinner() {
         Spinner spinner = (Spinner) findViewById(R.id.menu_spinner);
         String[] items = new String[]{"Menu", "Add new", "Random Test", "Statistics", "About"};
 
@@ -74,8 +182,7 @@ public class MainActivity extends Activity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
 
-               /* Toast.makeText(getApplicationContext(),
-                        (String) parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();*/
+
 
                 final Intent myIntent;
                 switch (position) {
@@ -128,7 +235,7 @@ public class MainActivity extends Activity {
             }
         });
 
-    }
+    }*/
 
     private void displayListView() {
 

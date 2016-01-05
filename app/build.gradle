@@ -28,3 +28,7 @@ dependencies {
 dependencies {
     compile 'com.beardedhen:androidbootstrap:2.0.1'
 }
+dependencies {
+
+    compile 'com.android.support:appcompat-v7:+'
+}

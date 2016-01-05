@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/appBackground"
@@ -73,6 +74,47 @@
         android:layout_toRightOf="@+id/ex"
         android:text="Vad ska göra?"
         android:textColor="@color/white" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/btnDelete"
+        style="@style/wrapping_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textEX"
+        android:layout_alignRight="@+id/textEX"
+        android:layout_below="@+id/ex"
+        android:text="Delete"
+        app:bootstrapBrand="primary"
+        app:buttonMode="regular"
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/btnEdit"
+        style="@style/wrapping_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textEX"
+        android:layout_toEndOf="@+id/textEX"
+        android:layout_toRightOf="@+id/textEX"
+        android:text="Edit"
+        app:bootstrapBrand="primary"
+
+        app:buttonMode="regular"
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/btnBack"
+        style="@style/wrapping_button"
+        android:layout_alignBottom="@+id/btnEdit"
+        android:layout_toEndOf="@+id/btnEdit"
+        android:layout_toRightOf="@+id/btnEdit"
+        android:text="Back"
+        app:bootstrapBrand="primary"
+        app:buttonMode="regular"
+        app:roundedCorners="true"
+        app:showOutline="false" />
 
 </RelativeLayout>
 
