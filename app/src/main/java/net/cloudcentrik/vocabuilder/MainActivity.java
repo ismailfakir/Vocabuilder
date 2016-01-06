@@ -50,9 +50,9 @@ public class MainActivity extends Activity {
         dbHelper.open();
 
         //Clean all data
-        dbHelper.deleteAllWords();
+        //dbHelper.deleteAllWords();
         //Add some data
-        dbHelper.insertSomeWords();
+        //dbHelper.insertSomeWords();
 
         //Generate ListView from SQLite Database
         displayListView();
@@ -71,6 +71,19 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
 
                 showPopup(v);
+            }
+        });
+
+        ImageButton addButton = (ImageButton) findViewById(R.id.btnadd);
+        addButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                final Intent myIntent;
+                myIntent = new Intent(MainActivity.this,
+                        AddNewActivity.class);
+                startActivity(myIntent);
             }
         });
 
@@ -359,5 +372,15 @@ public class MainActivity extends Activity {
         );
         AppIndex.AppIndexApi.end(client, viewAction);
         client.disconnect();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        final Cursor c = dbHelper.fetchAllWords();
+        dataAdapter.swapCursor(c);
+        dataAdapter.notifyDataSetChanged();
+
     }
 }

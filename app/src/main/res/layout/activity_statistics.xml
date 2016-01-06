@@ -1,5 +1,4 @@
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/appBackground">
@@ -226,7 +225,7 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp">
 
-        <com.beardedhen.androidbootstrap.BootstrapButton
+        <!--com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/btnGoBack"
             style="@style/wrapping_button"
             android:layout_centerHorizontal="true"
@@ -237,6 +236,18 @@
             app:bootstrapBrand="primary"
             app:buttonMode="regular"
             app:roundedCorners="true"
-            app:showOutline="false" />
+            app:showOutline="false" /-->
+
+        <ImageButton
+            android:id="@+id/btnStatBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/appBackground"
+            android:contentDescription="back"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/ic_back" />
+
     </TableRow>
 </TableLayout>

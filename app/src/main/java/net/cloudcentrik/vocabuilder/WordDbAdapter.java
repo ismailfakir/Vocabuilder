@@ -60,6 +60,24 @@ public class WordDbAdapter {
         return mDb.insert(SQLITE_TABLE, null, initialValues);
     }
 
+    //---deletes a particular word
+    public boolean deleteWord(String word) {
+        return mDb.delete(SQLITE_TABLE, KEY_SWEDISH + " ='" + word + "'", null) > 0;
+        //return mDb.delete(SQLITE_TABLE, KEY_SWEDISH +" ='Jag'", null) > 0;
+    }
+
+    // Updating single word
+    public boolean updateWord(Word w) {
+
+        ContentValues values = new ContentValues();
+        values.put(KEY_ENGLISH, w.getEnglish());
+        values.put(KEY_EXAMPLE, w.getExample());
+
+        // updating row
+        return mDb.update(SQLITE_TABLE, values, KEY_SWEDISH + " = ?",
+                new String[]{String.valueOf(w.getSwedish())}) > 0;
+    }
+
     public boolean deleteAllWords() {
 
         int doneDelete = 0;

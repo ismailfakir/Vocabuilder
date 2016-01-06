@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapButton;
 
@@ -17,10 +18,23 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 public class WordActivity extends AppCompatActivity {
 
     private BootstrapButton buttonEdit;
+    private WordDbAdapter dbHelper;
+
+    private TextView ts;
+    private TextView te;
+    private TextView tx;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_word);
+
+        dbHelper = new WordDbAdapter(this);
+        dbHelper.open();
+
+        ts = (TextView) findViewById(R.id.textSV);
+        te = (TextView) findViewById(R.id.textEN);
+        tx = (TextView) findViewById(R.id.textEX);
 
         createWordView();
 
@@ -34,18 +48,43 @@ public class WordActivity extends AppCompatActivity {
                 showInputDialog();
             }
         });
+
+        BootstrapButton deleteButton = (BootstrapButton) findViewById(R.id.btnDelete);
+        deleteButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                deleteWord(v);
+                finish();
+
+                //Toast.makeText(WordActivity.this, "Delete button pressed", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void createWordView() {
 
         Word word = getIntent().getParcelableExtra("word");
-        TextView ts = (TextView) findViewById(R.id.textSV);
-        TextView te = (TextView) findViewById(R.id.textEN);
-        TextView tx = (TextView) findViewById(R.id.textEX);
-
         ts.setText(word.getSwedish());
         te.setText(word.getEnglish());
         tx.setText(word.getExample());
+
+    }
+
+    public void setDialogueText(View v) {
+
+        final EditText editTextSV = (EditText) v.findViewById(R.id.txtEditSwedish);
+        final TextView txSv = (TextView) findViewById(R.id.textSV);
+        editTextSV.setText(txSv.getText());
+
+        final EditText editTextEN = (EditText) v.findViewById(R.id.txtEditEnglish);
+        final TextView txEn = (TextView) findViewById(R.id.textEN);
+        editTextEN.setText(txEn.getText());
+
+        final EditText editTextEX = (EditText) v.findViewById(R.id.txtEditExample);
+        final TextView txEx = (TextView) findViewById(R.id.textEX);
+        editTextEX.setText(txEx.getText());
 
     }
 
@@ -57,12 +96,18 @@ public class WordActivity extends AppCompatActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(WordActivity.this);
         alertDialogBuilder.setView(promptView);
 
-        final EditText editText = (EditText) promptView.findViewById(R.id.txtEditSwedish);
+        setDialogueText(promptView);
         // setup a dialog window
         alertDialogBuilder.setCancelable(false)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //resultText.setText("Hello, " + editText.getText());
+                        final TextView svTxt = (TextView) findViewById(R.id.txtEditSwedish);
+                        final TextView enTxt = (TextView) findViewById(R.id.txtEditEnglish);
+                        final TextView exTxt = (TextView) findViewById(R.id.txtEditExample);
+                        Word w = new Word(svTxt.getText().toString(), enTxt.getText().toString(), exTxt.getText().toString());
+                        editWord(w);
+                        Toast.makeText(WordActivity.this, "Word Updated", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton("Cancel",
@@ -75,5 +120,34 @@ public class WordActivity extends AppCompatActivity {
         // create an alert dialog
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
+    }
+
+    public void deleteWord(View v) {
+        final TextView svTxt = (TextView) findViewById(R.id.textSV);
+        if (dbHelper.deleteWord(svTxt.getText().toString())) {
+            Toast.makeText(WordActivity.this, "Word Deleted", Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(WordActivity.this, "Some thing go wrong", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    public void editWord(Word w) {
+        if (dbHelper.updateWord(w)) {
+            Toast.makeText(WordActivity.this, "Word Updated", Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(WordActivity.this, "Some thing go wrong", Toast.LENGTH_SHORT).show();
+        }
+
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        dbHelper.close();
     }
 }

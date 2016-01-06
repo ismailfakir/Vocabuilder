@@ -3,8 +3,7 @@ package net.cloudcentrik.vocabuilder;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-
-import com.beardedhen.androidbootstrap.BootstrapButton;
+import android.widget.ImageButton;
 
 /**
  * Created by ismail on 2016-01-02.
@@ -15,7 +14,7 @@ public class StatisticsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
 
-        BootstrapButton closeButton = (BootstrapButton) findViewById(R.id.btnGoBack);
+        ImageButton closeButton = (ImageButton) findViewById(R.id.btnStatBack);
         closeButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

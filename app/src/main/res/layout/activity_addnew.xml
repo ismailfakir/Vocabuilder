@@ -120,27 +120,53 @@
             android:weightSum="1">
 
             <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/buttonCancel"
+                android:id="@+id/btnAddClear"
                 style="@style/wrapping_button"
-                android:text="Cancel"
+                android:text="Clear"
                 app:bootstrapBrand="primary"
                 app:buttonMode="regular"
                 app:roundedCorners="true"
                 app:showOutline="false" />
 
-            <com.beardedhen.androidbootstrap.BootstrapButton
+            <!--com.beardedhen.androidbootstrap.BootstrapButton
                 android:id="@+id/buttonAdd"
                 style="@style/wrapping_button"
                 android:text="ADD"
                 app:bootstrapBrand="primary"
                 app:buttonMode="regular"
                 app:roundedCorners="true"
-                app:showOutline="false" />
+                app:showOutline="false" /-->
 
+            <Button
+                android:id="@+id/btnAddWord"
+                style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg_blue"
+                android:text="ADD" />
 
         </LinearLayout>
 
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="10dp">
+
+        <ImageButton
+            android:id="@+id/btnAddBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/appBackground"
+            android:contentDescription="back"
+            android:gravity="center_horizontal"
+            android:src="@mipmap/ic_back" />
 
     </TableRow>
+
 
 </TableLayout>
