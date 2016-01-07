@@ -80,9 +80,9 @@
         style="@style/wrapping_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/textEX"
-        android:layout_alignRight="@+id/textEX"
-        android:layout_below="@+id/ex"
+        android:layout_below="@+id/textEX"
+        android:layout_toEndOf="@+id/textSV"
+        android:layout_toRightOf="@+id/textSV"
         android:text="Delete"
         app:bootstrapBrand="primary"
         app:buttonMode="regular"
@@ -94,17 +94,16 @@
         style="@style/wrapping_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textEX"
-        android:layout_toEndOf="@+id/textEX"
-        android:layout_toRightOf="@+id/textEX"
+        android:layout_alignTop="@+id/btnDelete"
+        android:layout_centerHorizontal="true"
+
         android:text="Edit"
         app:bootstrapBrand="primary"
-
         app:buttonMode="regular"
         app:roundedCorners="true"
         app:showOutline="false" />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
+    <!--com.beardedhen.androidbootstrap.BootstrapButton
         android:id="@+id/btnBack"
         style="@style/wrapping_button"
         android:layout_alignBottom="@+id/btnEdit"
@@ -114,7 +113,20 @@
         app:bootstrapBrand="primary"
         app:buttonMode="regular"
         app:roundedCorners="true"
-        app:showOutline="false" />
+        app:showOutline="false" /-->
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnEdit"
+        android:layout_gravity="right"
+        android:layout_toRightOf="@+id/btnEdit"
+        android:background="@color/appBackground"
+        android:contentDescription="back"
+        android:gravity="right"
+        android:src="@mipmap/ic_return" />
+
 
 </RelativeLayout>
 

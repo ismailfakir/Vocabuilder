@@ -7,5 +7,7 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#F7FE2E</color>
-    <color name="appBackground">#F79E03</color>
+    <color name="appBackground1">#F79E03</color>
+    <color name="appBackground2">#d5d8dc</color>
+    <color name="appBackground">#a9bdcb</color>
 </resources>

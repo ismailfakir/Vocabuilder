@@ -73,7 +73,7 @@
         android:background="@color/appBackground"
         android:contentDescription="back"
         android:gravity="center_horizontal"
-        android:src="@mipmap/ic_back" />
+        android:src="@mipmap/ic_return" />
 
 
 </LinearLayout>

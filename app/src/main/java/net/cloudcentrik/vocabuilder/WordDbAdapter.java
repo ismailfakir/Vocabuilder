@@ -3,10 +3,13 @@ package net.cloudcentrik.vocabuilder;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import java.util.ArrayList;
 
 /**
  * Created by ismail on 2015-12-27.
@@ -78,6 +81,10 @@ public class WordDbAdapter {
                 new String[]{String.valueOf(w.getSwedish())}) > 0;
     }
 
+    public long countWords() {
+        return DatabaseUtils.queryNumEntries(mDb, SQLITE_TABLE);
+    }
+
     public boolean deleteAllWords() {
 
         int doneDelete = 0;
@@ -127,6 +134,50 @@ public class WordDbAdapter {
         createWord("Du","you","Vad hetter du?");
         createWord("Köp","Bye","Jag vill köpa jul klap");
 
+    }
+
+    public ArrayList<Word> getAllWords() {
+
+        ArrayList<Word> list = new ArrayList<Word>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + SQLITE_TABLE;
+
+        try {
+
+            Cursor cursor = mDb.rawQuery(selectQuery, null);
+
+            try {
+
+                // looping through all rows and adding to list
+                if (cursor.getCount() != 0) {
+
+                    cursor.moveToFirst();
+                    do {
+                        Word obj = new Word(cursor.getString(0), cursor.getString(1), cursor.getString(2));
+
+                        //get all column
+                        obj.setSwedish(cursor.getString(cursor.getColumnIndex("swedish")));
+                        obj.setEnglish(cursor.getString(cursor.getColumnIndex("english")));
+                        obj.setExample(cursor.getString(cursor.getColumnIndex("example")));
+
+                        //you could add additional columns here..
+
+                        list.add(obj);
+                    } while (cursor.moveToNext());
+                }
+
+            } finally {
+                try {
+                    cursor.close();
+                } catch (Exception ignore) {
+                }
+            }
+
+        } finally {
+            //try { db.close(); } catch (Exception ignore) {}
+        }
+
+        return list;
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {

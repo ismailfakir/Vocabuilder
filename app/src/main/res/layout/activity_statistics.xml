@@ -10,14 +10,46 @@
         android:paddingLeft="10dp">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_column="2"
+            android:layout_column="0"
+            android:layout_gravity="center_horizontal"
+            android:layout_span="4"
             android:gravity="center_horizontal"
             android:padding="10dip"
             android:text="Statistics"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="@dimen/abc_text_size_title_material" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:paddingLeft="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_span="3"
+            android:gravity="center_horizontal"
+            android:padding="10dip"
+            android:text="No of Word:"
+            android:textColor="@color/black"
+            android:textSize="@dimen/abc_text_size_title_material" />
+
+        <TextView
+            android:id="@+id/noOfWord"
+            style="@style/MyTextViewStyle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="3"
+            android:layout_gravity="left"
+            android:gravity="right"
+            android:text="17"
+            android:textColor="@color/bootstrap_brand_primary" />
 
     </TableRow>
 
@@ -247,7 +279,7 @@
             android:background="@color/appBackground"
             android:contentDescription="back"
             android:gravity="center_horizontal"
-            android:src="@mipmap/ic_back" />
+            android:src="@mipmap/ic_return" />
 
     </TableRow>
 </TableLayout>

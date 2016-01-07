@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,11 +19,18 @@ import com.beardedhen.androidbootstrap.BootstrapButton;
 public class WordActivity extends AppCompatActivity {
 
     private BootstrapButton buttonEdit;
+    private BootstrapButton deleteButton;
+    private ImageButton backButton;
     private WordDbAdapter dbHelper;
 
     private TextView ts;
     private TextView te;
     private TextView tx;
+
+    private EditText editTextSV;
+    private EditText editTextEN;
+    private EditText editTextEX;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +44,12 @@ public class WordActivity extends AppCompatActivity {
         te = (TextView) findViewById(R.id.textEN);
         tx = (TextView) findViewById(R.id.textEX);
 
+        //setDialogueText();
+
         createWordView();
 
-        // components from main.xml
+        // edit button
         buttonEdit = (BootstrapButton) findViewById(R.id.btnEdit);
-
         buttonEdit.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -49,7 +58,8 @@ public class WordActivity extends AppCompatActivity {
             }
         });
 
-        BootstrapButton deleteButton = (BootstrapButton) findViewById(R.id.btnDelete);
+        //delete button
+        deleteButton = (BootstrapButton) findViewById(R.id.btnDelete);
         deleteButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -59,6 +69,18 @@ public class WordActivity extends AppCompatActivity {
                 finish();
 
                 //Toast.makeText(WordActivity.this, "Delete button pressed", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        //back button
+        backButton = (ImageButton) findViewById(R.id.btnBack);
+        backButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                finish();
+
             }
         });
     }
@@ -74,17 +96,14 @@ public class WordActivity extends AppCompatActivity {
 
     public void setDialogueText(View v) {
 
-        final EditText editTextSV = (EditText) v.findViewById(R.id.txtEditSwedish);
-        final TextView txSv = (TextView) findViewById(R.id.textSV);
-        editTextSV.setText(txSv.getText());
+        editTextSV = (EditText) v.findViewById(R.id.txtEditSwedish);
+        editTextSV.setText(ts.getText());
 
-        final EditText editTextEN = (EditText) v.findViewById(R.id.txtEditEnglish);
-        final TextView txEn = (TextView) findViewById(R.id.textEN);
-        editTextEN.setText(txEn.getText());
+        editTextEN = (EditText) v.findViewById(R.id.txtEditEnglish);
+        editTextEN.setText(te.getText());
 
-        final EditText editTextEX = (EditText) v.findViewById(R.id.txtEditExample);
-        final TextView txEx = (TextView) findViewById(R.id.textEX);
-        editTextEX.setText(txEx.getText());
+        editTextEX = (EditText) v.findViewById(R.id.txtEditExample);
+        editTextEX.setText(tx.getText());
 
     }
 
@@ -102,12 +121,11 @@ public class WordActivity extends AppCompatActivity {
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         //resultText.setText("Hello, " + editText.getText());
-                        final TextView svTxt = (TextView) findViewById(R.id.txtEditSwedish);
-                        final TextView enTxt = (TextView) findViewById(R.id.txtEditEnglish);
-                        final TextView exTxt = (TextView) findViewById(R.id.txtEditExample);
-                        Word w = new Word(svTxt.getText().toString(), enTxt.getText().toString(), exTxt.getText().toString());
+
+                        Word w = new Word(editTextSV.getText().toString(), editTextEN.getText().toString(), editTextEX.getText().toString());
+
                         editWord(w);
-                        Toast.makeText(WordActivity.this, "Word Updated", Toast.LENGTH_SHORT).show();
+
                     }
                 })
                 .setNegativeButton("Cancel",
@@ -141,7 +159,6 @@ public class WordActivity extends AppCompatActivity {
         } else {
             Toast.makeText(WordActivity.this, "Some thing go wrong", Toast.LENGTH_SHORT).show();
         }
-
 
     }
 

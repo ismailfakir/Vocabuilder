@@ -6,14 +6,13 @@
     android:orientation="vertical">
 
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_vertical"
-            android:gravity="center"
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
         android:padding="12dp"
-            android:shadowColor="@color/black"
+        android:shadowColor="@color/black"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="24"

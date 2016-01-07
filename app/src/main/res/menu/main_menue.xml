@@ -5,24 +5,25 @@
 
     <item
         android:id="@+id/add"
-        android:icon="@android:drawable/ic_menu_add"
+        android:icon="@mipmap/ic_mplus"
         android:title="Add new"
         app:showAsAction="always" />
 
     <item
         android:id="@+id/test"
-        android:icon="@android:drawable/ic_menu_revert"
+        android:icon="@mipmap/ic_test"
         android:title="Random Test"
         app:showAsAction="always|withText" />
 
     <item
         android:id="@+id/stat"
-        android:icon="@android:drawable/ic_dialog_info"
+        android:icon="@mipmap/ic_stat"
         android:title="Statistics"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/about"
+        android:icon="@mipmap/ic_info"
         android:title="about"
         app:showAsAction="never" />
 
