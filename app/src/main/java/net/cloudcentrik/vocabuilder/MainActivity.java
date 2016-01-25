@@ -1,10 +1,11 @@
 package net.cloudcentrik.vocabuilder;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -15,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupMenu;
 import android.widget.SimpleCursorAdapter;
@@ -29,7 +29,7 @@ import com.google.android.gms.common.api.GoogleApiClient;
 /**
  * Created by ismail on 2015-12-27.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
     TextView count;
     private WordDbAdapter dbHelper;
@@ -44,6 +44,11 @@ public class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        myToolbar.setLogo(R.mipmap.ic_launcher1);
+        //myToolbar.setTitleTextAppearance(this, R.style.MyTitleTextApperance);
+        setSupportActionBar(myToolbar);
 
 
         dbHelper = new WordDbAdapter(this);
@@ -64,6 +69,7 @@ public class MainActivity extends Activity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+        /*
         ImageButton menuButton = (ImageButton) findViewById(R.id.btnMenu);
         menuButton.setOnClickListener(new View.OnClickListener() {
 
@@ -86,6 +92,7 @@ public class MainActivity extends Activity {
                 startActivity(myIntent);
             }
         });
+        */
 
 
     }

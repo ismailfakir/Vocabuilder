@@ -13,7 +13,7 @@
         android:id="@+id/test"
         android:icon="@mipmap/ic_test"
         android:title="Random Test"
-        app:showAsAction="always|withText" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/stat"
@@ -26,5 +26,6 @@
         android:icon="@mipmap/ic_info"
         android:title="about"
         app:showAsAction="never" />
+
 
 </menu>

@@ -7,6 +7,16 @@
     android:background="@color/appBackground"
     android:stretchColumns="1">
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/add_new_toolbar"
+        style="@style/HeaderBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:elevation="4dp"
+        app:popupTheme="@style/ActionBarPopupThemeOverlay"
+        app:theme="@style/ActionBarThemeOverlay" />
+
     <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,21 +25,13 @@
         <TextView
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_column="2"
+            android:layout_column="1"
             android:gravity="left"
             android:padding="10dip"
             android:text="Add New Word"
             android:textColor="@color/white"
             android:textSize="@dimen/abc_text_size_title_material" />
 
-        <!--com.beardedhen.androidbootstrap.BootstrapLabel
-            android:id="@+id/txtHeding"
-            android:layout_column="2"
-            android:text="Add New Word2"
-            app:bootstrapBrand="warning"
-            app:bootstrapHeading="h6" /-->
-
-
     </TableRow>
 
     <TableRow
@@ -37,77 +39,16 @@
         android:layout_height="match_parent"
         android:layout_margin="10dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:gravity="right"
-            android:padding="10dip"
-            android:text="Swedish"
-            android:textColor="@color/black" />
-
-        <!--EditText
+        <EditText
             android:id="@+id/txtSwedish"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content" /-->
-
-        <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/txtSwedish"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:paddingRight="10dp"
-            app:bootstrapBrand="success"
-            app:roundedCorners="true" />
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
+            style="@style/StyledTilEditText"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_column="1"
-            android:gravity="right"
-            android:padding="10dip"
-            android:text="English"
-            android:textColor="@color/black" />
-
-        <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/txtEnglish"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:paddingRight="10dp"
-            app:bootstrapBrand="success"
-            app:roundedCorners="true" />
-    </TableRow>
+            android:hint="Enter swedish word here.."
+            android:padding="10dp" />
 
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:gravity="right"
-            android:padding="10dip"
-            android:text="Example"
-            android:textColor="@color/black" />
-
-        <com.beardedhen.androidbootstrap.BootstrapEditText
-            android:id="@+id/txtExample"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:paddingRight="10dp"
-            app:bootstrapBrand="success"
-            app:roundedCorners="true" />
     </TableRow>
 
     <TableRow
@@ -116,26 +57,100 @@
         android:layout_margin="10dp">
 
         <LinearLayout
-            android:layout_column="2"
+            android:layout_column="1"
             android:weightSum="1">
 
-            <com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/btnAddClear"
-                style="@style/wrapping_button"
-                android:text="Clear"
-                app:bootstrapBrand="primary"
-                app:buttonMode="regular"
-                app:roundedCorners="true"
-                app:showOutline="false" />
+            <!--TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:padding="10dip"
+                android:text="Part of Speech"/-->
 
-            <!--com.beardedhen.androidbootstrap.BootstrapButton
-                android:id="@+id/buttonAdd"
-                style="@style/wrapping_button"
-                android:text="ADD"
-                app:bootstrapBrand="primary"
-                app:buttonMode="regular"
-                app:roundedCorners="true"
-                app:showOutline="false" /-->
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:prompt="@string/spinner_title" />
+        </LinearLayout>
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_column="1"
+            android:weightSum="1">
+
+            <CheckBox
+                android:id="@+id/checkBoxEtt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="ETT" />
+
+            <CheckBox
+                android:id="@+id/checkBoxEn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EN" />
+        </LinearLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <EditText
+            android:id="@+id/txtEnglish"
+            style="@style/StyledTilEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:hint="Enter English word here.."
+            android:padding="10dp" />
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <EditText
+            android:id="@+id/txtExample"
+            style="@style/StyledTilEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:hint="Enter example here.."
+            android:padding="10dp" />
+
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <LinearLayout
+            android:layout_column="1"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/btnAddClear"
+                style="@style/ButtonText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg_blue"
+                android:text="CLEAR" />
 
             <Button
                 android:id="@+id/btnAddWord"
@@ -146,25 +161,6 @@
                 android:text="ADD" />
 
         </LinearLayout>
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_margin="10dp">
-
-        <ImageButton
-            android:id="@+id/btnAddBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="2"
-            android:layout_gravity="center_horizontal"
-            android:background="@color/appBackground"
-            android:contentDescription="back"
-            android:gravity="center_horizontal"
-            android:src="@mipmap/ic_return" />
 
     </TableRow>
 
