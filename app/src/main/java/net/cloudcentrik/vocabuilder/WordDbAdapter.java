@@ -7,9 +7,13 @@ import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.database.sqlite.SQLiteStatement;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by ismail on 2015-12-27.
@@ -20,6 +24,9 @@ public class WordDbAdapter {
     public static final String KEY_SWEDISH = "swedish";
     public static final String KEY_ENGLISH = "english";
     public static final String KEY_EXAMPLE = "example";
+    public static final String KEY_ETTEN = "etten";
+    public static final String KEY_PARTOFSPEACH = "part_of_speach";
+    public static final String KEY_DATE = "created_at";
 
     private static final String TAG = "CountriesDbAdapter";
     private static final String DATABASE_NAME = "vocabuilder";
@@ -31,6 +38,9 @@ public class WordDbAdapter {
                     KEY_SWEDISH + "," +
                     KEY_ENGLISH + "," +
                     KEY_EXAMPLE + "," +
+                    KEY_ETTEN + "," +
+                    KEY_PARTOFSPEACH + "," +
+                    KEY_DATE + "," +
                     " UNIQUE (" + KEY_SWEDISH +"));";
     private final Context mCtx;
     private DatabaseHelper mDbHelper;
@@ -52,13 +62,30 @@ public class WordDbAdapter {
         }
     }
 
-    public long createWord(String swedish, String english,
+   /* public long createWord(String swedish, String english,
                               String example) {
 
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_SWEDISH, swedish);
         initialValues.put(KEY_ENGLISH, english);
         initialValues.put(KEY_EXAMPLE, example);
+        initialValues.put(KEY_ETTEN, "en");
+        initialValues.put(KEY_PARTOFSPEACH, "noun");
+        initialValues.put(KEY_DATE, getDateTime());
+
+        return mDb.insert(SQLITE_TABLE, null, initialValues);
+    }*/
+
+    public long createWord(String swedish, String english,
+                           String example, String ettEn, String partOfSpeach) {
+
+        ContentValues initialValues = new ContentValues();
+        initialValues.put(KEY_SWEDISH, swedish);
+        initialValues.put(KEY_ENGLISH, english);
+        initialValues.put(KEY_EXAMPLE, example);
+        initialValues.put(KEY_ETTEN, ettEn);
+        initialValues.put(KEY_PARTOFSPEACH, partOfSpeach);
+        initialValues.put(KEY_DATE, getDateTime());
 
         return mDb.insert(SQLITE_TABLE, null, initialValues);
     }
@@ -75,6 +102,9 @@ public class WordDbAdapter {
         ContentValues values = new ContentValues();
         values.put(KEY_ENGLISH, w.getEnglish());
         values.put(KEY_EXAMPLE, w.getExample());
+        values.put(KEY_ETTEN, w.getEtten());
+        values.put(KEY_PARTOFSPEACH, w.getPartOfSpeach());
+        values.put(KEY_DATE, getDateTime());
 
         // updating row
         return mDb.update(SQLITE_TABLE, values, KEY_SWEDISH + " = ?",
@@ -83,6 +113,12 @@ public class WordDbAdapter {
 
     public long countWords() {
         return DatabaseUtils.queryNumEntries(mDb, SQLITE_TABLE);
+    }
+
+    public long countPartofSpeach(String pos) {
+        SQLiteStatement s = mDb.compileStatement("select count(*) from words where part_of_speach='" + pos + "'; ");
+        long count = s.simpleQueryForLong();
+        return count;
     }
 
     public boolean deleteAllWords() {
@@ -99,13 +135,13 @@ public class WordDbAdapter {
         Cursor mCursor = null;
         if (inputText == null  ||  inputText.length () == 0)  {
             mCursor = mDb.query(SQLITE_TABLE, new String[] {KEY_ROWID,KEY_SWEDISH,
-                            KEY_ENGLISH, KEY_EXAMPLE},
+                            KEY_ENGLISH, KEY_EXAMPLE, KEY_ETTEN, KEY_PARTOFSPEACH, KEY_DATE},
                     null, null, null, null, null);
 
         }
         else {
             mCursor = mDb.query(true, SQLITE_TABLE, new String[] {KEY_ROWID,KEY_SWEDISH,
-                            KEY_ENGLISH, KEY_EXAMPLE},
+                            KEY_ENGLISH, KEY_EXAMPLE, KEY_ETTEN, KEY_PARTOFSPEACH, KEY_DATE},
                     KEY_SWEDISH + " like '%" + inputText + "%'", null,
                     null, null, null, null);
         }
@@ -119,7 +155,7 @@ public class WordDbAdapter {
     public Cursor fetchAllWords() {
 
         Cursor mCursor = mDb.query(SQLITE_TABLE, new String[] {KEY_ROWID,KEY_SWEDISH,
-                        KEY_ENGLISH, KEY_EXAMPLE},
+                        KEY_ENGLISH, KEY_EXAMPLE, KEY_ETTEN, KEY_PARTOFSPEACH, KEY_DATE},
                 null, null, null, null, null);
 
         if (mCursor != null) {
@@ -130,9 +166,9 @@ public class WordDbAdapter {
 
     public void insertSomeWords() {
 
-        createWord("Jag", "I", "Jag hetter Ismail");
-        createWord("Du","you","Vad hetter du?");
-        createWord("Köp","Bye","Jag vill köpa jul klap");
+        createWord("Jag", "I", "Jag hetter Ismail", "en", "pronoun");
+        createWord("Du", "you", "Vad hetter du?", "en", "pronoun");
+        createWord("Köp", "Bye", "Jag vill köpa jul klap", "en", "pronoun");
 
     }
 
@@ -153,12 +189,15 @@ public class WordDbAdapter {
 
                     cursor.moveToFirst();
                     do {
-                        Word obj = new Word(cursor.getString(0), cursor.getString(1), cursor.getString(2));
+                        Word obj = new Word(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
 
                         //get all column
                         obj.setSwedish(cursor.getString(cursor.getColumnIndex("swedish")));
                         obj.setEnglish(cursor.getString(cursor.getColumnIndex("english")));
                         obj.setExample(cursor.getString(cursor.getColumnIndex("example")));
+                        obj.setExample(cursor.getString(cursor.getColumnIndex("etten")));
+                        obj.setExample(cursor.getString(cursor.getColumnIndex("part_of_speach")));
+                        obj.setExample(cursor.getString(cursor.getColumnIndex("created_at")));
 
                         //you could add additional columns here..
 
@@ -178,6 +217,13 @@ public class WordDbAdapter {
         }
 
         return list;
+    }
+
+    private String getDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date).toString();
     }
 
     private static class DatabaseHelper extends SQLiteOpenHelper {

@@ -17,7 +17,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 
@@ -69,80 +68,9 @@ public class MainActivity extends AppCompatActivity {
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
-        /*
-        ImageButton menuButton = (ImageButton) findViewById(R.id.btnMenu);
-        menuButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                showPopup(v);
-            }
-        });
-
-        ImageButton addButton = (ImageButton) findViewById(R.id.btnadd);
-        addButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                final Intent myIntent;
-                myIntent = new Intent(MainActivity.this,
-                        AddNewActivity.class);
-                startActivity(myIntent);
-            }
-        });
-        */
-
 
     }
 
-    public void showPopup(View v) {
-        PopupMenu popup = new PopupMenu(this, v);
-        MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.main_menue, popup.getMenu());
-
-        //registering popup with OnMenuItemClickListener
-        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            public boolean onMenuItemClick(MenuItem item) {
-                //Toast.makeText(MainActivity.this, "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
-                final Intent myIntent;
-
-                switch (item.getItemId()) {
-
-                    case R.id.add:
-                        // Start AddNewActivity.class
-                        myIntent = new Intent(MainActivity.this,
-                                AddNewActivity.class);
-                        startActivity(myIntent);
-                        return (true);
-                    case R.id.test:
-                        // Start QuizActivity.class
-
-                        myIntent = new Intent(MainActivity.this,
-                                QuizActivity.class);
-                        startActivity(myIntent);
-                        return (true);
-                    case R.id.stat:
-                        // Start AboutActivity.class
-                        myIntent = new Intent(MainActivity.this,
-                                StatisticsActivity.class);
-                        startActivity(myIntent);
-                        return (true);
-                    case R.id.about:
-                        // Start AboutActivity.class
-                        myIntent = new Intent(MainActivity.this,
-                                AboutActivity.class);
-                        startActivity(myIntent);
-                        return (true);
-
-                }
-                return true;
-            }
-        });
-
-        popup.show();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -183,79 +111,16 @@ public class MainActivity extends AppCompatActivity {
                         AboutActivity.class);
                 startActivity(myIntent);
                 return (true);
+            case R.id.action_example:
+                // Start ExampleActivity
+                myIntent = new Intent(MainActivity.this,
+                        ExampleActivity.class);
+                startActivity(myIntent);
+                return (true);
 
         }
         return (super.onOptionsItemSelected(item));
     }
-
-    /*private void displaySpinner() {
-        Spinner spinner = (Spinner) findViewById(R.id.menu_spinner);
-        String[] items = new String[]{"Menu", "Add new", "Random Test", "Statistics", "About"};
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, items);
-
-        spinner.setAdapter(adapter);
-
-        spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-
-
-
-                final Intent myIntent;
-                switch (position) {
-                    case 1:
-
-                        // Start AddNewActivity.class
-                        parent.setSelection(0);
-                        myIntent = new Intent(MainActivity.this,
-                                AddNewActivity.class);
-                        startActivity(myIntent);
-                        break;
-                    case 2:
-
-                        // Start QuizActivity.class
-                        parent.setSelection(0);
-                        myIntent = new Intent(MainActivity.this,
-                                QuizActivity.class);
-                        startActivity(myIntent);
-                        break;
-                    case 3:
-
-                        // Start AboutActivity.class
-                        parent.setSelection(0);
-                        myIntent = new Intent(MainActivity.this,
-                                StatisticsActivity.class);
-                        startActivity(myIntent);
-                        break;
-                    case 4:
-
-                        // Start AboutActivity.class
-                        parent.setSelection(0);
-                        myIntent = new Intent(MainActivity.this,
-                                AboutActivity.class);
-                        startActivity(myIntent);
-                        break;
-
-                    default:
-                        //
-                        Toast.makeText(getApplicationContext(),
-                                (String) parent.getItemAtPosition(position), Toast.LENGTH_SHORT).show();
-                        break;
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                // TODO Auto-generated method stub
-                parent.setSelection(0);
-            }
-        });
-
-    }*/
 
     private void displayListView() {
 
@@ -266,14 +131,17 @@ public class MainActivity extends AppCompatActivity {
         String[] columns = new String[]{
                 WordDbAdapter.KEY_SWEDISH,
                 WordDbAdapter.KEY_ENGLISH,
-                WordDbAdapter.KEY_EXAMPLE
+                //WordDbAdapter.KEY_EXAMPLE,
+                //WordDbAdapter.KEY_ETTEN,
+                //WordDbAdapter.KEY_PARTOFSPEACH,
+                //WordDbAdapter.KEY_DATE
         };
 
         // the XML defined views which the data will be bound to
         int[] to = new int[]{
                 R.id.textSV,
                 R.id.textEN,
-                R.id.textEX,
+                //R.id.textEX,
         };
 
         // create the adapter using the cursor pointing to the desired data
@@ -304,8 +172,15 @@ public class MainActivity extends AppCompatActivity {
                         cursor.getString(cursor.getColumnIndexOrThrow("english"));
                 String example =
                         cursor.getString(cursor.getColumnIndexOrThrow("example"));
+                String ettEn =
+                        cursor.getString(cursor.getColumnIndexOrThrow("etten"));
+                String partOfSpeach =
+                        cursor.getString(cursor.getColumnIndexOrThrow("part_of_speach"));
+                String dateCreated =
+                        cursor.getString(cursor.getColumnIndexOrThrow("created_at"));
 
-                Word w = new Word(swedish, english, example);
+
+                Word w = new Word(swedish, english, example, ettEn, partOfSpeach, dateCreated);
 
                 Intent i = new Intent(MainActivity.this, WordActivity.class);
 

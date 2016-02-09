@@ -1,168 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/appBackground"
-    android:stretchColumns="1">
+    android:fitsSystemWindows="true"
+    tools:context="info.androidhive.fab.MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/add_new_toolbar"
-        style="@style/HeaderBar"
+    <!--android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        app:popupTheme="@style/ActionBarPopupThemeOverlay"
-        app:theme="@style/ActionBarThemeOverlay" />
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme" />
 
-        <TextView
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:gravity="left"
-            android:padding="10dip"
-            android:text="Add New Word"
-            android:textColor="@color/white"
-            android:textSize="@dimen/abc_text_size_title_material" />
+    </android.support.design.widget.AppBarLayout-->
 
-    </TableRow>
+    <include layout="@layout/activity_add" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:src="@mipmap/ic_add_word" />
 
-        <EditText
-            android:id="@+id/txtSwedish"
-            style="@style/StyledTilEditText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:hint="Enter swedish word here.."
-            android:padding="10dp" />
-
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-
-        <LinearLayout
-            android:layout_column="1"
-            android:weightSum="1">
-
-            <!--TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="left"
-                android:padding="10dip"
-                android:text="Part of Speech"/-->
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:prompt="@string/spinner_title" />
-        </LinearLayout>
-
-    </TableRow>
-
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_column="1"
-            android:weightSum="1">
-
-            <CheckBox
-                android:id="@+id/checkBoxEtt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="ETT" />
-
-            <CheckBox
-                android:id="@+id/checkBoxEn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="EN" />
-        </LinearLayout>
-
-    </TableRow>
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-
-        <EditText
-            android:id="@+id/txtEnglish"
-            style="@style/StyledTilEditText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:hint="Enter English word here.."
-            android:padding="10dp" />
-
-    </TableRow>
-
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-
-        <EditText
-            android:id="@+id/txtExample"
-            style="@style/StyledTilEditText"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_column="1"
-            android:hint="Enter example here.."
-            android:padding="10dp" />
-
-    </TableRow>
-
-
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp">
-
-        <LinearLayout
-            android:layout_column="1"
-            android:weightSum="1">
-
-            <Button
-                android:id="@+id/btnAddClear"
-                style="@style/ButtonText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_bg_blue"
-                android:text="CLEAR" />
-
-            <Button
-                android:id="@+id/btnAddWord"
-                style="@style/ButtonText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/button_bg_blue"
-                android:text="ADD" />
-
-        </LinearLayout>
-
-    </TableRow>
-
-
-</TableLayout>
+</android.support.design.widget.CoordinatorLayout>

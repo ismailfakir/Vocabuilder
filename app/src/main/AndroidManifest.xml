@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->
+        <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
 
 
         <!-- SplashActivity -->
@@ -26,48 +26,44 @@
         </activity>
 
         <!-- MainActivity -->
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
 
         <!-- AddNewActivity -->
         <activity
             android:name=".AddNewActivity"
             android:label="add new"
-            android:parentActivityName="net.cloudcentrik.vocabuilder.MainActivity">
+            android:parentActivityName=".MainActivity">
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="net.cloudcentrik.vocabuilder.MainActivity" />
-
         </activity>
 
         <!-- AboutActivity -->
         <activity
             android:name=".AboutActivity"
-            android:parentActivityName="net.cloudcentrik.vocabuilder.MainActivity">
-
-        </activity>
+            android:parentActivityName=".MainActivity"></activity>
 
         <!-- StatisticsActivity -->
         <activity
             android:name=".StatisticsActivity"
-            android:parentActivityName="net.cloudcentrik.vocabuilder.MainActivity">
-
-        </activity>
+            android:parentActivityName=".MainActivity"></activity>
 
         <!-- StatisticsActivity -->
         <activity
             android:name=".QuizActivity"
-            android:parentActivityName="net.cloudcentrik.vocabuilder.MainActivity">
+            android:parentActivityName=".MainActivity"></activity>
 
-        </activity>
-
-        <!-- StatisticsActivity -->
+        <!-- WordActivity -->
         <activity
             android:name=".WordActivity"
-            android:parentActivityName="net.cloudcentrik.vocabuilder.MainActivity">
+            android:parentActivityName=".MainActivity"></activity>
 
-        </activity>
+        <!-- ExampleActivity -->
+        <activity
+            android:name=".ExampleActivity"
+            android:parentActivityName=".MainActivity"></activity>
 
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for

@@ -4,12 +4,14 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -20,6 +22,11 @@ public class QuizActivity extends AppCompatActivity {
     private ArrayList<Word> allWords;
     private TextView question;
 
+    private RadioButton option1;
+    private RadioButton option2;
+    private RadioButton option3;
+    private RadioButton option4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +34,7 @@ public class QuizActivity extends AppCompatActivity {
 
         // my_child_toolbar is defined in the layout file
         Toolbar myChildToolbar =
-                (Toolbar) findViewById(R.id.add_new_toolbar);
+                (Toolbar) findViewById(R.id.quiz_toolbar);
         setSupportActionBar(myChildToolbar);
 
         // Get a support ActionBar corresponding to this toolbar
@@ -48,7 +55,7 @@ public class QuizActivity extends AppCompatActivity {
         createAQuiz();
 
 
-        ImageButton closeButton = (ImageButton) findViewById(R.id.btnQuizBack);
+        /*ImageButton closeButton = (ImageButton) findViewById(R.id.btnQuizBack);
         closeButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -56,7 +63,7 @@ public class QuizActivity extends AppCompatActivity {
 
                 finish();
             }
-        });
+        });*/
 
         Button submitButton = (Button) findViewById(R.id.btnSubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -69,15 +76,34 @@ public class QuizActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menue, menu);
+        return true;
+    }
+
     private void getAllWords() {
         this.allWords = dbHelper.getAllWords();
     }
 
     private void createAQuiz() {
         if (allWords != null) {
-            int n = generateRandonInRange(0, (int) dbHelper.countWords());
-            Word w = allWords.get(n);
-            question.setText("What is the meaning of " + w.getSwedish() + " ?");
+            //int n = generateRandonInRange(0, (int) dbHelper.countWords());
+            Collections.shuffle(allWords);
+            Word w = allWords.get(0);
+            question.setText("What is the meaning of '" + w.getSwedish() + "' ?");
+
+            option1 = (RadioButton) findViewById(R.id.radio0);
+            option2 = (RadioButton) findViewById(R.id.radio1);
+            option3 = (RadioButton) findViewById(R.id.radio2);
+            option4 = (RadioButton) findViewById(R.id.radio3);
+
+            int option[] = VocabuilderUtils.RandomizeArray(0, 3);
+
+            option1.setText(allWords.get(option[0]).getEnglish());
+            option2.setText(allWords.get(option[1]).getEnglish());
+            option3.setText(allWords.get(option[2]).getEnglish());
+            option4.setText(allWords.get(option[3]).getEnglish());
         }
 
         /*Cursor c=dbHelper.fetchAllWords();
@@ -86,6 +112,14 @@ public class QuizActivity extends AppCompatActivity {
 
         question.setText("What is the meaning of " + s + " ?");*/
 
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();  // Always call the superclass method first
+
+        Collections.shuffle(allWords);
 
     }
 

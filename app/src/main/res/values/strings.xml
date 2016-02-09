@@ -18,4 +18,13 @@
         <item>About</item>
     </string-array>
 
+    <string name="swedish">Swedish</string>
+    <string name="english">English</string>
+    <string name="example">example</string>
+
+    <string name="btnAdd">example</string>
+    <string name="btnClear">example</string>
+
+    <string name="err_msg">Value Required</string>
+
 </resources>

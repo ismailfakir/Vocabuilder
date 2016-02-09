@@ -1,5 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,16 +19,6 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/add_new_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-
     <TextView
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -27,7 +26,7 @@
         android:gravity="center_horizontal"
         android:padding="10dip"
         android:text="@string/appName"
-        android:textColor="@color/white"
+        android:textColor="@color/green"
         android:textSize="@dimen/abc_text_size_title_material" />
 
     <TextView
@@ -48,7 +47,7 @@
         android:gravity="center_horizontal"
         android:padding="10dip"
         android:text="Developer"
-        android:textColor="@color/white"
+        android:textColor="@color/green"
         android:textSize="20dp" />
 
     <TextView
@@ -62,28 +61,23 @@
         android:textAlignment="gravity"
         android:textColor="@color/bootstrap_gray" />
 
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
-    <!--com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnGoBack"
-        style="@style/wrapping_button"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal"
-        android:text="Go Back"
-        app:bootstrapBrand="primary"
-        app:buttonMode="regular"
-        app:roundedCorners="true"
-        app:showOutline="false" /-->
-
-    <ImageButton
-        android:id="@+id/btnAboutBack"
-        android:layout_width="wrap_content"
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@color/appBackground"
-        android:contentDescription="back"
-        android:gravity="center_horizontal"
-        android:src="@mipmap/ic_return" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/statistic_toolbar"
+            style="@style/HeaderBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            app:popupTheme="@style/ActionBarPopupThemeOverlay"
+            app:theme="@style/ActionBarThemeOverlay" />
+    </android.support.design.widget.AppBarLayout>
 
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

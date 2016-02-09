@@ -23,11 +23,17 @@ public class Word implements Parcelable {
     private String swedish;
     private String english;
     private String example;
+    private String etten;
+    private String partOfSpeach;
+    private String createDate;
 
-    public Word(String swedish, String english, String example) {
+    public Word(String swedish, String english, String example, String etten, String partOfSpeach, String createDate) {
         this.swedish = swedish;
         this.english = english;
         this.example = example;
+        this.etten = etten;
+        this.partOfSpeach = partOfSpeach;
+        this.createDate = createDate;
     }
 
     public Word() {
@@ -38,6 +44,49 @@ public class Word implements Parcelable {
         swedish = in.readString();
         english = in.readString();
         example = in.readString();
+        etten = in.readString();
+        partOfSpeach = in.readString();
+        createDate = in.readString();
+    }
+
+    /*public Word(String swedish, String english, String example) {
+        this.swedish = swedish;
+        this.english = english;
+        this.example = example;
+    }
+*/
+    /*public Word(String swedish, String english, String example, String etten, String partOfSpeach) {
+        this.swedish = swedish;
+        this.english = english;
+        this.example = example;
+        this.etten = etten;
+        this.partOfSpeach = partOfSpeach;
+    }*/
+
+    public String getCreateDate() {
+
+        return createDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        this.createDate = createDate;
+    }
+
+    public String getEtten() {
+
+        return etten;
+    }
+
+    public void setEtten(String etten) {
+        this.etten = etten;
+    }
+
+    public String getPartOfSpeach() {
+        return partOfSpeach;
+    }
+
+    public void setPartOfSpeach(String partOfSpeach) {
+        this.partOfSpeach = partOfSpeach;
     }
 
     public String getSwedish() {
@@ -74,6 +123,9 @@ public class Word implements Parcelable {
         dest.writeString(swedish);
         dest.writeString(english);
         dest.writeString(example);
+        dest.writeString(etten);
+        dest.writeString(partOfSpeach);
+        dest.writeString(createDate);
     }
 }
 

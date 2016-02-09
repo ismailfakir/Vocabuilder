@@ -7,27 +7,31 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.beardedhen.androidbootstrap.BootstrapButton;
-
 /**
  * Created by ismail on 2016-01-03.
  */
-public class WordActivity extends AppCompatActivity {
+public class WordActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    private BootstrapButton buttonEdit;
-    private BootstrapButton deleteButton;
+    private Button buttonEdit;
+    private Button deleteButton;
     private ImageButton backButton;
     private WordDbAdapter dbHelper;
 
     private TextView ts;
     private TextView te;
     private TextView tx;
+    private TextView tEtten;
+    private TextView tpartOfSpeach;
+    private TextView tDate;
 
     private EditText editTextSV;
     private EditText editTextEN;
@@ -41,7 +45,7 @@ public class WordActivity extends AppCompatActivity {
 
         // my_child_toolbar is defined in the layout file
         Toolbar myChildToolbar =
-                (Toolbar) findViewById(R.id.add_new_toolbar);
+                (Toolbar) findViewById(R.id.word_toolbar);
         setSupportActionBar(myChildToolbar);
 
         // Get a support ActionBar corresponding to this toolbar
@@ -57,13 +61,17 @@ public class WordActivity extends AppCompatActivity {
         ts = (TextView) findViewById(R.id.textSV);
         te = (TextView) findViewById(R.id.textEN);
         tx = (TextView) findViewById(R.id.textEX);
+        tEtten = (TextView) findViewById(R.id.textEtten);
+        tpartOfSpeach = (TextView) findViewById(R.id.textPartOfSpeach);
+        tDate = (TextView) findViewById(R.id.texDateCreated);
+
 
         //setDialogueText();
 
         createWordView();
 
         // edit button
-        buttonEdit = (BootstrapButton) findViewById(R.id.btnEdit);
+        buttonEdit = (Button) findViewById(R.id.btnEdit);
         buttonEdit.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -73,30 +81,35 @@ public class WordActivity extends AppCompatActivity {
         });
 
         //delete button
-        deleteButton = (BootstrapButton) findViewById(R.id.btnDelete);
+        deleteButton = (Button) findViewById(R.id.btnDelete);
         deleteButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                deleteWord(v);
-                finish();
 
-                //Toast.makeText(WordActivity.this, "Delete button pressed", Toast.LENGTH_SHORT).show();
+                //delete confirm dialog
+                AlertDialog.Builder builder = new AlertDialog.Builder(WordActivity.this);
+                builder.setMessage("Are you sure you want to Delete?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                deleteWord();
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();
+
             }
         });
 
-        //back button
-        backButton = (ImageButton) findViewById(R.id.btnBack);
-        backButton.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-
-                finish();
-
-            }
-        });
     }
 
     private void createWordView() {
@@ -105,6 +118,9 @@ public class WordActivity extends AppCompatActivity {
         ts.setText(word.getSwedish());
         te.setText(word.getEnglish());
         tx.setText(word.getExample());
+        tEtten.setText(word.getEtten());
+        tpartOfSpeach.setText(word.getPartOfSpeach());
+        tDate.setText(word.getCreateDate());
 
     }
 
@@ -136,7 +152,7 @@ public class WordActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int id) {
                         //resultText.setText("Hello, " + editText.getText());
 
-                        Word w = new Word(editTextSV.getText().toString(), editTextEN.getText().toString(), editTextEX.getText().toString());
+                        Word w = new Word(editTextSV.getText().toString(), editTextEN.getText().toString(), editTextEX.getText().toString(), "etten", "noun", "date");
 
                         editWord(w);
 
@@ -154,7 +170,7 @@ public class WordActivity extends AppCompatActivity {
         alert.show();
     }
 
-    public void deleteWord(View v) {
+    public void deleteWord() {
         final TextView svTxt = (TextView) findViewById(R.id.textSV);
         if (dbHelper.deleteWord(svTxt.getText().toString())) {
             Toast.makeText(WordActivity.this, "Word Deleted", Toast.LENGTH_SHORT).show();
@@ -180,5 +196,26 @@ public class WordActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         dbHelper.close();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.word_menu, menu);
+        return true;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        // On selecting a spinner item
+        String item = parent.getItemAtPosition(position).toString();
+
+        // Showing selected spinner item
+        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+    }
+
+    public void onNothingSelected(AdapterView<?> arg0) {
+        // TODO Auto-generated method stub
+
+        arg0.setSelection(0);
     }
 }

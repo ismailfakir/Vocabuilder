@@ -4,8 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.ImageButton;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -16,7 +14,7 @@ public class AboutActivity extends AppCompatActivity {
 
         // my_child_toolbar is defined in the layout file
         Toolbar myChildToolbar =
-                (Toolbar) findViewById(R.id.add_new_toolbar);
+                (Toolbar) findViewById(R.id.statistic_toolbar);
         setSupportActionBar(myChildToolbar);
 
         // Get a support ActionBar corresponding to this toolbar
@@ -26,7 +24,7 @@ public class AboutActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
 
-        ImageButton closeButton = (ImageButton) findViewById(R.id.btnAboutBack);
+        /*ImageButton closeButton = (ImageButton) findViewById(R.id.btnAboutBack);
         closeButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -34,6 +32,6 @@ public class AboutActivity extends AppCompatActivity {
 
                 finish();
             }
-        });
+        });*/
     }
 }

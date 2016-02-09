@@ -2,34 +2,45 @@ package net.cloudcentrik.vocabuilder;
 
 
 import android.os.Bundle;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Created by ismail on 2015-12-28.
  */
-public class AddNewActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AddNewActivity extends AppCompatActivity {
 
     private WordDbAdapter dbHelper;
     private TextView txtSwedish;
     private TextView txtEnglish;
     private TextView txtExample;
+    private TextInputLayout inputLayoutSwedish;
+
+    private CheckBox cboxEtt;
+    private CheckBox cboxEn;
+
+    private String etten, partOfSpeach;
+    private Spinner spinner;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // Get the view from new_activity.xml
         setContentView(R.layout.activity_addnew);
 
@@ -41,38 +52,44 @@ public class AddNewActivity extends AppCompatActivity implements AdapterView.OnI
         // Get a support ActionBar corresponding to this toolbar
         ActionBar ab = getSupportActionBar();
 
-        //spinner
-        // Spinner element
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-
-        // Spinner click listener
-        spinner.setOnItemSelectedListener(this);
-
-        // Spinner Drop down elements
-        List<String> categories = new ArrayList<String>();
-        categories.add("Noun");
-        categories.add("Pronoun");
-        categories.add("Adjective");
-        categories.add("Verb");
-        categories.add("Adverb");
-        categories.add("preposition");
-        categories.add("conjunction");
-        categories.add("interjection");
-
-
-        // Creating adapter for spinner
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
-
-        // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // attaching data adapter to spinner
-        spinner.setAdapter(dataAdapter);
-        //spinner end
-
         // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
+
+        //
+        etten = "en";
+        partOfSpeach = "Noun";
+
+        //part of speach spinner start
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.words_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+        //spinner.setOnItemClickListener(this);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String item = parent.getItemAtPosition(position).toString();
+                partOfSpeach = item;
+                // Showing selected spinner item
+                //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        //spinner end
+
+
+        //checkbox
+        cboxEn = (CheckBox) findViewById(R.id.checkBoxEn);
+        cboxEtt = (CheckBox) findViewById(R.id.checkBoxEtt);
 
 
         dbHelper = new WordDbAdapter(this);
@@ -82,15 +99,9 @@ public class AddNewActivity extends AppCompatActivity implements AdapterView.OnI
         txtEnglish = (TextView) findViewById(R.id.txtEnglish);
         txtExample = (TextView) findViewById(R.id.txtExample);
 
-        Button clearButton = (Button) findViewById(R.id.btnAddClear);
-        clearButton.setOnClickListener(new View.OnClickListener() {
+        inputLayoutSwedish = (TextInputLayout) findViewById(R.id.input_layout_swedish);
 
-            @Override
-            public void onClick(View v) {
-
-                clearText();
-            }
-        });
+        txtSwedish.addTextChangedListener(new MyTextWatcher(txtSwedish));
 
         Button addButton = (Button) findViewById(R.id.btnAddWord);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -104,11 +115,26 @@ public class AddNewActivity extends AppCompatActivity implements AdapterView.OnI
     }
 
     private void insertWord() {
+        if (!validateSwedish()) {
+            return;
+        }
 
-        long r = dbHelper.createWord(txtSwedish.getText().toString(), txtEnglish.getText().toString(), txtExample.getText().toString());
+
+        if (cboxEn.isChecked()) {
+            etten = "EN";
+        } else {
+            etten = "ETT";
+        }
+        long r = dbHelper.createWord(txtSwedish.getText().toString(), txtEnglish.getText().toString(), txtExample.getText().toString(), etten, partOfSpeach);
         if (r > 0) {
 
             Toast.makeText(AddNewActivity.this, "Word added", Toast.LENGTH_SHORT).show();
+
+            /*Snackbar snackbar = Snackbar
+                    .make(CoordinatorLayout, "Welcome to AndroidHive", Snackbar.LENGTH_LONG);
+
+            snackbar.show();*/
+
             clearText();
 
         } else {
@@ -149,19 +175,87 @@ public class AddNewActivity extends AppCompatActivity implements AdapterView.OnI
         return true;
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        // On selecting a spinner item
-        String item = parent.getItemAtPosition(position).toString();
+    //input validation
 
-        // Showing selected spinner item
-        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+    private void requestFocus(View view) {
+        if (view.requestFocus()) {
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+        }
     }
 
-    public void onNothingSelected(AdapterView<?> arg0) {
-        // TODO Auto-generated method stub
+    private boolean validateSwedish() {
+        if (txtSwedish.getText().toString().trim().isEmpty()) {
+            inputLayoutSwedish.setError(getString(R.string.err_msg));
+            requestFocus(txtSwedish);
+            return false;
+        } else {
+            inputLayoutSwedish.setErrorEnabled(false);
+        }
 
-        arg0.setSelection(0);
+        return true;
+    }
+
+    //checkbox
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // Check which checkbox was clicked
+        switch (view.getId()) {
+            case R.id.checkBoxEn:
+                if (checked) {
+                    cboxEtt.setChecked(false);
+                }
+                // Put some meat on the sandwich
+                else {
+                    cboxEn.setChecked(true);
+                    cboxEtt.setChecked(false);
+                }
+                // Remove the meat
+                break;
+            case R.id.checkBoxEtt:
+                if (checked) {
+                    cboxEn.setChecked(false);
+                }
+                // Cheese me
+                else {
+                    cboxEn.setChecked(false);
+                    cboxEtt.setChecked(true);
+                }
+                // I'm lactose intolerant
+                break;
+            // TODO: Veggie sandwich
+        }
+    }
+
+    private class MyTextWatcher implements TextWatcher {
+
+        private View view;
+
+        private MyTextWatcher(View view) {
+            this.view = view;
+        }
+
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+        }
+
+        public void afterTextChanged(Editable editable) {
+            /*switch (view.getId()) {
+                case R.id.input_name:
+                    validateName();
+                    break;
+                case R.id.input_email:
+                    validateEmail();
+                    break;
+                case R.id.input_password:
+                    validatePassword();
+                    break;
+            }*/
+            validateSwedish();
+        }
     }
 
 

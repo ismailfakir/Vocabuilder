@@ -5,7 +5,7 @@
 
     <item
         android:id="@+id/add"
-        android:icon="@mipmap/ic_mplus"
+        android:icon="@mipmap/ic_add_word"
         android:title="Add new"
         app:showAsAction="always" />
 
@@ -25,6 +25,12 @@
         android:id="@+id/about"
         android:icon="@mipmap/ic_info"
         android:title="about"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_example"
+        android:icon="@mipmap/ic_info"
+        android:title="Example"
         app:showAsAction="never" />
 
 

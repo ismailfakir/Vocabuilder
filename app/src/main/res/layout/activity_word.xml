@@ -1,141 +1,212 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/appBackground"
-    android:orientation="vertical"
-    android:padding="5dip">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/add_new_toolbar"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-    <TextView
-        android:id="@+id/sv"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:padding="1dp"
-        android:scaleType="fitCenter"
-        android:text="[SV]"
-        android:textColor="@color/bootstrap_gray"
-        android:textSize="10dp" />
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <TextView
-        android:id="@+id/en"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/sv"
-        android:layout_below="@+id/sv"
-        android:padding="1dp"
-        android:scaleType="fitCenter"
-        android:text="[EN]"
-        android:textColor="@color/bootstrap_gray"
-        android:textSize="10dp" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/word_toolbar"
+            style="@style/HeaderBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            app:popupTheme="@style/ActionBarPopupThemeOverlay"
+            app:theme="@style/ActionBarThemeOverlay" />
+    </android.support.design.widget.AppBarLayout>
 
-    <TextView
-        android:id="@+id/ex"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/en"
-        android:layout_below="@+id/en"
-        android:padding="1dp"
-        android:text="[EX]"
-        android:textColor="@color/bootstrap_gray"
-        android:textSize="10dp" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="30dp">
 
-    <TextView
-        android:id="@+id/textSV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/sv"
-        android:layout_alignBottom="@+id/sv"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        android:layout_toRightOf="@+id/sv"
-        android:text="Göra"
-        android:textColor="@color/bootstrap_brand_primary" />
+            <TextView
+                android:id="@+id/sv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:scaleType="fitCenter"
+                android:text="[Swedish]"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/grey" />
 
-    <TextView
-        android:id="@+id/textEN"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/en"
-        android:layout_alignBottom="@+id/en"
+            <TextView
+                android:id="@+id/textSV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Göra"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
-        android:layout_toRightOf="@+id/en"
-        android:text="DO"
-        android:textColor="@color/black" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textEX"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/ex"
-        android:layout_alignBottom="@+id/ex"
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-        android:layout_toRightOf="@+id/ex"
-        android:text="Vad ska göra?"
-        android:textColor="@color/white" />
+            <TextView
+                android:id="@+id/en"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="1dp"
+                android:scaleType="fitCenter"
+                android:text="[English]"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/grey" />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnDelete"
-        style="@style/wrapping_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textEX"
-        android:layout_toEndOf="@+id/textSV"
-        android:layout_toRightOf="@+id/textSV"
-        android:text="Delete"
-        app:bootstrapBrand="primary"
-        app:buttonMode="regular"
-        app:roundedCorners="true"
-        app:showOutline="false" />
+            <TextView
+                android:id="@+id/textEN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="DO"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/blue" />
 
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnEdit"
-        style="@style/wrapping_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btnDelete"
-        android:layout_centerHorizontal="true"
+        </LinearLayout>
 
-        android:text="Edit"
-        app:bootstrapBrand="primary"
-        app:buttonMode="regular"
-        app:roundedCorners="true"
-        app:showOutline="false" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <!--com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/btnBack"
-        style="@style/wrapping_button"
-        android:layout_alignBottom="@+id/btnEdit"
-        android:layout_toEndOf="@+id/btnEdit"
-        android:layout_toRightOf="@+id/btnEdit"
-        android:text="Back"
-        app:bootstrapBrand="primary"
-        app:buttonMode="regular"
-        app:roundedCorners="true"
-        app:showOutline="false" /-->
+            <TextView
+                android:id="@+id/ex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnEdit"
-        android:layout_gravity="right"
-        android:layout_toRightOf="@+id/btnEdit"
-        android:background="@color/appBackground"
-        android:contentDescription="back"
-        android:gravity="right"
-        android:src="@mipmap/ic_return" />
+                android:padding="1dp"
+                android:text="[Example]"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/grey" />
 
+            <TextView
+                android:id="@+id/textEX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Vad ska göra?"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/green" />
+        </LinearLayout>
 
-</RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txetten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Ett/En]"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textEtten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="etten"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/red" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txPartOfSpeach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Part of Speach]"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/textPartOfSpeach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Part of Speach"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textColor="@color/orange" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txDateCreated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="[Date Created]"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/grey" />
+
+            <TextView
+                android:id="@+id/texDateCreated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textPartOfSpeach"
+                android:fontFamily="sans-serif-thin"
+                android:paddingLeft="10dp"
+                android:text="Date"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:text="DELETE"
+                android:textColor="@android:color/white" />
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/colorPrimary"
+                android:paddingLeft="10dp"
+                android:text="EDIT"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
 

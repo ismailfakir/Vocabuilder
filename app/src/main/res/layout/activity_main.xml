@@ -3,18 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/appBackground"
+    android:background="@color/white"
     android:orientation="vertical">
-
-    <!--android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:theme="@style/ThemeToolbar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/-->
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -32,7 +22,10 @@
         android:layout_height="wrap_content" android:layout_gravity="center"
         android:ems="10"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
 
         <EditText
             android:id="@+id/myFilter"
@@ -43,37 +36,13 @@
             <requestFocus />
         </EditText>
 
-        <!--ImageButton
-            android:id="@+id/btnadd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/myFilter"
-            android:background="@color/appBackground"
-            android:contentDescription="add new"
-            android:src="@mipmap/ic_plus" />
-
-        <ImageButton
-            android:id="@+id/btnMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/myFilter"
-            android:background="@color/appBackground"
-            android:contentDescription="main menu"
-            android:src="@mipmap/ic_action" /-->
+        <ListView
+            android:id="@+id/listView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
 
     </LinearLayout>
 
-    <!--Spinner
-            android:id="@+id/menu_spinner"
-            android:layout_width="132dp"
-            android:layout_height="match_parent"
-            android:layout_alignBaseline="@+id/myFilter"
-            android:background="@drawable/english"
-            android:layout_alignBottom="@+id/myFilter"
-            android:layout_gravity="right"/-->
 
-
-    <ListView android:id="@+id/listView1" android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
 
 </LinearLayout>
