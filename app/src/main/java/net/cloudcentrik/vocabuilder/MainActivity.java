@@ -61,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
         //Generate ListView from SQLite Database
         displayListView();
 
+        //CreatePDF.createPdfWordList(dbHelper.getAllWords());
+
         //Generate Spinner menue
         //displaySpinner();
 
@@ -115,6 +117,15 @@ public class MainActivity extends AppCompatActivity {
                 // Start ExampleActivity
                 myIntent = new Intent(MainActivity.this,
                         ExampleActivity.class);
+                startActivity(myIntent);
+                return (true);
+            case R.id.action_save:
+                // Start ExampleActivity
+               /* String fPath=CreatePDF.createPdfWordList(this.dbHelper.getAllWords());
+                Toast.makeText(this,"Word List Created in "+fPath, Toast.LENGTH_SHORT).show();*/
+                // Start ExampleActivity
+                myIntent = new Intent(MainActivity.this,
+                        SaveActivity.class);
                 startActivity(myIntent);
                 return (true);
 

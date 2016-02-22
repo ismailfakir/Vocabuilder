@@ -8,245 +8,274 @@
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:gravity="center_vertical"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:paddingTop="30dp">
+        <!--  <LinearLayout
+              android:layout_width="fill_parent"
+              android:layout_height="match_parent"
+              android:layout_marginTop="?attr/actionBarSize"
+              android:gravity="center_vertical"
+              android:orientation="vertical"
+              android:paddingLeft="20dp"
+              android:paddingRight="20dp"
+              android:paddingTop="30dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
 
-                    android:layout_gravity="center_horizontal"
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
 
-                    android:gravity="center_horizontal"
-                    android:padding="10dip"
-                    android:text="Statistics"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/abc_text_size_title_material" />
+                  <TextView
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
 
-            </LinearLayout>
+                      android:layout_gravity="center_horizontal"
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                      android:gravity="center_horizontal"
+                      android:padding="10dip"
+                      android:text="Statistics"
+                      android:textColor="@color/black"
+                      android:textSize="@dimen/abc_text_size_title_material" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:padding="10dip"
-                    android:text="No of Word:"
-                    android:textColor="@color/black"
-                    android:textSize="@dimen/abc_text_size_title_material" />
+              </LinearLayout>
 
-                <TextView
-                    android:id="@+id/noOfWord"
-                    style="@style/MyTextViewStyle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="17"
-                    android:textColor="@color/bootstrap_brand_primary" />
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
 
-            </LinearLayout>
+                  <TextView
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="left"
+                      android:padding="10dip"
+                      android:text="No of Word:"
+                      android:textColor="@color/black"
+                      android:textSize="@dimen/abc_text_size_title_material" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                  <TextView
+                      android:id="@+id/noOfWord"
+                      style="@style/MyTextViewStyle1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="right"
+                      android:text="17"
+                      android:textColor="@color/bootstrap_brand_primary" />
 
-                <TextView
-                    style="@style/StatisticsTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="Noun" />
+              </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txtNoun"
-                    style="@style/MyTextViewStyle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="17"
-                    android:textColor="@color/bootstrap_brand_primary" />
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                  <TextView
+                      style="@style/StatisticsTextStyle"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="left"
+                      android:text="Noun" />
 
-                <TextView
-                    style="@style/StatisticsTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="Pronoun" />
+                  <TextView
+                      android:id="@+id/txtNoun"
+                      style="@style/MyTextViewStyle1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="left"
+                      android:text="17"
+                      android:textColor="@color/bootstrap_brand_primary" />
 
-                <TextView
-                    android:id="@+id/txtProNoun"
-                    style="@style/MyTextViewStyle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="09"
-                    android:textColor="@color/bootstrap_brand_primary" />
+                  <View
+                      android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1" />
 
-            </LinearLayout>
+                  <TextView
+                      style="@style/StatisticsTextStyle"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="left"
+                      android:text="Pronoun" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                  <TextView
+                      android:id="@+id/txtProNoun"
+                      style="@style/MyTextViewStyle1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="left"
+                      android:text="09"
+                      android:textColor="@color/bootstrap_brand_primary" />
 
-                <TextView
-                    style="@style/StatisticsTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
+              </LinearLayout>
 
-                    android:text="Adjective" />
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtAdjective"
-                    style="@style/MyTextViewStyle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="23"
-                    android:textColor="@color/bootstrap_brand_primary" />
+                  <TextView
+                      style="@style/StatisticsTextStyle"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="left"
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                      android:text="Adjective" />
 
-                <TextView
-                    style="@style/StatisticsTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
+                  <TextView
+                      android:id="@+id/txtAdjective"
+                      style="@style/MyTextViewStyle1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="left"
+                      android:text="23"
+                      android:textColor="@color/bootstrap_brand_primary" />
 
-                    android:text="Verb" />
+                  <View
+                      android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1" />
 
-                <TextView
-                    android:id="@+id/txtVerb"
-                    style="@style/MyTextViewStyle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="left"
-                    android:text="13"
-                    android:textColor="@color/bootstrap_brand_primary" />
+                  <TextView
+                      style="@style/StatisticsTextStyle"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="left"
 
-            </LinearLayout>
+                      android:text="Verb" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                  <TextView
+                      android:id="@+id/txtVerb"
+                      style="@style/MyTextViewStyle1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="left"
+                      android:text="13"
+                      android:textColor="@color/bootstrap_brand_primary" />
 
-                <TextView
-                    style="@style/StatisticsTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
+              </LinearLayout>
 
-                    android:text="Adverb" />
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtAdverb"
-                    style="@style/MyTextViewStyle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="05"
-                    android:textColor="@color/bootstrap_brand_primary" />
+                  <TextView
+                      style="@style/StatisticsTextStyle"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="right"
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                      android:text="Adverb" />
 
-                <TextView
-                    style="@style/StatisticsTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="2"
-                    android:layout_gravity="center"
-                    android:gravity="right"
+                  <TextView
+                      android:id="@+id/txtAdverb"
+                      style="@style/MyTextViewStyle1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="right"
+                      android:text="05"
+                      android:textColor="@color/bootstrap_brand_primary" />
 
-                    android:text="Preposition" />
+                  <View
+                      android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1" />
 
-                <TextView
-                    android:id="@+id/txtPrePosition"
-                    style="@style/MyTextViewStyle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_column="3"
-                    android:layout_gravity="left"
-                    android:gravity="right"
-                    android:text="11"
-                    android:textColor="@color/bootstrap_brand_primary" />
+                  <TextView
+                      style="@style/StatisticsTextStyle"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_column="2"
+                      android:layout_gravity="center"
+                      android:gravity="right"
 
-            </LinearLayout>
+                      android:text="Preposition" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                  <TextView
+                      android:id="@+id/txtPrePosition"
+                      style="@style/MyTextViewStyle1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_column="3"
+                      android:layout_gravity="left"
+                      android:gravity="right"
+                      android:text="11"
+                      android:textColor="@color/bootstrap_brand_primary" />
 
-                <TextView
-                    style="@style/StatisticsTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="Conjuction" />
+              </LinearLayout>
 
-                <TextView
-                    android:id="@+id/txtConjunction"
-                    style="@style/MyTextViewStyle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="right"
-                    android:text="04"
-                    android:textColor="@color/bootstrap_brand_primary" />
+              <LinearLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal">
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1" />
+                  <TextView
+                      style="@style/StatisticsTextStyle"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="right"
+                      android:text="Conjuction" />
 
-                <TextView
-                    style="@style/StatisticsTextStyle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Interjection" />
+                  <TextView
+                      android:id="@+id/txtConjunction"
+                      style="@style/MyTextViewStyle1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:gravity="right"
+                      android:text="04"
+                      android:textColor="@color/bootstrap_brand_primary" />
 
-                <TextView
-                    android:id="@+id/txtInterjection"
-                    style="@style/MyTextViewStyle1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="06"
-                    android:textColor="@color/bootstrap_brand_primary" />
+                  <View
+                      android:layout_width="0dp"
+                      android:layout_height="match_parent"
+                      android:layout_weight="1" />
 
-            </LinearLayout>
+                  <TextView
+                      style="@style/StatisticsTextStyle"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="Interjection" />
 
-        </LinearLayout>
+                  <TextView
+                      android:id="@+id/txtInterjection"
+                      style="@style/MyTextViewStyle1"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:text="06"
+                      android:textColor="@color/bootstrap_brand_primary" />
+
+              </LinearLayout>
+
+          </LinearLayout>-->
+
 
     </android.support.v4.widget.NestedScrollView>
+
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <!--<com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />-->
+        <!--
+                <LinearLayout
+                    android:id="@+id/linear"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                </LinearLayout>-->
+
+        <com.github.mikephil.charting.charts.HorizontalBarChart
+            android:id="@+id/chart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </RelativeLayout>
+
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"

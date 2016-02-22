@@ -5,17 +5,17 @@
         <layer-list>
             <item>
                 <shape>
-                    <gradient android:angle="90" android:endColor="@color/white" android:startColor="@color/colorPrimary" android:type="linear" />
+                    <gradient android:angle="90" android:endColor="@color/white" android:startColor="@color/greyLight" android:type="linear" />
 
-                    <stroke android:width="1dp" android:color="@color/colorPrimaryDark" />
+                    <stroke android:width="1dp" android:color="@color/grey" />
 
                     <corners android:radius="5dp" />
 
-                    <padding android:bottom="3dp" android:left="3dp" android:right="3dp" android:top="3dp" />
+                    <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp" />
                 </shape>
             </item>
             <item>
-                <bitmap android:gravity="bottom|right" android:src="@mipmap/ic_spinner_bg1" />
+                <bitmap android:gravity="bottom|right" android:src="@mipmap/ic_spinner_arrow" />
             </item>
         </layer-list>
     </item>

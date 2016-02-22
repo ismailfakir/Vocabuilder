@@ -33,5 +33,11 @@
         android:title="Example"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_save"
+        android:icon="@mipmap/ic_info"
+        android:title="Save Word"
+        app:showAsAction="never" />
+
 
 </menu>

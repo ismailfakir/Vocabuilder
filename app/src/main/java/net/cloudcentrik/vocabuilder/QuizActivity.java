@@ -1,18 +1,20 @@
 package net.cloudcentrik.vocabuilder;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.View;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Random;
+import java.util.List;
 
 /**
  * Created by ismail on 2016-01-03.
@@ -26,6 +28,9 @@ public class QuizActivity extends AppCompatActivity {
     private RadioButton option2;
     private RadioButton option3;
     private RadioButton option4;
+
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +49,43 @@ public class QuizActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
 
-        dbHelper = new WordDbAdapter(this);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
+
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+
+                viewPager.setCurrentItem(tab.getPosition());
+
+                switch (tab.getPosition()) {
+                    case 0:
+                        showToast("One");
+                        break;
+                    case 1:
+                        showToast("Two");
+                        break;
+                    case 2:
+                        showToast("Three");
+                        break;
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
+        /*dbHelper = new WordDbAdapter(this);
         dbHelper.open();
 
         question = (TextView) findViewById(R.id.txtQuestion);
@@ -55,15 +96,7 @@ public class QuizActivity extends AppCompatActivity {
         createAQuiz();
 
 
-        /*ImageButton closeButton = (ImageButton) findViewById(R.id.btnQuizBack);
-        closeButton.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-
-                finish();
-            }
-        });*/
 
         Button submitButton = (Button) findViewById(R.id.btnSubmit);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -73,10 +106,15 @@ public class QuizActivity extends AppCompatActivity {
 
                 createAQuiz();
             }
-        });
+        });*/
     }
 
-    @Override
+    void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+
+    /*@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menue, menu);
         return true;
@@ -106,11 +144,11 @@ public class QuizActivity extends AppCompatActivity {
             option4.setText(allWords.get(option[3]).getEnglish());
         }
 
-        /*Cursor c=dbHelper.fetchAllWords();
+        *//*Cursor c=dbHelper.fetchAllWords();
         c.moveToFirst();
         String s=c.getString(c.getColumnIndex("swedish"));
 
-        question.setText("What is the meaning of " + s + " ?");*/
+        question.setText("What is the meaning of " + s + " ?");*//*
 
 
     }
@@ -136,5 +174,43 @@ public class QuizActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         dbHelper.close();
+    }*/
+
+    //tab
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new MeaningFragment(), "Meaning");
+        adapter.addFragment(new EttEnFragment(), "Ett En");
+        adapter.addFragment(new PartOfSpeachFragment(), "PartOfSpeech");
+        viewPager.setAdapter(adapter);
+    }
+
+    class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
     }
 }
