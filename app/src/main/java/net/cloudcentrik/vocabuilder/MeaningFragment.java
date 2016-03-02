@@ -1,12 +1,16 @@
 package net.cloudcentrik.vocabuilder;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -28,8 +32,12 @@ public class MeaningFragment extends Fragment {
 
     private Context globalContext = null;
 
+    private String userAnswer;
+
     public MeaningFragment() {
         // Required empty public constructor
+
+        this.userAnswer = "";
     }
 
     public static MeaningFragment newInstance() {
@@ -41,18 +49,6 @@ public class MeaningFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         globalContext = getActivity().getApplicationContext();
-
-
-        /*Button submitButton = (Button) findViewById(R.id.btnMeaningCheckAnswer);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                createAQuiz();
-            }
-        });*/
-
     }
 
     @Override
@@ -68,6 +64,64 @@ public class MeaningFragment extends Fragment {
         option2 = (RadioButton) view.findViewById(R.id.radioMeaning2);
         option3 = (RadioButton) view.findViewById(R.id.radioMeaning3);
         option4 = (RadioButton) view.findViewById(R.id.radioMeaning4);
+
+        Button endButton = (Button) view.findViewById(R.id.btnMeaningEnd);
+        endButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                getActivity().finish();
+            }
+        });
+
+        Button submitButton = (Button) view.findViewById(R.id.btnMeaningCheckAnswer);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                //createAQuiz();
+                checkAnswer();
+                createAQuiz();
+            }
+        });
+
+        RadioGroup rg = (RadioGroup) view.findViewById(R.id.radioGroup1);
+
+
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.radioMeaning1:
+                        // do operations specific to this selection
+                        //checkAnswer(1);
+                        userAnswer = option1.getText().toString();
+                        break;
+
+                    case R.id.radioMeaning2:
+                        // do operations specific to this selection
+                        //checkAnswer(2);
+                        userAnswer = option2.getText().toString();
+                        break;
+
+                    case R.id.radioMeaning3:
+                        // do operations specific to this selection
+                        //checkAnswer(3);
+                        userAnswer = option3.getText().toString();
+                        break;
+                    case R.id.radioMeaning4:
+                        // do operations specific to this selection
+                        //checkAnswer(4);
+                        userAnswer = option4.getText().toString();
+                        break;
+
+                }
+
+
+            }
+        });
+
 
         return view;
     }
@@ -102,6 +156,10 @@ public class MeaningFragment extends Fragment {
             option4.setText(allWords.get(option[3]).getEnglish());
         } else {
             txtMeaningQuestion.setText("No Question to asked");
+            option1.setText("NO DATA");
+            option2.setText("NO DATA");
+            option3.setText("NO DATA");
+            option4.setText("NO DATA");
         }
 
         /*Cursor c=dbHelper.fetchAllWords();
@@ -109,7 +167,6 @@ public class MeaningFragment extends Fragment {
         String s=c.getString(c.getColumnIndex("swedish"));
 
         txtMeaningQuestion.setText("What is the meaning of " + s + " ?");*/
-
 
     }
 
@@ -128,5 +185,82 @@ public class MeaningFragment extends Fragment {
 
         createAQuiz();
 
+    }
+
+
+    public void checkAnswer() {
+
+        if (userAnswer.equals(allWords.get(0).getEnglish())) {
+
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+            alertDialog.setTitle("Answer");
+            alertDialog.setMessage("Correct answer....Meaning of '" + allWords.get(0).getSwedish() + "' is " + userAnswer);
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.setIcon(R.mipmap.ic_info);
+            alertDialog.show();
+
+        } else {
+
+            AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+            alertDialog.setTitle("Answer");
+            alertDialog.setMessage("Wrong answer....Meaning of '" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getEnglish());
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+
+        option1.setChecked(false);
+        option2.setChecked(false);
+        option3.setChecked(false);
+        option4.setChecked(false);
+        Collections.shuffle(allWords);
+
+
+
+
+
+       /* String userAnswer = option1.getText().toString();
+        String correctAnswer = allWords.get(0).getEnglish();*/
+
+        /*switch (i){
+            case 1:
+                if (userAnswer.equals(correctAnswer)) {
+                    option1.setBackgroundColor(Color.GREEN);
+
+                } else {
+                    option1.setBackgroundColor(Color.RED);
+                }
+                break;
+            case 2:
+                if (userAnswer.equals(correctAnswer)) {
+                    option2.setBackgroundColor(Color.GREEN);
+                } else {
+                    option2.setBackgroundColor(Color.RED);
+                }
+                break;
+            case 3:
+                if (userAnswer.equals(correctAnswer)) {
+                    option3.setBackgroundColor(Color.GREEN);
+                } else {
+                    option3.setBackgroundColor(Color.RED);
+                }
+                break;
+            case 4:
+                if (userAnswer.equals(correctAnswer)) {
+                    option4.setBackgroundColor(Color.GREEN);
+                } else {
+                    option4.setBackgroundColor(Color.RED);
+                }
+                break;
+        }*/
     }
 }

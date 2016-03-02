@@ -1,13 +1,16 @@
 package net.cloudcentrik.vocabuilder;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -33,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
     TextView count;
     private WordDbAdapter dbHelper;
     private SimpleCursorAdapter dataAdapter;
+    private boolean mSearchOpened;
+    private String mSearchQuery;
+    private Drawable mIconOpenSearch;
+    private Drawable mIconCloseSearch;
+    private MenuItem mSearchAction;
+    private Toolbar myToolbar;
+    private EditText mSearchEt;
+
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -44,14 +55,34 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        // Getting the list of movies to fill the list view.
+        if (savedInstanceState == null) {
+            mSearchOpened = false;
+            mSearchQuery = "";
+        } else {
+
+            mSearchOpened = savedInstanceState.getBoolean("SEARCH_OPENED");
+            mSearchQuery = savedInstanceState.getString("SEARCH_QUERY");
+        }
+
+        myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setLogo(R.mipmap.ic_launcher1);
         //myToolbar.setTitleTextAppearance(this, R.style.MyTitleTextApperance);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         dbHelper = new WordDbAdapter(this);
         dbHelper.open();
+
+        // Getting the icons.
+        /*mIconOpenSearch = getResources()
+                .getDrawable(R.mipmap.ic_search);
+        mIconCloseSearch = getResources()
+                .getDrawable(R.mipmap.ic_cancel);*/
+
+        mIconOpenSearch = ContextCompat.getDrawable(this, R.mipmap.ic_search);
+        mIconCloseSearch = ContextCompat.getDrawable(this, R.mipmap.ic_cancel);
 
         //Clean all data
         //dbHelper.deleteAllWords();
@@ -73,11 +104,44 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void setupSearchView(SearchView mSearchView) {
+        mSearchView.setIconifiedByDefault(false);
+        mSearchView.setSubmitButtonEnabled(true);
+        mSearchView.setQueryHint("Search Here");
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menue, menu);
+
+        // Retrieve the SearchView and plug it into SearchManager
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        //return true;
+
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setQueryHint("Search Here");
+        searchView.setSubmitButtonEnabled(true);
+
+        //setupSearchView(searchView);
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                dataAdapter.getFilter().filter(newText.toString());
+                return true;
+            }
+        });
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -127,6 +191,14 @@ public class MainActivity extends AppCompatActivity {
                 myIntent = new Intent(MainActivity.this,
                         SaveActivity.class);
                 startActivity(myIntent);
+                return (true);
+
+            case R.id.action_search:
+                /*if (mSearchOpened) {
+                    closeSearchBar();
+                } else {
+                    openSearchBar(mSearchQuery);
+                }*/
                 return (true);
 
         }
@@ -203,7 +275,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        EditText myFilter = (EditText) findViewById(R.id.myFilter);
+       /* EditText myFilter = (EditText) findViewById(R.id.myFilter);
         myFilter.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {
@@ -217,7 +289,7 @@ public class MainActivity extends AppCompatActivity {
                                       int before, int count) {
                 dataAdapter.getFilter().filter(s.toString());
             }
-        });
+        });*/
 
         dataAdapter.setFilterQueryProvider(new FilterQueryProvider() {
             public Cursor runQuery(CharSequence constraint) {
@@ -276,4 +348,5 @@ public class MainActivity extends AppCompatActivity {
         dataAdapter.notifyDataSetChanged();
 
     }
+
 }

@@ -4,8 +4,14 @@
     tools:context=".MainActivity">
 
     <item
+        android:id="@+id/action_search"
+        android:icon="@mipmap/ic_search"
+        android:title="Search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/add"
-        android:icon="@mipmap/ic_add_word"
+        android:icon="@mipmap/ic_add_box"
         android:title="Add new"
         app:showAsAction="always" />
 

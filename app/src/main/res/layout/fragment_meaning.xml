@@ -22,7 +22,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <RadioGroup
-            android:id="@+id/radioGroup2"
+            android:id="@+id/radioGroup1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -37,7 +37,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/rbtn_selector"
                 android:button="@null"
-                android:checked="true"
+                android:checked="false"
                 android:gravity="center"
                 android:padding="10dp"
                 android:text="Android"
@@ -90,7 +90,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnEndQuiz"
+                android:id="@+id/btnMeaningEnd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -111,7 +111,6 @@
                 android:text="Next" />
 
         </LinearLayout>
-
 
     </LinearLayout>
 
