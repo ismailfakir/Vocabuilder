@@ -135,7 +135,8 @@ public class AddNewActivity extends AppCompatActivity {
 
             snackbar.show();*/
 
-            clearText();
+            //clearText();
+            finish();
 
         } else {
             Toast.makeText(AddNewActivity.this, "Some thing go wrong", Toast.LENGTH_SHORT).show();

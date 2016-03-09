@@ -9,11 +9,11 @@
         android:title="Search"
         app:actionViewClass="android.support.v7.widget.SearchView"
         app:showAsAction="always" />
-    <item
+    <!--<item
         android:id="@+id/add"
         android:icon="@mipmap/ic_add_box"
         android:title="Add new"
-        app:showAsAction="always" />
+        app:showAsAction="always" />-->
 
     <item
         android:id="@+id/test"
@@ -37,6 +37,12 @@
         android:id="@+id/action_example"
         android:icon="@mipmap/ic_info"
         android:title="Example"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_dictonary"
+        android:icon="@mipmap/ic_info"
+        android:title="Dictonary"
         app:showAsAction="never" />
 
     <item

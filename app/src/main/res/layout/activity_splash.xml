@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/appBackground"
+    android:background="@color/windowBackgroundGreen"
     android:orientation="vertical">
 
 
@@ -12,12 +12,12 @@
         android:layout_gravity="center_vertical"
         android:gravity="center"
         android:padding="12dp"
-        android:shadowColor="@color/black"
+        android:shadowColor="@color/colorShadow"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="24"
         android:text="@string/appName"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimaryDarkGreen"
         android:textSize="50sp"
         android:textStyle="bold" />
 

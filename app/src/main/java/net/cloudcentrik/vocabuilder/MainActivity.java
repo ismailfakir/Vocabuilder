@@ -6,11 +6,13 @@ import android.database.Cursor;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,6 +28,8 @@ import android.widget.TextView;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
+
+import java.lang.reflect.Method;
 
 
 /**
@@ -67,9 +71,23 @@ public class MainActivity extends AppCompatActivity {
 
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         myToolbar.setLogo(R.mipmap.ic_launcher1);
+        Drawable drawable = ContextCompat.getDrawable(this.getApplicationContext(), R.mipmap.ic_main_menu_white);
+        myToolbar.setOverflowIcon(drawable);
+        //myToolbar.setOverflowIcon(R.drawable.button_bg_green);
+        //myToolbar.setNavigationIcon(R.mipmap.ic_action);
         //myToolbar.setTitleTextAppearance(this, R.style.MyTitleTextApperance);
         setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_add);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Click action
+                Intent intent = new Intent(MainActivity.this, AddNewActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         dbHelper = new WordDbAdapter(this);
@@ -152,12 +170,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            case R.id.add:
+            /*case R.id.add:
                 // Start AddNewActivity.class
                 myIntent = new Intent(MainActivity.this,
                         AddNewActivity.class);
                 startActivity(myIntent);
-                return (true);
+                return (true);*/
             case R.id.test:
                 // Start QuizActivity.class
 
@@ -183,22 +201,20 @@ public class MainActivity extends AppCompatActivity {
                         ExampleActivity.class);
                 startActivity(myIntent);
                 return (true);
+            case R.id.action_dictonary:
+                // Start ExampleActivity
+                myIntent = new Intent(MainActivity.this,
+                        DictonaryActivity.class);
+                startActivity(myIntent);
+                return (true);
             case R.id.action_save:
-                // Start ExampleActivity
-               /* String fPath=CreatePDF.createPdfWordList(this.dbHelper.getAllWords());
-                Toast.makeText(this,"Word List Created in "+fPath, Toast.LENGTH_SHORT).show();*/
-                // Start ExampleActivity
                 myIntent = new Intent(MainActivity.this,
                         SaveActivity.class);
                 startActivity(myIntent);
                 return (true);
 
             case R.id.action_search:
-                /*if (mSearchOpened) {
-                    closeSearchBar();
-                } else {
-                    openSearchBar(mSearchQuery);
-                }*/
+
                 return (true);
 
         }
@@ -349,4 +365,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Show icon in menu
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (menu != null) {
+            if (menu.getClass().getSimpleName().equals("MenuBuilder")) {
+                try {
+                    Method m = menu.getClass().getDeclaredMethod(
+                            "setOptionalIconsVisible", Boolean.TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true);
+                } catch (Exception e) {
+                    Log.e(getClass().getSimpleName(), "onMenuOpened...unable to set icons for overflow menu", e);
+                }
+            }
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
 }

@@ -13,12 +13,17 @@
 
     </style>
 
-    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimaryGreen</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDarkGreen</item>
+        <item name="colorAccent">@color/colorAccentGreen</item>
+        <item name="android:actionMenuTextColor">@color/green</item>
+        <item name="android:actionModeBackground">@color/grey</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/blueLight</item>
+        <item name="android:textColor">@color/blueDark</item>
     </style>
 
 
@@ -264,8 +269,8 @@
     </style>
 
     <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:background">@android:color/white</item>
-        <item name="android:textColor">#000</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/green</item>
     </style>
 
     <!-- Toolbar Style -->

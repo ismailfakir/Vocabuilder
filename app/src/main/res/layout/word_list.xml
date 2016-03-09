@@ -63,7 +63,7 @@
             android:paddingTop="5dp"
             android:text="DO"
             android:textAppearance="?android:attr/textAppearance"
-            android:textColor="@color/blue" />
+            android:textColor="@color/green" />
 
     </LinearLayout>
 

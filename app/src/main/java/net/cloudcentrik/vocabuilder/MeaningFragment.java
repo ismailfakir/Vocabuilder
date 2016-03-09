@@ -201,13 +201,14 @@ public class MeaningFragment extends Fragment {
                             dialog.dismiss();
                         }
                     });
-            alertDialog.setIcon(R.mipmap.ic_info);
+            alertDialog.setIcon(R.mipmap.ic_right);
             alertDialog.show();
 
         } else {
 
             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
             alertDialog.setTitle("Answer");
+            alertDialog.setIcon(R.mipmap.ic_wrong);
             alertDialog.setMessage("Wrong answer....Meaning of '" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getEnglish());
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {

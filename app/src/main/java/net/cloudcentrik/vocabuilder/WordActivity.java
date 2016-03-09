@@ -71,7 +71,7 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
         createWordView();
 
         // edit button
-        buttonEdit = (Button) findViewById(R.id.btnEdit);
+        /*buttonEdit = (Button) findViewById(R.id.btnEdit);
         buttonEdit.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -107,7 +107,7 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
                 alert.show();
 
             }
-        });
+        });*/
 
 
     }
@@ -167,6 +167,7 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
 
         // create an alert dialog
         AlertDialog alert = alertDialogBuilder.create();
+        alert.setTitle("Edit Word");
         alert.show();
     }
 
