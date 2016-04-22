@@ -195,12 +195,7 @@ public class MainActivity extends AppCompatActivity {
                         AboutActivity.class);
                 startActivity(myIntent);
                 return (true);
-            case R.id.action_example:
-                // Start ExampleActivity
-                myIntent = new Intent(MainActivity.this,
-                        ExampleActivity.class);
-                startActivity(myIntent);
-                return (true);
+
             case R.id.action_dictonary:
                 // Start ExampleActivity
                 myIntent = new Intent(MainActivity.this,

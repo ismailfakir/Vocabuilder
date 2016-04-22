@@ -1,6 +1,7 @@
 package net.cloudcentrik.vocabuilder;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
@@ -12,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -64,7 +66,7 @@ public class AddNewActivity extends AppCompatActivity {
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.words_array, android.R.layout.simple_spinner_item);
+                R.array.part_of_speech, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
@@ -180,13 +182,13 @@ public class AddNewActivity extends AppCompatActivity {
 
     private void requestFocus(View view) {
         if (view.requestFocus()) {
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         }
     }
 
     private boolean validateSwedish() {
         if (txtSwedish.getText().toString().trim().isEmpty()) {
-            inputLayoutSwedish.setError(getString(R.string.err_msg));
+            inputLayoutSwedish.setError(getString(R.string.error_message));
             requestFocus(txtSwedish);
             return false;
         } else {
@@ -229,6 +231,14 @@ public class AddNewActivity extends AppCompatActivity {
         }
     }
 
+    private void hideKeyboard() {
+        View view = getCurrentFocus();
+        if (view != null) {
+            ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).
+                    hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+        }
+    }
+
     private class MyTextWatcher implements TextWatcher {
 
         private View view;
@@ -255,6 +265,7 @@ public class AddNewActivity extends AppCompatActivity {
                     validatePassword();
                     break;
             }*/
+            //hideKeyboard();
             validateSwedish();
         }
     }

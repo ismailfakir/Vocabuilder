@@ -24,403 +24,72 @@
             android:textSize="20dp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Huvudentre"
-                android:textColor="@color/green"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/part_of_speech"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Huvudentre"
-                android:textColor="@color/green"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/part_of_speech"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Huvudentre"
-                android:textColor="@color/green"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/part_of_speech"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="Huvudentre"
-                android:textColor="@color/green"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner4"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/part_of_speech"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="WORD FIVE"
-                android:textColor="@color/green"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spinner5"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="left"
-                android:layout_marginBottom="10dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/part_of_speech"
-                android:textSize="10dp" />
-        </LinearLayout>
-
-        <!--<LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/layout_border"
-            android:layout_margin="15dp">
-
-            <TextView
+                android:id="@+id/txtEditPartofspeechWord"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="WORD ONE"
+                android:layout_gravity="right"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Word"
                 android:textColor="@color/green"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />
-
-           &lt;!&ndash; <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="select Part of Speech"
-                android:textColor="@color/blue"
-                android:textStyle="bold"
                 android:textSize="15dp"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />&ndash;&gt;
+                android:textStyle="bold" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/spinner_partofspeach"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/part_of_speech"
+                android:layout_gravity="left"
+                android:layout_marginBottom="150dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
                 android:background="@drawable/spinner_bg"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/layout_border"
-            android:layout_margin="15dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="WORD ONE"
-                android:textColor="@color/green"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />
-
-            &lt;!&ndash;<TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="select Part of Speech"
-                android:textColor="@color/blue"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />&ndash;&gt;
-
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:drawSelectorOnTop="true"
                 android:entries="@array/part_of_speech"
-                android:background="@drawable/spinner_bg"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />
-        </LinearLayout>
+                android:popupBackground="@color/green"
+                android:textSize="10dp" />
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/layout_border"
-            android:layout_margin="15dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="WORD ONE"
-                android:textColor="@color/green"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />
-
-            &lt;!&ndash;<TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="select Part of Speech"
-                android:textColor="@color/blue"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />&ndash;&gt;
-
-            <Spinner
-                android:id="@+id/spinner4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/part_of_speech"
-                android:background="@drawable/spinner_bg"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/layout_border"
-            android:layout_margin="15dp">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="WORD ONE"
-                android:textColor="@color/green"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />
-
-            &lt;!&ndash;<TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="select Part of Speech"
-                android:textColor="@color/blue"
-                android:textStyle="bold"
-                android:textSize="15dp"
-                android:gravity="center"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />&ndash;&gt;
-
-            <Spinner
-                android:id="@+id/spinner5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawSelectorOnTop="true"
-                android:entries="@array/part_of_speech"
-                android:background="@drawable/spinner_bg"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="10dp"
-                />
-        </LinearLayout>-->
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
+            android:layout_margin="15dp"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnEndQuiz"
+                android:id="@+id/btnPartofspeachEnd"
+                style="@style/button_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="End Test" />
+                android:background="@drawable/button_bg_green_shadow"
+                android:text="End" />
 
             <Button
-                android:id="@+id/btnCheckAnswer"
+                android:id="@+id/btnPartofspeachCheckAnswer"
+                style="@style/button_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/button_bg_green_shadow"
                 android:text="Check" />
 
 
             <Button
-                android:id="@+id/btnNext"
+                android:id="@+id/btnPartofspeachNext"
+                style="@style/button_style"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@drawable/button_bg_green_shadow"
                 android:text="Next" />
 
         </LinearLayout>

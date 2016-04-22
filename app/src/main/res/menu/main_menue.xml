@@ -17,38 +17,31 @@
 
     <item
         android:id="@+id/test"
-        android:icon="@mipmap/ic_test"
-        android:title="Random Test"
+        android:icon="@mipmap/ic_question_balack"
+        android:title="Test"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/stat"
-        android:icon="@mipmap/ic_stat"
+        android:icon="@mipmap/ic_chart_black"
         android:title="Statistics"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/about"
-        android:icon="@mipmap/ic_info"
-        android:title="about"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_example"
-        android:icon="@mipmap/ic_info"
-        android:title="Example"
-        app:showAsAction="never" />
-
-    <item
         android:id="@+id/action_dictonary"
-        android:icon="@mipmap/ic_info"
+        android:icon="@mipmap/ic_dictonary_black"
         android:title="Dictonary"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_save"
-        android:icon="@mipmap/ic_info"
-        android:title="Save Word"
+        android:icon="@mipmap/ic_backup"
+        android:title="Save"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/about"
+        android:icon="@mipmap/ic_info_black"
+        android:title="About"
         app:showAsAction="never" />
 
 

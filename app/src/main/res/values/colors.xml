@@ -14,13 +14,13 @@
     <!--Theme Green-->
     <color name="colorPrimaryGreen">#2e7d32</color>
     <color name="colorPrimaryDarkGreen">#1b5e20</color>
-    <color name="colorAccentGreen">#c8e6c9</color>
+    <color name="colorAccentGreen">#8bc34a</color>
     <color name="textColorPrimaryGreen">#FFFFFF</color>
     <color name="windowBackgroundGreen">#e8f5e9</color>
     <color name="navigationBarColorGreen">#000000</color>
     <color name="colorShadow">#66000000</color>
 
-    <!--Theme Blue End-->
+    <!--Theme Green End-->
 
 
     <color name="black">#000000</color>

@@ -185,6 +185,10 @@ public class QuizActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
     }
 
+    public void setCurrentItem(int item, boolean smoothScroll) {
+        viewPager.setCurrentItem(item, smoothScroll);
+    }
+
     class ViewPagerAdapter extends FragmentPagerAdapter {
         private final List<Fragment> mFragmentList = new ArrayList<>();
         private final List<String> mFragmentTitleList = new ArrayList<>();

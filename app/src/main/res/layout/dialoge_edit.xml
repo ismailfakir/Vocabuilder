@@ -5,49 +5,120 @@
     android:orientation="vertical"
     android:padding="10dp">
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Swedish"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/txtEditSwedish"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:hint="Enter swedish word here.."
-        android:padding="10dp" />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SV"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/grey" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="English"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        <EditText
+            android:id="@+id/txtEditSwedish"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:cursorVisible="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:hint="Enter swedish word here.."
+            android:padding="10dp" />
 
-    <EditText
-        android:id="@+id/txtEditEnglish"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter english word here.."
-        android:padding="10dp" />
+    </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Example"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/txtEditExample"
-        android:layout_width="fill_parent"
+        <CheckBox
+            android:id="@+id/dialogue_checkBoxEtt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:onClick="onCheckboxClicked"
+            android:text="ETT" />
+
+        <CheckBox
+            android:id="@+id/dialogue_checkBoxEn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onCheckboxClicked"
+            android:text="EN" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Example here.."
-        android:padding="10dp" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtEditPartofspeech"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="part of speech"
+            android:padding="10dp" />
+
+        <Spinner
+            android:id="@+id/dialogue_spinner"
+            style="@style/Base.Widget.AppCompat.Spinner.Underlined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:popupBackground="@color/greyLight"
+            android:popupElevation="4dp"
+            android:prompt="@string/spinner_title"
+            android:spinnerMode="dropdown" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EN"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/txtEditEnglish"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter english word here.."
+            android:padding="10dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EX"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/txtEditExample"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Example here.."
+            android:padding="10dp" />
+
+    </LinearLayout>
+
+
 </LinearLayout>

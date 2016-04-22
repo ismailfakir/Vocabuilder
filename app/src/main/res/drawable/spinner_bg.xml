@@ -5,13 +5,15 @@
         <layer-list>
             <item>
                 <shape>
-                    <gradient android:angle="90" android:endColor="@color/white" android:startColor="@color/greyLight" android:type="linear" />
+                    <gradient android:angle="90" android:centerColor="@color/green" android:endColor="@color/white" android:startColor="@color/white" android:type="linear" />
 
-                    <stroke android:width="1dp" android:color="@color/grey" />
+                    <!--<gradient android:angle="270" android:endColor="@color/white" android:centerColor="@color/green" android:startColor="@color/white" android:type="linear" />-->
+
+                    <stroke android:width="0dp" android:color="@color/grey" />
 
                     <corners android:radius="5dp" />
 
-                    <padding android:bottom="1dp" android:left="1dp" android:right="1dp" android:top="1dp" />
+                    <padding android:bottom="0dp" android:left="0dp" android:right="0dp" android:top="0dp" />
                 </shape>
             </item>
             <item>

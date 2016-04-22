@@ -20,7 +20,7 @@
     android:paddingTop="@dimen/activity_vertical_margin">
 
     <TextView
-        style="@style/HeaderText"
+        style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_column="2"
@@ -37,7 +37,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:text="@string/aboutText"
+        android:text="@string/about_text"
         android:textAlignment="gravity"
         android:textColor="@color/black" />
 

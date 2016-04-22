@@ -1,35 +1,21 @@
 <resources>
 
+    <!-- application name -->
     <string name="appName">Voca Builder</string>
-    <string name="appSlogan">A tool to help you building your vocabulary in swedish</string>
+    <string name="app_slogan">A tool to help you building your vocabulary in swedish</string>
 
-    <string name="searchHint">Search Swedish Words</string>
-
+    <!-- spinner title -->
     <string name="spinner_title">Part of Speech</string>
 
-    <string name="developer">Ismail Fakir : ismail.fakir@cloudcentrik.net</string>
+    <!-- error message add new word -->
+    <string name="error_message">Value Required</string>
 
-    <string name="aboutText">Voca Builder is an application to help new language learner to develop their vocabulary. User can check their progress to new language by random test and spastics.</string>
+    <!-- Hints -->
+    <string name="hints_english">English</string>
+    <string name="hints_swedish">Swedish</string>
+    <string name="hints_example">Example</string>
 
-    <string-array name="menu_array">
-        <item>Add new </item>
-        <item>Random Test</item>
-        <item>Statistics</item>
-        <item>About</item>
-    </string-array>
-
-    <string name="swedish">Swedish</string>
-    <string name="english">English</string>
-    <string name="example">example</string>
-
-    <string name="btnAdd">example</string>
-    <string name="btnClear">example</string>
-
-    <string name="err_msg">Value Required</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <!-- Part of Speech -->
     <string-array name="part_of_speech">
         <item name="noun">Noun</item>
         <item>Pronoun</item>
@@ -40,5 +26,10 @@
         <item>Interjection</item>
         <item>Conjunction</item>
     </string-array>
+
+    <!-- about vocabuilder -->
+    <string name="developer">Ismail Fakir : ismail.fakir@cloudcentrik.net</string>
+    <string name="about_text">Voca Builder is an application to help new language learner to develop their vocabulary. User can check their progress to new language by random test and spastics.</string>
+
 
 </resources>

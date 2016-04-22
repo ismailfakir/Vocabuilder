@@ -75,6 +75,17 @@ public class MeaningFragment extends Fragment {
             }
         });
 
+        Button nextButton = (Button) view.findViewById(R.id.btnMeaningNext);
+        nextButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                //
+                ((QuizActivity) getActivity()).setCurrentItem(1, true);
+            }
+        });
+
         Button submitButton = (Button) view.findViewById(R.id.btnMeaningCheckAnswer);
         submitButton.setOnClickListener(new View.OnClickListener() {
 
@@ -142,18 +153,32 @@ public class MeaningFragment extends Fragment {
 
     private void createAQuiz() {
         if (allWords != null) {
-            //int n = generateRandonInRange(0, (int) dbHelper.countWords());
-            //Collections.shuffle(allWords);
-            Word w = allWords.get(0);
-            txtMeaningQuestion.setText("What is the meaning of '" + w.getSwedish() + "' ?");
+            if (allWords.size() < 4) {
+
+                AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+                alertDialog.setTitle("Not Enough Word");
+                alertDialog.setMessage("You need to add alleast four word in word list to Test");
+                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                //dialog.dismiss();
+                                getActivity().finish();
+                            }
+                        });
+                alertDialog.show();
+
+            } else {
+                Word w = allWords.get(0);
+                txtMeaningQuestion.setText("What is the meaning of '" + w.getSwedish() + "' ?");
 
 
-            int option[] = VocabuilderUtils.RandomizeArray(0, 3);
+                int option[] = VocabuilderUtils.RandomizeArray(0, 3);
 
-            option1.setText(allWords.get(option[0]).getEnglish());
-            option2.setText(allWords.get(option[1]).getEnglish());
-            option3.setText(allWords.get(option[2]).getEnglish());
-            option4.setText(allWords.get(option[3]).getEnglish());
+                option1.setText(allWords.get(option[0]).getEnglish());
+                option2.setText(allWords.get(option[1]).getEnglish());
+                option3.setText(allWords.get(option[2]).getEnglish());
+                option4.setText(allWords.get(option[3]).getEnglish());
+            }
         } else {
             txtMeaningQuestion.setText("No Question to asked");
             option1.setText("NO DATA");
@@ -224,44 +249,5 @@ public class MeaningFragment extends Fragment {
         option3.setChecked(false);
         option4.setChecked(false);
         Collections.shuffle(allWords);
-
-
-
-
-
-       /* String userAnswer = option1.getText().toString();
-        String correctAnswer = allWords.get(0).getEnglish();*/
-
-        /*switch (i){
-            case 1:
-                if (userAnswer.equals(correctAnswer)) {
-                    option1.setBackgroundColor(Color.GREEN);
-
-                } else {
-                    option1.setBackgroundColor(Color.RED);
-                }
-                break;
-            case 2:
-                if (userAnswer.equals(correctAnswer)) {
-                    option2.setBackgroundColor(Color.GREEN);
-                } else {
-                    option2.setBackgroundColor(Color.RED);
-                }
-                break;
-            case 3:
-                if (userAnswer.equals(correctAnswer)) {
-                    option3.setBackgroundColor(Color.GREEN);
-                } else {
-                    option3.setBackgroundColor(Color.RED);
-                }
-                break;
-            case 4:
-                if (userAnswer.equals(correctAnswer)) {
-                    option4.setBackgroundColor(Color.GREEN);
-                } else {
-                    option4.setBackgroundColor(Color.RED);
-                }
-                break;
-        }*/
     }
 }

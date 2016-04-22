@@ -189,15 +189,16 @@ public class WordDbAdapter {
 
                     cursor.moveToFirst();
                     do {
-                        Word obj = new Word(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
+                        //Word obj = new Word(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
 
+                        Word obj = new Word();
                         //get all column
                         obj.setSwedish(cursor.getString(cursor.getColumnIndex("swedish")));
                         obj.setEnglish(cursor.getString(cursor.getColumnIndex("english")));
                         obj.setExample(cursor.getString(cursor.getColumnIndex("example")));
-                        obj.setExample(cursor.getString(cursor.getColumnIndex("etten")));
-                        obj.setExample(cursor.getString(cursor.getColumnIndex("part_of_speach")));
-                        obj.setExample(cursor.getString(cursor.getColumnIndex("created_at")));
+                        obj.setEtten(cursor.getString(cursor.getColumnIndex("etten")));
+                        obj.setPartOfSpeach(cursor.getString(cursor.getColumnIndex("part_of_speach")));
+                        obj.setCreateDate(cursor.getString(cursor.getColumnIndex("created_at")));
 
                         //you could add additional columns here..
 
