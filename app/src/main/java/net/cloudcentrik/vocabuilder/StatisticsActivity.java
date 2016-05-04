@@ -50,7 +50,7 @@ public class StatisticsActivity extends AppCompatActivity {
         // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
-        ab.setTitle("Stastics");
+        ab.setTitle("Statistics");
 
         dbHelper = new WordDbAdapter(this);
         dbHelper.open();

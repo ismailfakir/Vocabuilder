@@ -176,20 +176,20 @@ public class MainActivity extends AppCompatActivity {
                         AddNewActivity.class);
                 startActivity(myIntent);
                 return (true);*/
-            case R.id.test:
+            case R.id.action_test:
                 // Start QuizActivity.class
 
                 myIntent = new Intent(MainActivity.this,
                         QuizActivity.class);
                 startActivity(myIntent);
                 return (true);
-            case R.id.stat:
+            case R.id.action_stat:
                 // Start AboutActivity.class
                 myIntent = new Intent(MainActivity.this,
                         StatisticsActivity.class);
                 startActivity(myIntent);
                 return (true);
-            case R.id.about:
+            case R.id.action_about:
                 // Start AboutActivity.class
                 myIntent = new Intent(MainActivity.this,
                         AboutActivity.class);
@@ -205,6 +205,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_save:
                 myIntent = new Intent(MainActivity.this,
                         SaveActivity.class);
+                startActivity(myIntent);
+                return (true);
+            case R.id.action_add:
+                myIntent = new Intent(MainActivity.this,
+                        AddNewActivity.class);
                 startActivity(myIntent);
                 return (true);
 

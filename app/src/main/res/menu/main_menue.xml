@@ -16,13 +16,19 @@
         app:showAsAction="always" />-->
 
     <item
-        android:id="@+id/test"
+        android:id="@+id/action_add"
+        android:icon="@mipmap/ic_add_black"
+        android:title="Add"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_test"
         android:icon="@mipmap/ic_question_balack"
         android:title="Test"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/stat"
+        android:id="@+id/action_stat"
         android:icon="@mipmap/ic_chart_black"
         android:title="Statistics"
         app:showAsAction="never" />
@@ -39,7 +45,7 @@
         android:title="Save"
         app:showAsAction="never" />
     <item
-        android:id="@+id/about"
+        android:id="@+id/action_about"
         android:icon="@mipmap/ic_info_black"
         android:title="About"
         app:showAsAction="never" />

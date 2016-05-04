@@ -13,7 +13,7 @@
         <item name="android:actionModeBackground">@color/grey</item>
         <item name="android:textColorPrimary">@color/black</item>
         <item name="android:textColorSecondary">@color/grey</item>
-        <item name="android:textColor">@color/blueDark</item>
+        <item name="android:textColor">@color/green</item>
     </style>
     <!-- Base application theme end -->
 
@@ -51,19 +51,16 @@
     <!-- Button Style -->
 
     <!-- Toolbar Style -->
-    <style name="ActionBarThemeOverlay" parent="">
-        <item name="android:textColorPrimary">#fff</item>
-        <item name="colorControlNormal">#fff</item>
-        <item name="colorControlHighlight">#3fff</item>
+    <style name="ToolBarTheme" parent="@style/ThemeOverlay.AppCompat.Light">
+        <!--<item name="android:textColorPrimary">@color/white</item>
+        <item name="android:background">@color/colorPrimaryGreen</item>
+        <item name="android:textColorSecondary">@color/green</item>-->
+        <!--<item name="android:colorBackground">@color/colorPrimaryGreen</item>-->
     </style>
 
-    <style name="HeaderBar">
-        <item name="android:background">?colorPrimary</item>
-    </style>
-
-    <style name="ActionBarPopupThemeOverlay" parent="ThemeOverlay.AppCompat.Light">
-        <item name="android:background">@color/white</item>
-        <item name="android:textColor">@color/green</item>
+    <style name="ToolBarTheme.Popup" parent="@style/ThemeOverlay.AppCompat.Light">
+        <!--<item name="android:colorBackground">@color/white</item>
+        <item name="android:textColor">@color/green</item>-->
     </style>
 
     <!-- Toolbar Style -->

@@ -10,13 +10,13 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/word_toolbar"
-            style="@style/HeaderBar"
+
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:elevation="4dp"
-            app:popupTheme="@style/ActionBarPopupThemeOverlay"
-            app:theme="@style/ActionBarThemeOverlay" />
+            app:popupTheme="@style/ToolBarTheme.Popup"
+            app:theme="@style/ToolBarTheme" />
     </android.support.design.widget.AppBarLayout>
 
     <LinearLayout
@@ -37,9 +37,9 @@
                 android:id="@+id/sv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+                android:background="@drawable/heading_text_background_style"
                 android:scaleType="fitCenter"
-                android:text="[Swedish]"
+                android:text="Swedish"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/grey" />
 
@@ -64,9 +64,10 @@
                 android:id="@+id/en"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="1dp"
+
+                android:background="@drawable/heading_text_background_style"
                 android:scaleType="fitCenter"
-                android:text="[English]"
+                android:text="English"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/grey" />
 
@@ -91,8 +92,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                android:padding="1dp"
-                android:text="[Example]"
+
+                android:background="@drawable/heading_text_background_style"
+                android:text="Example"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/grey" />
 
@@ -112,34 +114,11 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txetten"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="[Ett/En]"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/grey" />
-
-            <TextView
-                android:id="@+id/textEtten"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="etten"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/red" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
                 android:id="@+id/txPartOfSpeach"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[Part of Speach]"
+                android:background="@drawable/heading_text_background_style"
+                android:text="Part of Speach"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/grey" />
 
@@ -162,7 +141,8 @@
                 android:id="@+id/txDateCreated"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="[Date Created]"
+                android:background="@drawable/heading_text_background_style"
+                android:text="Date Created"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/grey" />
 

@@ -156,7 +156,7 @@ public class WordDbAdapter {
 
         Cursor mCursor = mDb.query(SQLITE_TABLE, new String[] {KEY_ROWID,KEY_SWEDISH,
                         KEY_ENGLISH, KEY_EXAMPLE, KEY_ETTEN, KEY_PARTOFSPEACH, KEY_DATE},
-                null, null, null, null, null);
+                null, null, null, null, KEY_SWEDISH + " ASC");
 
         if (mCursor != null) {
             mCursor.moveToFirst();
@@ -176,7 +176,7 @@ public class WordDbAdapter {
 
         ArrayList<Word> list = new ArrayList<Word>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + SQLITE_TABLE;
+        String selectQuery = "SELECT  * FROM " + SQLITE_TABLE + " ORDER BY " + KEY_SWEDISH + " COLLATE NOCASE ASC";
 
         try {
 

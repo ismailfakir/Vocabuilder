@@ -17,7 +17,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,8 +32,7 @@ public class AddNewActivity extends AppCompatActivity {
     private TextView txtExample;
     private TextInputLayout inputLayoutSwedish;
 
-    private CheckBox cboxEtt;
-    private CheckBox cboxEn;
+
 
     private String etten, partOfSpeach;
     private Spinner spinner;
@@ -62,6 +60,7 @@ public class AddNewActivity extends AppCompatActivity {
         etten = "en";
         partOfSpeach = "Noun";
 
+
         //part of speach spinner start
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
@@ -77,8 +76,6 @@ public class AddNewActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String item = parent.getItemAtPosition(position).toString();
                 partOfSpeach = item;
-                // Showing selected spinner item
-                //Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -86,13 +83,8 @@ public class AddNewActivity extends AppCompatActivity {
 
             }
         });
+        spinner.setSelection(3);
         //spinner end
-
-
-        //checkbox
-        cboxEn = (CheckBox) findViewById(R.id.checkBoxEn);
-        cboxEtt = (CheckBox) findViewById(R.id.checkBoxEtt);
-
 
         dbHelper = new WordDbAdapter(this);
         dbHelper.open();
@@ -121,23 +113,10 @@ public class AddNewActivity extends AppCompatActivity {
             return;
         }
 
-
-        if (cboxEn.isChecked()) {
-            etten = "EN";
-        } else {
-            etten = "ETT";
-        }
         long r = dbHelper.createWord(txtSwedish.getText().toString(), txtEnglish.getText().toString(), txtExample.getText().toString(), etten, partOfSpeach);
         if (r > 0) {
 
             Toast.makeText(AddNewActivity.this, "Word added", Toast.LENGTH_SHORT).show();
-
-            /*Snackbar snackbar = Snackbar
-                    .make(CoordinatorLayout, "Welcome to AndroidHive", Snackbar.LENGTH_LONG);
-
-            snackbar.show();*/
-
-            //clearText();
             finish();
 
         } else {
@@ -198,38 +177,6 @@ public class AddNewActivity extends AppCompatActivity {
         return true;
     }
 
-    //checkbox
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-
-        // Check which checkbox was clicked
-        switch (view.getId()) {
-            case R.id.checkBoxEn:
-                if (checked) {
-                    cboxEtt.setChecked(false);
-                }
-                // Put some meat on the sandwich
-                else {
-                    cboxEn.setChecked(true);
-                    cboxEtt.setChecked(false);
-                }
-                // Remove the meat
-                break;
-            case R.id.checkBoxEtt:
-                if (checked) {
-                    cboxEn.setChecked(false);
-                }
-                // Cheese me
-                else {
-                    cboxEn.setChecked(false);
-                    cboxEtt.setChecked(true);
-                }
-                // I'm lactose intolerant
-                break;
-            // TODO: Veggie sandwich
-        }
-    }
 
     private void hideKeyboard() {
         View view = getCurrentFocus();
@@ -269,6 +216,5 @@ public class AddNewActivity extends AppCompatActivity {
             validateSwedish();
         }
     }
-
 
 }

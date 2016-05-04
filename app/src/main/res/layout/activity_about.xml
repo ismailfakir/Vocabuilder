@@ -3,68 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/appBackground"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
-
-    <TextView
-        style="@style/TextAppearance.AppCompat.Large"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_column="2"
-        android:gravity="center_horizontal"
-        android:padding="10dip"
-        android:text="@string/appName"
-        android:textColor="@color/green"
-        android:textSize="@dimen/abc_text_size_title_material" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:text="@string/about_text"
-        android:textAlignment="gravity"
-        android:textColor="@color/black" />
-
-    <TextView
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_column="2"
-        android:gravity="center_horizontal"
-        android:padding="10dip"
-        android:text="Developer"
-        android:textColor="@color/green"
-        android:textSize="20dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:text="@string/developer"
-        android:textAlignment="gravity"
-        android:textColor="@color/bootstrap_gray" />
-
-        </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
-
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -72,13 +10,57 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/statistic_toolbar"
-            style="@style/HeaderBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:elevation="4dp"
-            app:popupTheme="@style/ActionBarPopupThemeOverlay"
-            app:theme="@style/ActionBarThemeOverlay" />
+            app:popupTheme="@style/ToolBarTheme.Popup"
+            app:theme="@style/ToolBarTheme" />
     </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:gravity="center_horizontal"
+            android:text="@string/appName"
+            android:textColor="@color/green"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/about_text"
+            android:textAlignment="gravity"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="10dip"
+            android:text="Developer"
+            android:textColor="@color/green"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:text="@string/developer"
+            android:textColor="@color/bootstrap_gray" />
+
+    </LinearLayout>
+
 
 </android.support.design.widget.CoordinatorLayout>

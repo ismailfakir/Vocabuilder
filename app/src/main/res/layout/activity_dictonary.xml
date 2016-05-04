@@ -12,13 +12,13 @@
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/dictonary_toolbar"
-            style="@style/HeaderBar"
+
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:elevation="4dp"
-            app:popupTheme="@style/ActionBarPopupThemeOverlay"
-            app:theme="@style/ActionBarThemeOverlay" />
+            app:popupTheme="@style/ToolBarTheme.Popup"
+            app:theme="@style/ToolBarTheme" />
 
     </android.support.design.widget.AppBarLayout>
 
