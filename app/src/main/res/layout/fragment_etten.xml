@@ -15,33 +15,26 @@
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:gravity="center"
-            android:text="ETT OR EN ?"
+            android:text="Fill in the Gap"
             android:textAlignment="center"
             android:textColor="@color/green"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtEnEnWord"
+            android:id="@+id/txtFillQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:gravity="center"
-            android:text="word"
+            android:text="Example sentence ____________ the end"
             android:textColor="@color/blue"
-            android:textSize="50dp" />
+            android:textSize="20dp" />
 
-        <android.support.v7.widget.SwitchCompat
-            android:id="@+id/switch_compat"
-            android:layout_width="wrap_content"
+        <EditText
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="25dp"
-            android:layout_marginTop="25dp"
-            android:checked="true"
-            android:text="EN"
-            android:textSize="40dp"
-            android:theme="@style/MySwitch" />
+            android:hint="fill in the gap"/>
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SwitchCompat;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,6 +35,7 @@ public class EttEnFragment extends Fragment {
 
     private String userAnswer;
     private TextView txtEttEnQuestion;
+
 
 
     public EttEnFragment() {
@@ -69,27 +73,10 @@ public class EttEnFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_etten, container, false);
 
-        txtEttEnQuestion = (TextView) view.findViewById(R.id.txtEnEnWord);
+        txtEttEnQuestion = (TextView) view.findViewById(R.id.txtFillQuestion);
 
-        switchCompat = (SwitchCompat) view.findViewById(R.id.switch_compat);
-        switchCompat.setSwitchPadding(40);
-        //attach a listener to check for changes in state
-        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView,
-                                         boolean isChecked) {
 
-                if (isChecked) {
-                    switchCompat.setText("EN");
-                    //userAnswer = "EN";
-                } else {
-                    switchCompat.setText("ETT");
-                    //userAnswer = "ETT";
-                }
-
-            }
-        });
 
         Button endButton = (Button) view.findViewById(R.id.btnEttEnEnd);
         endButton.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +147,26 @@ public class EttEnFragment extends Fragment {
 
             } else {
                 Word w = allWords.get(0);
-                txtEttEnQuestion.setText("'" + w.getSwedish());
+
+                String questionTemp=allWords.get(0).getExample();
+                String wordStr=allWords.get(0).getSwedish();
+                String []question= TextUtils.split(questionTemp," ");
+                StringBuffer result = new StringBuffer();
+
+                for(int i=0;i<question.length;i++){
+                    if( TextUtils.equals(question[i],wordStr)){
+                        question[i]="_";
+                    }
+                    result.append(question[i]);
+                    result.append(" ");
+                }
+
+                String mynewstring = result.toString();
+
+
+                txtEttEnQuestion.setText("'" +  mynewstring );
+
+
             }
         }
 
@@ -168,10 +174,7 @@ public class EttEnFragment extends Fragment {
 
     public void checkAnswer() {
 
-        String etten = allWords.get(0).getEtten();
-        Log.i("USER ANSWER :", userAnswer);
-        Log.i("Correct ANSWER :", etten);
-
+        String etten = allWords.get(0).getExample();
 
         if (userAnswer.equals(etten)) {
 

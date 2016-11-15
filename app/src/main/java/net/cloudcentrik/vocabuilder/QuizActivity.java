@@ -179,8 +179,8 @@ public class QuizActivity extends AppCompatActivity {
     //tab
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new MeaningFragment(), "Meaning");
-        adapter.addFragment(new EttEnFragment(), "Ett En");
+        adapter.addFragment(new MeaningFragment(), "Meaning Swedish");
+        adapter.addFragment(new EnglishSwedishFragment(), "Meaning English");
         adapter.addFragment(new PartOfSpeachFragment(), "PartOfSpeech");
         viewPager.setAdapter(adapter);
     }

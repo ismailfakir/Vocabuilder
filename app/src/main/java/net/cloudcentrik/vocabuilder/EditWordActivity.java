@@ -145,6 +145,7 @@ public class EditWordActivity extends AppCompatActivity {
 
             startActivity(i);
             finish();*/
+            finish();
 
 
         } else {

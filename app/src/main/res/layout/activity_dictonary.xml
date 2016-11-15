@@ -22,18 +22,19 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-        <WebView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/webview"
+        <ListView
+            android:id="@+id/dictonary_wordlist"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
+            android:layout_height="fill_parent"
+            android:listSelector="#81c784"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    </android.support.v4.widget.NestedScrollView>
+
+
 
 
 </android.support.design.widget.CoordinatorLayout>

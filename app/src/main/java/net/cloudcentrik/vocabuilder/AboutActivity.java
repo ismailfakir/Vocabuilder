@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 public class AboutActivity extends AppCompatActivity {
 
@@ -23,6 +24,10 @@ public class AboutActivity extends AppCompatActivity {
         // Enable the Up button
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
+
+        TextView txtVersion=(TextView)findViewById(R.id.txtVersion);
+        String versionName = BuildConfig.VERSION_NAME;
+        txtVersion.setText("Version : "+versionName);
 
         /*ImageButton closeButton = (ImageButton) findViewById(R.id.btnAboutBack);
         closeButton.setOnClickListener(new View.OnClickListener() {

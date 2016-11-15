@@ -3,6 +3,7 @@ package net.cloudcentrik.vocabuilder;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -60,8 +61,11 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void createWordView() {
 
+        Typeface tf=Typeface.createFromAsset(getAssets(),"font/hotrocks.ttf");
         Word word = getIntent().getParcelableExtra("word");
         ts.setText(word.getSwedish());
+        ts.setTypeface(tf);
+
         te.setText(word.getEnglish());
         tx.setText(word.getExample());
         tpartOfSpeach.setText(word.getPartOfSpeach());
@@ -152,6 +156,12 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
 
         }
         return (super.onOptionsItemSelected(item));
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        //ts.setText("test");
     }
 
 }

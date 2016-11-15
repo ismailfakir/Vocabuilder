@@ -31,5 +31,8 @@
     <string name="developer">Ismail Fakir : ismail.fakir@cloudcentrik.net</string>
     <string name="about_text">Voca Builder is an application to help new language learner to develop their vocabulary. User can check their progress to new language by random test and spastics.</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

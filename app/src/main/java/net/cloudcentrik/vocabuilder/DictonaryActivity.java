@@ -1,6 +1,7 @@
 package net.cloudcentrik.vocabuilder;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -11,10 +12,15 @@ import android.view.MenuItem;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 public class DictonaryActivity extends AppCompatActivity {
 
     private WebView myWebView;
+    private Cursor words;
+    private DictonaryDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +39,20 @@ public class DictonaryActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
 
-        myWebView = (WebView) findViewById(R.id.webview);
-        WebSettings webSettings = myWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        myWebView.loadUrl("http://folkets-lexikon.csc.kth.se/folkets/");
-        //myWebView.setWebViewClient(new WebViewClient());
-        myWebView.setWebViewClient(new MyWebViewClient());
+        ListView listView = (ListView) findViewById(R.id.dictonary_wordlist);
+
+        db = new DictonaryDatabase(this);
+        words = db.getEmployees(); // you would not typically call this on the main thread
+
+        ListAdapter adapter = new SimpleCursorAdapter(this,
+                R.layout.dictonary_list,
+                words,
+                new String[] {"Swedish"},
+                new int[] {R.id.textSV});
+
+        listView .setAdapter(adapter);
+
+
 
 
     }
@@ -73,17 +87,4 @@ public class DictonaryActivity extends AppCompatActivity {
             super.onBackPressed();
     }
 
-    private class MyWebViewClient extends WebViewClient {
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            if (Uri.parse(url).getHost().equals("http://folkets-lexikon.csc.kth.se/folkets/")) {
-                // This is my web site, so do not override; let my WebView load the page
-                return false;
-            }
-            // Otherwise, the link is not for a page on my site, so launch another Activity that handles URLs
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-            startActivity(intent);
-            return true;
-        }
-    }
 }
