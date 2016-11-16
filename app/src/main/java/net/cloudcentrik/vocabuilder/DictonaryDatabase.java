@@ -30,6 +30,7 @@ public class DictonaryDatabase extends SQLiteAssetHelper{
 
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+        qb.appendWhere("English='gold'");
 
         String [] sqlSelect = {"0 _id","Swedish"};
         String sqlTables = "WORDS";
