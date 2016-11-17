@@ -47,8 +47,8 @@ public class DictonaryActivity extends AppCompatActivity {
         ListAdapter adapter = new SimpleCursorAdapter(this,
                 R.layout.dictonary_list,
                 words,
-                new String[] {"Swedish"},
-                new int[] {R.id.textSV});
+                new String[] {"English","Swedish","PartOfSpeech","SwedishExample","EnglishExample"},
+                new int[] {R.id.textEN,R.id.textSV,R.id.textPartOfSpeach,R.id.textEX,R.id.texEnglishExample});
 
         listView .setAdapter(adapter);
 
