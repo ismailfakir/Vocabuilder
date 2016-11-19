@@ -24,8 +24,8 @@
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:paddingTop="30dp"
         android:background="#e8f5e9">
 
@@ -37,33 +37,14 @@
 
             <TextView
                 android:id="@+id/sv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
+                style="@style/WordviewHeading"
                 android:text="Swedish"
-                android:background="@drawable/heading_text_background_style"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/white" />
-
-
+                />
 
             <TextView
                 android:id="@+id/textSV"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:paddingLeft="10dp"
                 android:text="Göra"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                android:layout_margin="0dp"
-                android:background="@drawable/word_content_background"
-
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
+                style="@style/Wordviewcontent" />
 
         </LinearLayout>
 
@@ -75,57 +56,17 @@
 
             <TextView
                 android:id="@+id/en"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:background="@drawable/heading_text_background_style"
-                android:scaleType="fitCenter"
+                style="@style/WordviewHeading"
                 android:text="English"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/white" />
+                />
 
             <TextView
                 android:id="@+id/textEN"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
+                style="@style/Wordviewcontent"
                 android:text="DO"
-                android:background="@drawable/word_content_background"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/black"
-                android:textStyle="italic"/>
+                />
 
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="5dp">
-
-            <TextView
-                android:id="@+id/ex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:background="@drawable/heading_text_background_style"
-                android:text="Example"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/textEX"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="Vad ska göra?"
-                android:background="@drawable/word_content_background"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/black" />
         </LinearLayout>
 
         <LinearLayout
@@ -136,24 +77,15 @@
 
             <TextView
                 android:id="@+id/txPartOfSpeach"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/heading_text_background_style"
+                style="@style/WordviewHeading"
                 android:text="Part of Speach"
-                android:textAppearance="?android:attr/textAppearance"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:textColor="@color/white" />
+                />
 
             <TextView
                 android:id="@+id/textPartOfSpeach"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
+                style="@style/Wordviewcontentsmall"
                 android:text="Part of Speach"
-                android:background="@drawable/word_content_background"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/black" />
+                />
         </LinearLayout>
 
         <LinearLayout
@@ -163,27 +95,37 @@
             android:layout_marginBottom="5dp">
 
             <TextView
+                android:id="@+id/ex"
+                style="@style/WordviewHeading"
+                android:text="Example"
+                />
+
+            <TextView
+                android:id="@+id/textEX"
+                style="@style/Wordviewcontentsmall"
+                android:text="Vad ska göra?"
+                />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
                 android:id="@+id/txDateCreated"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/heading_text_background_style"
+                style="@style/WordviewHeading"
                 android:text="Date Created"
-                android:gravity="center_horizontal"
-                android:layout_gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/white" />
+                 />
 
             <TextView
                 android:id="@+id/texDateCreated"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/textPartOfSpeach"
-                android:fontFamily="sans-serif-thin"
-                android:paddingLeft="10dp"
+                style="@style/Wordviewcontentsmall"
                 android:text="Date"
-                android:background="@drawable/word_content_background"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/grey" />
+                />
         </LinearLayout>
 
 

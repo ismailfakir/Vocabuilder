@@ -1,96 +1,113 @@
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-    android:orientation="vertical"
     android:background="#e8f5e9"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/word_content_background"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="5dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/sv"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:scaleType="fitCenter"
-                android:text="Swedish"
-                android:background="@drawable/heading_text_background_style"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/white" />
-
-
+                android:paddingTop="5dp"
+                android:text="SV"
+                android:textColor="@color/bootstrap_gray"
+                android:textSize="10dp" />
 
             <TextView
                 android:id="@+id/textSV"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:paddingLeft="10dp"
                 android:text="Göra"
-                android:layout_gravity="center_vertical"
-                android:gravity="center_vertical"
-                android:layout_margin="0dp"
-                android:background="@drawable/word_content_background"
-
                 android:textAppearance="?android:attr/textAppearance"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:src="@drawable/ic_add_box_black_18dp" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="5dp">
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/en"
-                android:layout_width="match_parent"
+                android:id="@+id/EN"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:text="EN"
+                android:textColor="@color/bootstrap_gray"
+                android:textSize="10dp" />
 
-                android:background="@drawable/heading_text_background_style"
-                android:scaleType="fitCenter"
-                android:text="English"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/white" />
 
             <TextView
                 android:id="@+id/textEN"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:text="DO"
-                android:background="@drawable/word_content_background"
                 android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/black"
-                android:textStyle="italic"/>
-
-
+                android:textColor="@color/green"
+                android:textStyle="normal" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="5dp">
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/ex"
-                android:layout_width="match_parent"
+                android:id="@+id/pos"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:background="@drawable/heading_text_background_style"
-                android:text="Example"
+                android:paddingTop="5dp"
+                android:text="POS"
+                android:textColor="@color/bootstrap_gray"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/textPartOfSpeach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Part of Speach"
                 android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/exSV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:text="EX SV"
+                android:textColor="@color/bootstrap_gray"
+                android:textSize="10dp" />
 
             <TextView
                 android:id="@+id/textEX"
@@ -98,7 +115,6 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:text="Vad ska göra?"
-                android:background="@drawable/word_content_background"
                 android:textAppearance="?android:attr/textAppearance"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -106,47 +122,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="5dp">
+            android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/txPartOfSpeach"
-                android:layout_width="match_parent"
+                android:id="@+id/exEN"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/heading_text_background_style"
-                android:text="Part of Speach"
-                android:textAppearance="?android:attr/textAppearance"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:textColor="@color/white" />
-
-            <TextView
-                android:id="@+id/textPartOfSpeach"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="Part of Speach"
-                android:background="@drawable/word_content_background"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/black" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="5dp">
-
-            <TextView
-                android:id="@+id/txDateCreated"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/heading_text_background_style"
-                android:text="English Example"
-                android:gravity="center_horizontal"
-                android:layout_gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/white" />
+                android:paddingTop="5dp"
+                android:text="EX SV"
+                android:textColor="@color/bootstrap_gray"
+                android:textSize="10dp" />
 
             <TextView
                 android:id="@+id/texEnglishExample"
@@ -155,11 +140,11 @@
                 android:layout_below="@+id/textPartOfSpeach"
                 android:fontFamily="sans-serif-thin"
                 android:paddingLeft="10dp"
-                android:text="Date"
-                android:background="@drawable/word_content_background"
+                android:text="English Example"
                 android:textAppearance="?android:attr/textAppearance"
-                android:textColor="@color/grey" />
+                android:textColor="@color/black" />
         </LinearLayout>
 
 
+    </LinearLayout>
 </LinearLayout>

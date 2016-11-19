@@ -61,10 +61,14 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void createWordView() {
 
-        Typeface tf=Typeface.createFromAsset(getAssets(),"font/hotrocks.ttf");
+        Typeface tf=Typeface.createFromAsset(this.getAssets(),"font/Roboto-Thin.ttf");
         Word word = getIntent().getParcelableExtra("word");
         ts.setText(word.getSwedish());
         ts.setTypeface(tf);
+        te.setTypeface(tf);
+        //tx.setTypeface(tf);
+        //tpartOfSpeach.setTypeface(tf);
+        //tDate.setTypeface(tf);
 
         te.setText(word.getEnglish());
         tx.setText(word.getExample());
