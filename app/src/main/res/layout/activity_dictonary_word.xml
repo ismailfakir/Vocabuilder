@@ -1,0 +1,137 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/word_toolbar"
+
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:elevation="4dp"
+            app:popupTheme="@style/ToolBarTheme.Popup"
+            app:theme="@style/ToolBarTheme" />
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="30dp"
+        android:background="#e8f5e9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/sv"
+                style="@style/WordviewHeading"
+                android:text="Swedish"
+                />
+
+            <TextView
+                android:id="@+id/textDictonarySwedish"
+                android:text="Göra"
+                style="@style/Wordviewcontent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/en"
+                style="@style/WordviewHeading"
+                android:text="English"
+                />
+
+            <TextView
+                android:id="@+id/textDictonaryEnglish"
+                style="@style/Wordviewcontent"
+                android:text="DO"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/txPartOfSpeach"
+                style="@style/WordviewHeading"
+                android:text="Part of Speach"
+                />
+
+            <TextView
+                android:id="@+id/textDictonaryPartOfSpeach"
+                style="@style/Wordviewcontentsmall"
+                android:text="Part of Speach"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/ex"
+                style="@style/WordviewHeading"
+                android:text="Swedish Example"
+                />
+
+            <TextView
+                android:id="@+id/textDictonaryExampleSwedish"
+                style="@style/Wordviewcontentsmall"
+                android:text="Vad ska göra?"
+                />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/txSwedishExample"
+                style="@style/WordviewHeading"
+                android:text="Example English"
+                />
+
+            <TextView
+                android:id="@+id/textDictonaryExampleEnglish"
+                android:scrollHorizontally="false"
+                android:maxLines="5"
+                style="@style/Wordviewcontentsmall"
+                android:text="Date"
+                />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+

@@ -67,6 +67,11 @@
             android:name=".WordActivity"
             android:parentActivityName=".MainActivity" />
 
+        <!-- DictonaryWordActivity -->
+        <activity
+            android:name=".DictonaryWordActivity"
+            android:parentActivityName=".MainActivity" />
+
         <!-- SaveActivity -->
         <activity
             android:name=".SaveActivity"

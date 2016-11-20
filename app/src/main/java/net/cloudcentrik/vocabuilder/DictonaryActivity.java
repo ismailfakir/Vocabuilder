@@ -1,5 +1,6 @@
 package net.cloudcentrik.vocabuilder;
 
+import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.database.Cursor;
@@ -15,14 +16,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.AdapterView;
 import android.widget.FilterQueryProvider;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.lang.reflect.Method;
 
@@ -64,11 +68,45 @@ public class DictonaryActivity extends AppCompatActivity {
         adapter = new SimpleCursorAdapter(
                 this, R.layout.dictonary_list_backup,
                 words,
-                new String[] {"English"},
-                new int[] {R.id.textEN},
+                new String[] {"English","Swedish"},
+                new int[] {R.id.textEN,R.id.textSV},
                 0);
 
         listView .setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> listView, View view,
+                                    int position, long id) {
+                // Get the cursor, positioned to the corresponding row in the result set
+                Cursor cursor = (Cursor) listView.getItemAtPosition(position);
+
+                // Get the state's capital from this row in the database.
+                String swedish =
+                        cursor.getString(cursor.getColumnIndexOrThrow("Swedish"));
+                String english =
+                        cursor.getString(cursor.getColumnIndexOrThrow("English"));
+                String exampleSwedish =
+                        cursor.getString(cursor.getColumnIndexOrThrow("SwedishExample"));
+                String exampleEnglish =
+                        cursor.getString(cursor.getColumnIndexOrThrow("EnglishExample"));
+                String partOfSpeech =
+                        cursor.getString(cursor.getColumnIndexOrThrow("PartOfSpeech"));
+
+                //Toast.makeText(getApplicationContext(),swedish+" "+exampleSwedish, Toast.LENGTH_SHORT).show();
+
+                Word w = new Word(swedish, english, exampleSwedish, "TEST", partOfSpeech, exampleEnglish);
+
+                Intent i = new Intent(DictonaryActivity.this, DictonaryWordActivity.class);
+
+                i.putExtra("DictonaryWord", w);
+
+                startActivity(i);
+
+
+            }
+        });
+
+
         adapter.setFilterQueryProvider(new FilterQueryProvider() {
             public Cursor runQuery(CharSequence constraint) {
                 return db.getWordByEntry(constraint.toString());
