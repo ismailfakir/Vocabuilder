@@ -48,6 +48,13 @@ public class DictonaryDatabase extends SQLiteAssetHelper{
 
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+
+        Cursor c=null;
+
+        String [] sqlSelect = {"0 _id","Swedish","English","SwedishExample","EnglishExample","PartOfSpeech"};
+        String sqlTables = "WORDS";
+
+        /*SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
         if(str==null ||  str.length () == 0){
             Cursor c0= getEmployees();
             c0.moveToFirst();
@@ -62,7 +69,29 @@ public class DictonaryDatabase extends SQLiteAssetHelper{
         Cursor c = qb.query(db, sqlSelect, null, null,
                 null, null, null);
 
-        c.moveToFirst();
+        c.moveToFirst();*/
+
+
+        if(str==null ||  str.length () == 0){
+
+            qb.setTables(sqlTables);
+            c = qb.query(db, sqlSelect, null, null,
+                    null, null, null);
+
+        }else {
+
+            qb.appendWhere("English like '"+str+"%'");
+
+            qb.setTables(sqlTables);
+            c = qb.query(db, sqlSelect, null, null,
+                    null, null, null);
+
+        }
+
+        if (c != null) {
+            c.moveToFirst();
+        }
+
         return c;
 
     }

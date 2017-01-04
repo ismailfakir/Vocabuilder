@@ -32,14 +32,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/sv"
                 style="@style/WordviewHeading"
                 android:text="Swedish"
-                />
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="SV"
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textDictonarySwedish"
@@ -51,14 +59,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/en"
                 style="@style/WordviewHeading"
                 android:text="English"
-                />
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="EN"
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textDictonaryEnglish"
@@ -72,14 +88,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/txPartOfSpeach"
                 style="@style/WordviewHeading"
                 android:text="Part of Speach"
-                />
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="POS"
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textDictonaryPartOfSpeach"
@@ -91,14 +115,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+           <!-- <TextView
                 android:id="@+id/ex"
                 style="@style/WordviewHeading"
                 android:text="Swedish Example"
-                />
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="t.ex."
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textDictonaryExampleSwedish"
@@ -112,19 +144,25 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/txSwedishExample"
                 style="@style/WordviewHeading"
                 android:text="Example English"
-                />
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="e.g."
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textDictonaryExampleEnglish"
-                android:scrollHorizontally="false"
-                android:maxLines="5"
                 style="@style/Wordviewcontentsmall"
                 android:text="Date"
                 />

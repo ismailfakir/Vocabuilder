@@ -77,6 +77,8 @@
         <item name="android:textAppearance">?android:attr/textAppearanceLarge</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:background">@drawable/word_content_background</item>
+        <item name="android:scrollHorizontally">false</item>
+        <item name="android:maxLines">2</item>
     </style>
 
     <style name="Wordviewcontentsmall">
@@ -90,6 +92,8 @@
         <item name="android:textAppearance">?android:attr/textAppearance</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:background">@drawable/word_content_background</item>
+        <item name="android:scrollHorizontally">false</item>
+        <item name="android:maxLines">5</item>
     </style>
 
     <style name="WordviewHeading">

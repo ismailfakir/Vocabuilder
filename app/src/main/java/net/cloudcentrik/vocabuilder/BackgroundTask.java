@@ -15,9 +15,9 @@ public class BackgroundTask extends AsyncTask<Void, Void, Void> {
     String fName;
     String fileName;
     private ProgressDialog dialog;
-    private ArrayList<Word> words;
+    private ArrayList<DictonaryWord> words;
 
-    public BackgroundTask(Activity activity, ArrayList<Word> words, String fileName) {
+    public BackgroundTask(Activity activity, ArrayList<DictonaryWord> words, String fileName) {
         this.activity = activity;
         dialog = new ProgressDialog(activity);
         this.words = words;

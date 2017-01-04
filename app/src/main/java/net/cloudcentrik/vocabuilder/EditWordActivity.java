@@ -16,6 +16,8 @@ public class EditWordActivity extends AppCompatActivity {
     private TextView ts;
     private TextView te;
     private TextView tx;
+    private TextView tx_SW;
+    private TextView tx_EN;
 
     private String partOfSpeach;
     private Spinner spinner;
@@ -45,7 +47,7 @@ public class EditWordActivity extends AppCompatActivity {
         ts = (TextView) findViewById(R.id.txtEditSwedish);
         ts.setEnabled(false);
         te = (TextView) findViewById(R.id.txtEditEnglish);
-        tx = (TextView) findViewById(R.id.txtEditExample);
+        tx_SW = (TextView) findViewById(R.id.txtEditExample);
 
         partOfSpeach = "Noun";
         //part of speach spinner start
@@ -81,7 +83,7 @@ public class EditWordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Word w = new Word(ts.getText().toString(), te.getText().toString(), tx.getText().toString(), "EN", partOfSpeach, "new Date");
+                DictonaryWord w = new DictonaryWord(ts.getText().toString(), te.getText().toString(), partOfSpeach, tx_SW.getText().toString(), tx_EN.getText().toString(), "new Date");
 
                 //Word w=new Word("TEST","English","Example","ETT","verb","date");
 
@@ -132,7 +134,7 @@ public class EditWordActivity extends AppCompatActivity {
 
     }
 
-    public void editWord(Word w) {
+    public void editWord(DictonaryWord w) {
 
         //Toast.makeText(EditWordActivity.this, "This is a test", Toast.LENGTH_SHORT).show();
 

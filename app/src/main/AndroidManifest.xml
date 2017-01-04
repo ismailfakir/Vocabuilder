@@ -70,7 +70,7 @@
         <!-- DictonaryWordActivity -->
         <activity
             android:name=".DictonaryWordActivity"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".DictonaryActivity" />
 
         <!-- SaveActivity -->
         <activity

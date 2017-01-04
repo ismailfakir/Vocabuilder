@@ -94,7 +94,7 @@ public class DictonaryActivity extends AppCompatActivity {
 
                 //Toast.makeText(getApplicationContext(),swedish+" "+exampleSwedish, Toast.LENGTH_SHORT).show();
 
-                Word w = new Word(swedish, english, exampleSwedish, "TEST", partOfSpeech, exampleEnglish);
+                DictonaryWord w = new DictonaryWord(swedish, english,partOfSpeech, exampleSwedish, exampleEnglish,DictonaryWord.getCurrentDate());
 
                 Intent i = new Intent(DictonaryActivity.this, DictonaryWordActivity.class);
 

@@ -37,7 +37,7 @@ public class CreatePDF {
         document.close();
     }*/
 
-    public static String createPdfWordList(ArrayList<Word> words, String fileName) {
+    public static String createPdfWordList(ArrayList<DictonaryWord> words, String fileName) {
         // TODO Auto-generated method stub
         com.itextpdf.text.Document document = new com.itextpdf.text.Document();
         String fPath = "";
@@ -95,7 +95,7 @@ public class CreatePDF {
 
     }
 
-    private static PdfPTable createWordTable(ArrayList<Word> words) {
+    private static PdfPTable createWordTable(ArrayList<DictonaryWord> words) {
 
         //specify column widths
         float[] columnWidths = {2f, 2f, 5f};
@@ -140,11 +140,11 @@ public class CreatePDF {
 
     }
 
-    private static void addTableRow(PdfPTable table, Word w) {
+    private static void addTableRow(PdfPTable table, DictonaryWord w) {
         Font bf12 = new Font(Font.FontFamily.TIMES_ROMAN, 12);
         PdfPCell cellSwedish = new PdfPCell(new Phrase(w.getSwedish(), bf12));
         PdfPCell cellEnglish = new PdfPCell(new Phrase(w.getEnglish(), bf12));
-        PdfPCell cellExample = new PdfPCell(new Phrase(w.getPartOfSpeach(), bf12));
+        PdfPCell cellExample = new PdfPCell(new Phrase(w.getPartOfSpeech(), bf12));
 
         table.addCell(cellSwedish);
         table.addCell(cellEnglish);

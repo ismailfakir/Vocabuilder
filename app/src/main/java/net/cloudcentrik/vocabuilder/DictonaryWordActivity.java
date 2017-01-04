@@ -61,17 +61,22 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
     private void createWordView() {
 
         Typeface tf=Typeface.createFromAsset(this.getAssets(),"font/Roboto-Thin.ttf");
-        Word word = getIntent().getParcelableExtra("DictonaryWord");
+        Typeface tf1=Typeface.createFromAsset(this.getAssets(),"font/hotrocks.ttf");
+        Typeface tf2=Typeface.createFromAsset(this.getAssets(),"font/Fabrica.otf");
+        DictonaryWord word = getIntent().getParcelableExtra("DictonaryWord");
         txtSwedish.setText(word.getSwedish());
         txtSwedish.setTypeface(tf);
 
         txtEnglish.setText(word.getEnglish());
         txtEnglish.setTypeface(tf);
 
-        txtPartOfSpeech.setText(word.getPartOfSpeach());
-        txtExampleSwedish.setText(word.getExample());
+        txtPartOfSpeech.setText(word.getPartOfSpeech());
+        txtPartOfSpeech.setTypeface(tf2);
 
-        txtExampleEnglish.setText(word.getExample());
+        txtExampleSwedish.setText(word.getSwedishExample());
+        txtExampleSwedish.setTypeface(tf2);
+        txtExampleEnglish.setText(word.getEnglishExample());
+        txtExampleEnglish.setTypeface(tf2);
 
     }
 

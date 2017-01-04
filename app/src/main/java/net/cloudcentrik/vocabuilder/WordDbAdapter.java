@@ -23,25 +23,27 @@ public class WordDbAdapter {
     public static final String KEY_ROWID = "_id";
     public static final String KEY_SWEDISH = "swedish";
     public static final String KEY_ENGLISH = "english";
-    public static final String KEY_EXAMPLE = "example";
-    public static final String KEY_ETTEN = "etten";
     public static final String KEY_PARTOFSPEACH = "part_of_speach";
+    public static final String KEY_EXAMPLE_SW = "example_swedish";
+    public static final String KEY_EXAMPLE_EN = "example_english";
     public static final String KEY_DATE = "created_at";
 
-    private static final String TAG = "CountriesDbAdapter";
+    private static final String TAG = "WordDbAdapter";
     private static final String DATABASE_NAME = "vocabuilder";
     private static final String SQLITE_TABLE = "words";
     private static final int DATABASE_VERSION = 1;
+
     private static final String DATABASE_CREATE =
             "CREATE TABLE if not exists " + SQLITE_TABLE + " (" +
                     KEY_ROWID + " integer PRIMARY KEY autoincrement," +
                     KEY_SWEDISH + "," +
                     KEY_ENGLISH + "," +
-                    KEY_EXAMPLE + "," +
-                    KEY_ETTEN + "," +
                     KEY_PARTOFSPEACH + "," +
+                    KEY_EXAMPLE_SW + "," +
+                    KEY_EXAMPLE_EN + "," +
                     KEY_DATE + "," +
                     " UNIQUE (" + KEY_SWEDISH +"));";
+
     private final Context mCtx;
     private DatabaseHelper mDbHelper;
     private SQLiteDatabase mDb;
@@ -62,29 +64,16 @@ public class WordDbAdapter {
         }
     }
 
-   /* public long createWord(String swedish, String english,
-                              String example) {
-
-        ContentValues initialValues = new ContentValues();
-        initialValues.put(KEY_SWEDISH, swedish);
-        initialValues.put(KEY_ENGLISH, english);
-        initialValues.put(KEY_EXAMPLE, example);
-        initialValues.put(KEY_ETTEN, "en");
-        initialValues.put(KEY_PARTOFSPEACH, "noun");
-        initialValues.put(KEY_DATE, getDateTime());
-
-        return mDb.insert(SQLITE_TABLE, null, initialValues);
-    }*/
 
     public long createWord(String swedish, String english,
-                           String example, String ettEn, String partOfSpeach) {
+                           String example_swedish, String example_english, String partOfSpeach) {
 
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_SWEDISH, swedish);
         initialValues.put(KEY_ENGLISH, english);
-        initialValues.put(KEY_EXAMPLE, example);
-        initialValues.put(KEY_ETTEN, ettEn);
         initialValues.put(KEY_PARTOFSPEACH, partOfSpeach);
+        initialValues.put(KEY_EXAMPLE_SW, example_swedish);
+        initialValues.put(KEY_EXAMPLE_EN, example_english);
         initialValues.put(KEY_DATE, getDateTime());
 
         return mDb.insert(SQLITE_TABLE, null, initialValues);
@@ -97,13 +86,13 @@ public class WordDbAdapter {
     }
 
     // Updating single word
-    public boolean updateWord(Word w) {
+    public boolean updateWord(DictonaryWord w) {
 
         ContentValues values = new ContentValues();
         values.put(KEY_ENGLISH, w.getEnglish());
-        values.put(KEY_EXAMPLE, w.getExample());
-        values.put(KEY_ETTEN, w.getEtten());
-        values.put(KEY_PARTOFSPEACH, w.getPartOfSpeach());
+        values.put(KEY_EXAMPLE_SW, w.getSwedishExample());
+        values.put(KEY_EXAMPLE_EN, w.getEnglishExample());
+        values.put(KEY_PARTOFSPEACH, w.getPartOfSpeech());
         values.put(KEY_DATE, getDateTime());
 
         // updating row
@@ -135,14 +124,14 @@ public class WordDbAdapter {
         Cursor mCursor = null;
         if (inputText == null  ||  inputText.length () == 0)  {
             mCursor = mDb.query(SQLITE_TABLE, new String[] {KEY_ROWID,KEY_SWEDISH,
-                            KEY_ENGLISH, KEY_EXAMPLE, KEY_ETTEN, KEY_PARTOFSPEACH, KEY_DATE},
+                            KEY_ENGLISH, KEY_PARTOFSPEACH ,KEY_EXAMPLE_SW, KEY_EXAMPLE_EN, KEY_DATE},
                     null, null, null, null, null);
 
         }
         else {
             mCursor = mDb.query(true, SQLITE_TABLE, new String[] {KEY_ROWID,KEY_SWEDISH,
-                            KEY_ENGLISH, KEY_EXAMPLE, KEY_ETTEN, KEY_PARTOFSPEACH, KEY_DATE},
-                    KEY_SWEDISH + " like '%" + inputText + "%'", null,
+                            KEY_ENGLISH,KEY_PARTOFSPEACH, KEY_EXAMPLE_SW, KEY_EXAMPLE_EN,  KEY_DATE},
+                    KEY_SWEDISH + " like '" + inputText + "%'", null,
                     null, null, null, null);
         }
         if (mCursor != null) {
@@ -155,7 +144,7 @@ public class WordDbAdapter {
     public Cursor fetchAllWords() {
 
         Cursor mCursor = mDb.query(SQLITE_TABLE, new String[] {KEY_ROWID,KEY_SWEDISH,
-                        KEY_ENGLISH, KEY_EXAMPLE, KEY_ETTEN, KEY_PARTOFSPEACH, KEY_DATE},
+                        KEY_ENGLISH,KEY_PARTOFSPEACH, KEY_EXAMPLE_SW, KEY_EXAMPLE_EN,  KEY_DATE},
                 null, null, null, null, KEY_SWEDISH + " ASC");
 
         if (mCursor != null) {
@@ -164,17 +153,9 @@ public class WordDbAdapter {
         return mCursor;
     }
 
-    public void insertSomeWords() {
+    public ArrayList<DictonaryWord> getAllWords() {
 
-        createWord("Jag", "I", "Jag hetter Ismail", "en", "pronoun");
-        createWord("Du", "you", "Vad hetter du?", "en", "pronoun");
-        createWord("Köp", "Bye", "Jag vill köpa jul klap", "en", "pronoun");
-
-    }
-
-    public ArrayList<Word> getAllWords() {
-
-        ArrayList<Word> list = new ArrayList<Word>();
+        ArrayList<DictonaryWord> list = new ArrayList<DictonaryWord>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + SQLITE_TABLE + " ORDER BY " + KEY_SWEDISH + " COLLATE NOCASE ASC";
 
@@ -191,14 +172,14 @@ public class WordDbAdapter {
                     do {
                         //Word obj = new Word(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
 
-                        Word obj = new Word();
+                        DictonaryWord obj = new DictonaryWord();
                         //get all column
                         obj.setSwedish(cursor.getString(cursor.getColumnIndex("swedish")));
                         obj.setEnglish(cursor.getString(cursor.getColumnIndex("english")));
-                        obj.setExample(cursor.getString(cursor.getColumnIndex("example")));
-                        obj.setEtten(cursor.getString(cursor.getColumnIndex("etten")));
-                        obj.setPartOfSpeach(cursor.getString(cursor.getColumnIndex("part_of_speach")));
-                        obj.setCreateDate(cursor.getString(cursor.getColumnIndex("created_at")));
+                        obj.setSwedishExample(cursor.getString(cursor.getColumnIndex("example_swedish")));
+                        obj.setEnglishExample(cursor.getString(cursor.getColumnIndex("example_english")));
+                        obj.setPartOfSpeech(cursor.getString(cursor.getColumnIndex("part_of_speach")));
+                        obj.setDateCreated(cursor.getString(cursor.getColumnIndex("created_at")));
 
                         //you could add additional columns here..
 
