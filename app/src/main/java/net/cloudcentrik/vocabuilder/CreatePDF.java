@@ -112,7 +112,7 @@ public class CreatePDF {
                 addTableRow(table, words.get(i));
             }
         } else {
-            Word w = new Word("No Data", "No Data", "No Data", "No Data", "No Data", "No Data");
+            DictonaryWord w = new DictonaryWord("No Data", "No Data", "No Data", "No Data","no data", "no data");
             addTableRow(table, w);
         }
 

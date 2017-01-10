@@ -22,7 +22,7 @@ import java.util.Collections;
 public class PartOfSpeachFragment extends Fragment {
 
     private WordDbAdapter dbHelper;
-    private ArrayList<Word> allWords;
+    private ArrayList<DictonaryWord> allWords;
 
     private Context globalContext = null;
 
@@ -122,7 +122,7 @@ public class PartOfSpeachFragment extends Fragment {
         dbHelper = new WordDbAdapter(globalContext);
 
         dbHelper.open();
-        allWords = new ArrayList<Word>();
+        allWords = new ArrayList<DictonaryWord>();
         getAllWords();
         createAQuiz();
 
@@ -157,7 +157,7 @@ public class PartOfSpeachFragment extends Fragment {
                 alertDialog.show();
 
             } else {
-                Word w = allWords.get(0);
+                DictonaryWord w = allWords.get(0);
                 txtPartofspeachQuestion.setText("'" + w.getSwedish());
             }
         }
@@ -166,7 +166,7 @@ public class PartOfSpeachFragment extends Fragment {
 
     public void checkAnswer() {
 
-        String etten = allWords.get(0).getPartOfSpeach();
+        String etten = allWords.get(0).getPartOfSpeech();
         Log.i("USER ANSWER :", userAnswer);
         Log.i("Correct ANSWER :", etten);
 
@@ -175,7 +175,7 @@ public class PartOfSpeachFragment extends Fragment {
 
             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
             alertDialog.setTitle("Answer");
-            alertDialog.setMessage("Correct answer..'" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getPartOfSpeach());
+            alertDialog.setMessage("Correct answer..'" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getPartOfSpeech());
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -190,7 +190,7 @@ public class PartOfSpeachFragment extends Fragment {
             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
             alertDialog.setTitle("Answer");
             alertDialog.setIcon(R.mipmap.ic_wrong);
-            alertDialog.setMessage("Wrong answer..'" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getPartOfSpeach());
+            alertDialog.setMessage("Wrong answer..'" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getPartOfSpeech());
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

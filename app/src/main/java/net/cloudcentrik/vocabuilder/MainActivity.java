@@ -270,9 +270,9 @@ public class MainActivity extends AppCompatActivity {
                 String english =
                         cursor.getString(cursor.getColumnIndexOrThrow("english"));
                 String example =
-                        cursor.getString(cursor.getColumnIndexOrThrow("example"));
+                        cursor.getString(cursor.getColumnIndexOrThrow("example_swedish"));
                 String ettEn =
-                        cursor.getString(cursor.getColumnIndexOrThrow("etten"));
+                        cursor.getString(cursor.getColumnIndexOrThrow("example_english"));
                 String partOfSpeach =
                         cursor.getString(cursor.getColumnIndexOrThrow("part_of_speach"));
                 String dateCreated =

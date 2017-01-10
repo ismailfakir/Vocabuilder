@@ -29,7 +29,7 @@ public class EttEnFragment extends Fragment {
     private SwitchCompat switchCompat;
 
     private WordDbAdapter dbHelper;
-    private ArrayList<Word> allWords;
+    private ArrayList<DictonaryWord> allWords;
 
     private Context globalContext = null;
 
@@ -60,7 +60,7 @@ public class EttEnFragment extends Fragment {
         dbHelper = new WordDbAdapter(globalContext);
 
         dbHelper.open();
-        allWords = new ArrayList<Word>();
+        allWords = new ArrayList<DictonaryWord>();
         getAllWords();
         createAQuiz();
 
@@ -146,9 +146,9 @@ public class EttEnFragment extends Fragment {
                 alertDialog.show();
 
             } else {
-                Word w = allWords.get(0);
+                DictonaryWord w = allWords.get(0);
 
-                String questionTemp=allWords.get(0).getExample();
+                String questionTemp=allWords.get(0).getSwedishExample();
                 String wordStr=allWords.get(0).getSwedish();
                 String []question= TextUtils.split(questionTemp," ");
                 StringBuffer result = new StringBuffer();
@@ -174,13 +174,13 @@ public class EttEnFragment extends Fragment {
 
     public void checkAnswer() {
 
-        String etten = allWords.get(0).getExample();
+        String etten = allWords.get(0).getEnglishExample();
 
         if (userAnswer.equals(etten)) {
 
             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
             alertDialog.setTitle("Answer");
-            alertDialog.setMessage("Correct answer..'" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getEtten() + " word");
+            alertDialog.setMessage("Correct answer..'" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getEnglish() + " word");
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
@@ -195,7 +195,7 @@ public class EttEnFragment extends Fragment {
             AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
             alertDialog.setTitle("Answer");
             alertDialog.setIcon(R.mipmap.ic_wrong);
-            alertDialog.setMessage("Wrong answer..'" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getEtten() + " word");
+            alertDialog.setMessage("Wrong answer..'" + allWords.get(0).getSwedish() + "' is " + allWords.get(0).getEnglish() + " word");
             alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                     new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {

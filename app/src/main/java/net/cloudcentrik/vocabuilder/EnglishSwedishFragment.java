@@ -23,7 +23,7 @@ import java.util.Random;
 public class EnglishSwedishFragment extends Fragment {
 
     private WordDbAdapter dbHelper;
-    private ArrayList<Word> allWords;
+    private ArrayList<DictonaryWord> allWords;
     private TextView txtEnglishSwedishQuestion;
     private RadioButton option1;
     private RadioButton option2;
@@ -164,7 +164,7 @@ public class EnglishSwedishFragment extends Fragment {
                 alertDialog.show();
 
             } else {
-                Word w = allWords.get(0);
+                DictonaryWord w = allWords.get(0);
                 txtEnglishSwedishQuestion.setText("What is the Swedish meaning of '" + w.getEnglish() + "' ?");
 
 
@@ -194,7 +194,7 @@ public class EnglishSwedishFragment extends Fragment {
         dbHelper.open();
 
 
-        allWords = new ArrayList<Word>();
+        allWords = new ArrayList<DictonaryWord>();
 
         getAllWords();
 
