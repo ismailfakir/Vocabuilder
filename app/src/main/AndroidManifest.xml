@@ -65,16 +65,19 @@
         <!-- WordActivity -->
         <activity
             android:name=".WordActivity"
+            android:label="Word"
             android:parentActivityName=".MainActivity" />
 
         <!-- DictonaryWordActivity -->
         <activity
             android:name=".DictonaryWordActivity"
+            android:label="Dictonary"
             android:parentActivityName=".DictonaryActivity" />
 
         <!-- SaveActivity -->
         <activity
             android:name=".SaveActivity"
+            android:label="Save"
             android:parentActivityName=".MainActivity" />
 
         <!-- ExampleActivity -->

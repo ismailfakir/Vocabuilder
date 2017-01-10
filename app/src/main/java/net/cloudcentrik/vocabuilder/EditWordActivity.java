@@ -13,11 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class EditWordActivity extends AppCompatActivity {
-    private TextView ts;
-    private TextView te;
-    private TextView tx;
-    private TextView tx_SW;
-    private TextView tx_EN;
+    private TextView textSwedish;
+    private TextView textEnglish;
+    private TextView textSwedishExample;
+    private TextView textEnglishExample;
+    private TextView textDate;
 
     private String partOfSpeach;
     private Spinner spinner;
@@ -44,10 +44,11 @@ public class EditWordActivity extends AppCompatActivity {
         dbHelper = new WordDbAdapter(this);
         dbHelper.open();
 
-        ts = (TextView) findViewById(R.id.txtEditSwedish);
-        ts.setEnabled(false);
-        te = (TextView) findViewById(R.id.txtEditEnglish);
-        tx_SW = (TextView) findViewById(R.id.txtEditExample);
+        textSwedish = (TextView) findViewById(R.id.txtEditSwedish);
+        textSwedish.setEnabled(false);
+        textEnglish = (TextView) findViewById(R.id.txtEditEnglish);
+        textSwedishExample = (TextView) findViewById(R.id.txtEditSwedishExample);
+        textEnglishExample = (TextView) findViewById(R.id.txtEditEnglishExample);
 
         partOfSpeach = "Noun";
         //part of speach spinner start
@@ -83,7 +84,7 @@ public class EditWordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DictonaryWord w = new DictonaryWord(ts.getText().toString(), te.getText().toString(), partOfSpeach, tx_SW.getText().toString(), tx_EN.getText().toString(), "new Date");
+                DictonaryWord w = new DictonaryWord(textSwedish.getText().toString(), textEnglish.getText().toString(),textSwedishExample.getText().toString(), textEnglishExample.getText().toString(), partOfSpeach,  "new Date");
 
                 //Word w=new Word("TEST","English","Example","ETT","verb","date");
 
@@ -95,13 +96,14 @@ public class EditWordActivity extends AppCompatActivity {
 
     private void createWordView() {
 
-        Word word = getIntent().getParcelableExtra("editedword");
-        ts.setText(word.getSwedish());
-        te.setText(word.getEnglish());
-        tx.setText(word.getExample());
+        DictonaryWord word = getIntent().getParcelableExtra("editedword");
+        textSwedish.setText(word.getSwedish());
+        textEnglish.setText(word.getEnglish());
+        textSwedishExample.setText(word.getSwedishExample());
+        textEnglishExample.setText(word.getEnglishExample());
         //tpartOfSpeach.setText(word.getPartOfSpeach());
         //tDate.setText(word.getCreateDate());
-        partOfSpeach = word.getPartOfSpeach();
+        partOfSpeach = word.getPartOfSpeech();
         switch (partOfSpeach) {
             case "Noun":
                 spinner.setSelection(0);
@@ -136,17 +138,8 @@ public class EditWordActivity extends AppCompatActivity {
 
     public void editWord(DictonaryWord w) {
 
-        //Toast.makeText(EditWordActivity.this, "This is a test", Toast.LENGTH_SHORT).show();
-
         if (dbHelper.updateWord(w)) {
             Toast.makeText(EditWordActivity.this, "Word Updated", Toast.LENGTH_SHORT).show();
-           /* Word word=new Word(ts.getText().toString(),te.getText().toString(),tx.getText().toString(),"EN",partOfSpeach,tDate.getText().toString());
-            Intent i = new Intent(EditWordActivity.this, WordActivity.class);
-
-            i.putExtra("word", word);
-
-            startActivity(i);
-            finish();*/
             finish();
 
 

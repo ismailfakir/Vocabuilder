@@ -49,11 +49,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hints_swedish"
-                    android:singleLine="true" />
+                    android:maxLines="1" />
             </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
-                android:id="@+id/layoutEttEn"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
@@ -90,10 +89,23 @@
                 android:layout_height="wrap_content">
 
                 <EditText
-                    android:id="@+id/txtEditExample"
+                    android:id="@+id/txtEditSwedishExample"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/hints_example"
+                    android:hint="Swedish Example"
+                    android:inputType="text" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_english_example"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/txtEditEnglishExample"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="English Example"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 

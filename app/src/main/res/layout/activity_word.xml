@@ -36,7 +36,6 @@
             android:layout_marginBottom="5dp">
 
             <TextView
-                android:id="@+id/sv"
                 style="@style/WordviewHeading"
                 android:text="Swedish"
                 />
@@ -55,7 +54,6 @@
             android:layout_marginBottom="5dp">
 
             <TextView
-                android:id="@+id/en"
                 style="@style/WordviewHeading"
                 android:text="English"
                 />
@@ -76,7 +74,6 @@
             android:layout_marginBottom="5dp">
 
             <TextView
-                android:id="@+id/txPartOfSpeach"
                 style="@style/WordviewHeading"
                 android:text="Part of Speach"
                 />
@@ -95,19 +92,16 @@
             android:layout_marginBottom="5dp">
 
             <TextView
-                android:id="@+id/ex"
                 style="@style/WordviewHeading"
-                android:text="Example"
+                android:text="Swedish Example"
                 />
 
             <TextView
-                android:id="@+id/textEX"
+                android:id="@+id/textSwedishExample"
                 style="@style/Wordviewcontentsmall"
                 android:text="Vad ska göra?"
                 />
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,7 +110,24 @@
             android:layout_marginBottom="5dp">
 
             <TextView
-                android:id="@+id/txDateCreated"
+                style="@style/WordviewHeading"
+                android:text="English Example"
+                />
+
+            <TextView
+                android:id="@+id/textExampleEnglish"
+                style="@style/Wordviewcontentsmall"
+                android:text="Vad ska göra?"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="5dp">
+
+            <TextView
                 style="@style/WordviewHeading"
                 android:text="Date Created"
                  />

@@ -269,9 +269,9 @@ public class MainActivity extends AppCompatActivity {
                         cursor.getString(cursor.getColumnIndexOrThrow("swedish"));
                 String english =
                         cursor.getString(cursor.getColumnIndexOrThrow("english"));
-                String example =
+                String exampleSwedish =
                         cursor.getString(cursor.getColumnIndexOrThrow("example_swedish"));
-                String ettEn =
+                String exampleEnglish =
                         cursor.getString(cursor.getColumnIndexOrThrow("example_english"));
                 String partOfSpeach =
                         cursor.getString(cursor.getColumnIndexOrThrow("part_of_speach"));
@@ -279,7 +279,7 @@ public class MainActivity extends AppCompatActivity {
                         cursor.getString(cursor.getColumnIndexOrThrow("created_at"));
 
 
-                Word w = new Word(swedish, english, example, ettEn, partOfSpeach, dateCreated);
+                DictonaryWord w = new DictonaryWord(swedish, english, exampleSwedish, exampleEnglish, partOfSpeach, dateCreated);
 
                 Intent i = new Intent(MainActivity.this, WordActivity.class);
 

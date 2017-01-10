@@ -3,6 +3,7 @@ package net.cloudcentrik.vocabuilder;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -22,11 +23,12 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private WordDbAdapter dbHelper;
 
-    private TextView ts;
-    private TextView te;
-    private TextView tx;
-    private TextView tpartOfSpeach;
-    private TextView tDate;
+    private TextView textSwedish;
+    private TextView textEnglish;
+    private TextView textSwedishExample;
+    private TextView textEnglishExample;
+    private TextView textPartOfSpeach;
+    private TextView textDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,16 +47,17 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
 
+
+
         dbHelper = new WordDbAdapter(this);
         dbHelper.open();
 
-        ts = (TextView) findViewById(R.id.textSV);
-        te = (TextView) findViewById(R.id.textEN);
-        tx = (TextView) findViewById(R.id.textEX);
-
-        tpartOfSpeach = (TextView) findViewById(R.id.textPartOfSpeach);
-        tDate = (TextView) findViewById(R.id.texDateCreated);
-
+        textSwedish = (TextView) findViewById(R.id.textSV);
+        textEnglish = (TextView) findViewById(R.id.textEN);
+        textSwedishExample = (TextView) findViewById(R.id.textSwedishExample);
+        textEnglishExample=(TextView)findViewById(R.id.textExampleEnglish);
+        textPartOfSpeach = (TextView) findViewById(R.id.textPartOfSpeach);
+        textDate = (TextView) findViewById(R.id.texDateCreated);
 
         createWordView();
     }
@@ -62,19 +65,20 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
     private void createWordView() {
 
         Typeface tf=Typeface.createFromAsset(this.getAssets(),"font/Roboto-Thin.ttf");
-        Word word = getIntent().getParcelableExtra("word");
-        ts.setText(word.getSwedish());
-        ts.setTypeface(tf);
-        te.setTypeface(tf);
-        //tx.setTypeface(tf);
-        //tpartOfSpeach.setTypeface(tf);
-        //tDate.setTypeface(tf);
+        DictonaryWord word = getIntent().getParcelableExtra("word");
 
-        te.setText(word.getEnglish());
-        tx.setText(word.getExample());
-        tpartOfSpeach.setText(word.getPartOfSpeach());
-        tDate.setText(word.getCreateDate());
+        this.setTitle(word.getSwedish());
 
+        textSwedish.setText(word.getSwedish());
+        textSwedish.setTypeface(tf);
+
+        textEnglish.setText(word.getEnglish());
+        textEnglish.setTypeface(tf);
+
+        textSwedishExample.setText(word.getSwedishExample());
+        textEnglishExample.setText(word.getEnglishExample());
+        textPartOfSpeach.setText(word.getPartOfSpeech());
+        textDate.setText(word.getDateCreated());
     }
 
 
@@ -148,7 +152,7 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
 
             case R.id.btnEditWord:
                 //showInputDialog();
-                Word word = getIntent().getParcelableExtra("word");
+                DictonaryWord word = getIntent().getParcelableExtra("word");
 
                 //Word ww=new Word("TEST","English","Example","ETT","verb","date");
                 Intent i = new Intent(WordActivity.this, EditWordActivity.class);
@@ -166,6 +170,20 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onResume(){
         super.onResume();
         //ts.setText("test");
+        //updateView();
+    }
+
+    public void updateView(){
+        if(textSwedish!=null){
+            Cursor cursor=this.dbHelper.fetchWordsByName(this.textSwedish.toString());
+            textSwedish.setText(cursor.getString(cursor.getColumnIndex("swedish")));
+            textEnglish.setText(cursor.getString(cursor.getColumnIndex("english")));
+            textSwedishExample.setText(cursor.getString(cursor.getColumnIndex("example_swedish")));
+            textEnglishExample.setText(cursor.getString(cursor.getColumnIndex("example_english")));
+            textPartOfSpeach.setText(cursor.getString(cursor.getColumnIndex("part_of_speach")));
+            textDate.setText(cursor.getString(cursor.getColumnIndex("created_at")));
+        }
+
     }
 
 }

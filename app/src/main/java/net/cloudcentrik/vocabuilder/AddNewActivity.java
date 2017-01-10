@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,9 +30,9 @@ public class AddNewActivity extends AppCompatActivity {
     private WordDbAdapter dbHelper;
     private TextView txtSwedish;
     private TextView txtEnglish;
-    private TextView txtExample;
+    private TextView txtSwedishExample;
+    private TextView txtEnglishExample;
     private TextInputLayout inputLayoutSwedish;
-
 
 
     private String etten, partOfSpeach;
@@ -91,7 +92,8 @@ public class AddNewActivity extends AppCompatActivity {
 
         txtSwedish = (TextView) findViewById(R.id.txtSwedish);
         txtEnglish = (TextView) findViewById(R.id.txtEnglish);
-        txtExample = (TextView) findViewById(R.id.txtExample);
+        txtSwedishExample = (TextView) findViewById(R.id.txtSwedishExample);
+        txtEnglishExample = (TextView) findViewById(R.id.txtEnglishExample);
 
         inputLayoutSwedish = (TextInputLayout) findViewById(R.id.input_layout_swedish);
 
@@ -103,6 +105,7 @@ public class AddNewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                //Log.d("DATABASE","Testing");
                 insertWord();
             }
         });
@@ -113,7 +116,8 @@ public class AddNewActivity extends AppCompatActivity {
             return;
         }
 
-        long r = dbHelper.createWord(txtSwedish.getText().toString(), txtEnglish.getText().toString(), txtExample.getText().toString(), etten, partOfSpeach);
+        long r = dbHelper.createWord(txtSwedish.getText().toString(), txtEnglish.getText().toString(),
+                txtSwedishExample.getText().toString(), txtEnglishExample.getText().toString(), partOfSpeach);
         if (r > 0) {
 
             Toast.makeText(AddNewActivity.this, "Word added", Toast.LENGTH_SHORT).show();
@@ -129,7 +133,8 @@ public class AddNewActivity extends AppCompatActivity {
 
         txtSwedish.setText("");
         txtEnglish.setText("");
-        txtExample.setText("");
+        txtSwedishExample.setText("");
+        txtEnglishExample.setText("");
 
     }
 

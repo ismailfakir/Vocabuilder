@@ -23,9 +23,9 @@ public class WordDbAdapter {
     public static final String KEY_ROWID = "_id";
     public static final String KEY_SWEDISH = "swedish";
     public static final String KEY_ENGLISH = "english";
-    public static final String KEY_PARTOFSPEACH = "part_of_speach";
     public static final String KEY_EXAMPLE_SW = "example_swedish";
     public static final String KEY_EXAMPLE_EN = "example_english";
+    public static final String KEY_PARTOFSPEACH = "part_of_speach";
     public static final String KEY_DATE = "created_at";
 
     private static final String TAG = "WordDbAdapter";
@@ -38,9 +38,9 @@ public class WordDbAdapter {
                     KEY_ROWID + " integer PRIMARY KEY autoincrement," +
                     KEY_SWEDISH + "," +
                     KEY_ENGLISH + "," +
-                    KEY_PARTOFSPEACH + "," +
                     KEY_EXAMPLE_SW + "," +
                     KEY_EXAMPLE_EN + "," +
+                    KEY_PARTOFSPEACH + "," +
                     KEY_DATE + "," +
                     " UNIQUE (" + KEY_SWEDISH +"));";
 
@@ -71,9 +71,9 @@ public class WordDbAdapter {
         ContentValues initialValues = new ContentValues();
         initialValues.put(KEY_SWEDISH, swedish);
         initialValues.put(KEY_ENGLISH, english);
-        initialValues.put(KEY_PARTOFSPEACH, partOfSpeach);
         initialValues.put(KEY_EXAMPLE_SW, example_swedish);
         initialValues.put(KEY_EXAMPLE_EN, example_english);
+        initialValues.put(KEY_PARTOFSPEACH, partOfSpeach);
         initialValues.put(KEY_DATE, getDateTime());
 
         return mDb.insert(SQLITE_TABLE, null, initialValues);
@@ -144,7 +144,7 @@ public class WordDbAdapter {
     public Cursor fetchAllWords() {
 
         Cursor mCursor = mDb.query(SQLITE_TABLE, new String[] {KEY_ROWID,KEY_SWEDISH,
-                        KEY_ENGLISH,KEY_PARTOFSPEACH, KEY_EXAMPLE_SW, KEY_EXAMPLE_EN,  KEY_DATE},
+                        KEY_ENGLISH, KEY_EXAMPLE_SW, KEY_EXAMPLE_EN, KEY_PARTOFSPEACH, KEY_DATE},
                 null, null, null, null, KEY_SWEDISH + " ASC");
 
         if (mCursor != null) {
@@ -213,7 +213,6 @@ public class WordDbAdapter {
         DatabaseHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
-
 
         @Override
         public void onCreate(SQLiteDatabase db) {

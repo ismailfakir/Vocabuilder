@@ -12,6 +12,17 @@ import java.util.Locale;
  */
 
 public class DictonaryWord implements Parcelable {
+    public static final Parcelable.Creator<DictonaryWord> CREATOR = new Parcelable.Creator<DictonaryWord>() {
+        @Override
+        public DictonaryWord createFromParcel(Parcel in) {
+            return new DictonaryWord(in);
+        }
+
+        @Override
+        public DictonaryWord[] newArray(int size) {
+            return new DictonaryWord[size];
+        }
+    };
     private String swedish;
     private String english;
     private String partOfSpeech;
@@ -22,19 +33,36 @@ public class DictonaryWord implements Parcelable {
     public DictonaryWord() {
         this.swedish = "";
         this.english = "";
-        this.partOfSpeech = "";
         this.swedishExample = "";
         this.englishExample = "";
+        this.partOfSpeech = "";
         this.dateCreated = "";
     }
 
-    public DictonaryWord(String swedish, String english, String partOfSpeech, String swedishExample, String englishExample, String dateCreated) {
+    public DictonaryWord(String swedish, String english, String swedishExample,
+                         String englishExample, String partOfSpeech, String dateCreated) {
         this.swedish = swedish;
         this.english = english;
-        this.partOfSpeech = partOfSpeech;
         this.swedishExample = swedishExample;
         this.englishExample = englishExample;
+        this.partOfSpeech = partOfSpeech;
         this.dateCreated = dateCreated;
+    }
+
+    protected DictonaryWord(Parcel in) {
+        swedish = in.readString();
+        english = in.readString();
+        swedishExample = in.readString();
+        englishExample = in.readString();
+        partOfSpeech = in.readString();
+        dateCreated = in.readString();
+    }
+
+    public static String getCurrentDate() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date).toString();
     }
 
     public String getSwedish() {
@@ -95,38 +123,22 @@ public class DictonaryWord implements Parcelable {
 
         parcel.writeString(swedish);
         parcel.writeString(english);
-        parcel.writeString(partOfSpeech);
         parcel.writeString(swedishExample);
         parcel.writeString(englishExample);
+        parcel.writeString(partOfSpeech);
         parcel.writeString(dateCreated);
 
     }
 
-    public static final Parcelable.Creator<DictonaryWord> CREATOR = new Parcelable.Creator<DictonaryWord>() {
-        @Override
-        public DictonaryWord createFromParcel(Parcel in) {
-            return new DictonaryWord(in);
-        }
-
-        @Override
-        public DictonaryWord[] newArray(int size) {
-            return new DictonaryWord[size];
-        }
-    };
-
-    protected DictonaryWord(Parcel in) {
-        swedish = in.readString();
-        english = in.readString();
-        partOfSpeech = in.readString();
-        swedishExample = in.readString();
-        englishExample = in.readString();
-        dateCreated = in.readString();
-    }
-
-    public static String getCurrentDate() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
-        Date date = new Date();
-        return dateFormat.format(date).toString();
+    @Override
+    public String toString() {
+        return "DictonaryWord{" +
+                "swedish='" + swedish + '\'' +
+                ", english='" + english + '\'' +
+                ", partOfSpeech='" + partOfSpeech + '\'' +
+                ", swedishExample='" + swedishExample + '\'' +
+                ", englishExample='" + englishExample + '\'' +
+                ", dateCreated='" + dateCreated + '\'' +
+                '}';
     }
 }
