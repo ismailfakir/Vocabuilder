@@ -62,6 +62,10 @@
             android:name=".QuizActivity"
             android:parentActivityName=".MainActivity" />
 
+        <activity
+            android:name=".NewQuizActivity"
+            android:parentActivityName=".MainActivity" />
+
         <!-- WordActivity -->
         <activity
             android:name=".WordActivity"

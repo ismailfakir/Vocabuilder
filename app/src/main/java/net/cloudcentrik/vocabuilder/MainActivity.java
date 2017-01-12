@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 // Start QuizActivity.class
 
                 myIntent = new Intent(MainActivity.this,
-                        QuizActivity.class);
+                        NewQuizActivity.class);
                 startActivity(myIntent);
                 return (true);
             case R.id.action_stat:
