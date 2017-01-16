@@ -13,25 +13,25 @@ import java.util.Collections;
 
 public class Quiz {
     private int noOfQuestion;
-    private Question [] questions;
+    private ArrayList<Question> questions;
     private WordDbAdapter dbHelper;
     private ArrayList<DictonaryWord> allWords;
 
     public Quiz(int noOfQuestion,Context ctx) {
         this.noOfQuestion = noOfQuestion;
-        questions= new Question[this.noOfQuestion];
+        questions= new ArrayList<Question>();
 
         dbHelper=new WordDbAdapter(ctx);
         dbHelper.open();
         this.allWords = dbHelper.getAllWords();
     }
 
-    public Question [] createQuiz(){
+    public ArrayList<Question> createQuiz(){
 
         //suffle wordlist
         Collections.shuffle(allWords);
         for(int i=0;i<noOfQuestion;i++){
-            questions[i]=this.createQuestion(i);
+            questions.add(this.createQuestion(i));
         }
         return questions;
     }
