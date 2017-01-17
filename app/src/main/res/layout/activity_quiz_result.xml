@@ -29,7 +29,7 @@
             android:id="@+id/txtScore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SCORE :: 1"
+            android:text="SCORE :: 0"
             android:textColor="@color/blue"
             android:gravity="center_horizontal"
             android:textSize="32dp"
@@ -41,8 +41,8 @@
             android:layout_height="wrap_content"
             android:background="#CCC"
             android:paddingTop="1dp"
-            android:layout_margin="16dp"
-            android:stretchColumns="0"
+            android:layout_margin="10dp"
+            android:stretchColumns="*"
             android:id="@+id/tlTable01">
 
             <TableRow
@@ -50,32 +50,21 @@
                 android:paddingBottom="1dp"
                 android:paddingRight="1dp">
                 <TextView
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:gravity="left"
-                    android:text="Question"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    style="@style/TableHeadingStyle"
+                    android:text="Swedish"
+                    />
                 <TextView
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:gravity="center"
+                    style="@style/TableHeadingStyle"
+                    android:text="English"
+                    />
+                <TextView
+                    style="@style/TableHeadingStyle"
                     android:text="Answer"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    />
                 <TextView
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:gravity="right"
+                    style="@style/TableHeadingStyle"
                     android:text="Result"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:textColor="@color/black"/>
+                    />
             </TableRow>
             <TableRow
                 android:background="#CCC"
@@ -83,35 +72,23 @@
                 android:paddingRight="1dp">
                 <TextView
                     android:id="@+id/txtResultQuestion1"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:text="Item1"
-                    android:textSize="16dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/blue"
+                    android:text=""
+                    style="@style/TableCellStyle"
                     />
                 <TextView
-                    android:id="@+id/txtResultAnswer1"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:gravity="right"
-                    android:text="456789"
-                    android:textSize="16dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/blue"
+                    android:id="@+id/txtResultCorrectAnswer1"
+                    android:text=""
+                    style="@style/TableCellStyle"
+                    />
+                <TextView
+                    android:id="@+id/txtResultUserAnswer1"
+                    android:text=""
+                    style="@style/TableCellStyle"
                     />
                 <TextView
                     android:id="@+id/txtResult1"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:gravity="right"
-                    android:text="Correct"
-                    android:textSize="16dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/blue"/>
+                    android:text=""
+                    style="@style/TableCellStyle"/>
             </TableRow>
             <TableRow
                 android:background="#CCC"
@@ -119,35 +96,23 @@
                 android:paddingRight="1dp">
                 <TextView
                     android:id="@+id/txtResultQuestion2"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:text="Item2"
-                    android:textSize="16dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/blue"
+                    android:text=""
+                    style="@style/TableCellStyle"
                     />
                 <TextView
-                    android:id="@+id/txtResultAnswer2"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:gravity="right"
-                    android:text="456789"
-                    android:textSize="16dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/blue"
+                    android:id="@+id/txtResultCorrectAnswer2"
+                    android:text=""
+                    style="@style/TableCellStyle"
+                    />
+                <TextView
+                    android:id="@+id/txtResultUserAnswer2"
+                    android:text=""
+                    style="@style/TableCellStyle"
                     />
                 <TextView
                     android:id="@+id/txtResult2"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:gravity="right"
-                    android:text="Correct"
-                    android:textSize="16dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/blue"/>
+                    android:text=""
+                    style="@style/TableCellStyle"/>
             </TableRow>
             <TableRow
                 android:background="#CCC"
@@ -155,35 +120,23 @@
                 android:paddingRight="1dp">
                 <TextView
                     android:id="@+id/txtResultQuestion3"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:text="Item3"
-                    android:textSize="16dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/blue"
+                    android:text=""
+                    style="@style/TableCellStyle"
                     />
                 <TextView
-                    android:id="@+id/txtResultAnswer3"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:gravity="right"
-                    android:text="756789"
-                    android:textSize="16dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/blue"
+                    android:id="@+id/txtResultCorrectAnswer3"
+                    android:text=""
+                    style="@style/TableCellStyle"
+                    />
+                <TextView
+                    android:id="@+id/txtResultUserAnswer3"
+                    android:text=""
+                    style="@style/TableCellStyle"
                     />
                 <TextView
                     android:id="@+id/txtResult3"
-                    android:layout_marginLeft="1dp"
-                    android:padding="5dp"
-                    android:background="#FFF"
-                    android:gravity="right"
-                    android:text="Correct"
-                    android:textSize="16dp"
-                    android:textStyle="italic"
-                    android:textColor="@color/blue"/>
+                    android:text=""
+                    style="@style/TableCellStyle"/>
             </TableRow>
         </TableLayout>
 

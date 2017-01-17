@@ -28,12 +28,16 @@ public class Quiz {
 
     public ArrayList<Question> createQuiz(){
 
-        //suffle wordlist
-        Collections.shuffle(allWords);
-        for(int i=0;i<noOfQuestion;i++){
-            questions.add(this.createQuestion(i));
+        if(allWords.size()<6){
+            return  questions;
+        }else{
+            //suffle wordlist
+            Collections.shuffle(allWords);
+            for(int i=0;i<noOfQuestion;i++){
+                questions.add(this.createQuestion(i));
+            }
+            return questions;
         }
-        return questions;
     }
 
     private Question createQuestion(int id){

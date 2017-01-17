@@ -107,6 +107,27 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <!-- Table style-->
+    <style name="TableCellStyle">
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textColor">@color/blue</item>
+    </style>
+
+    <style name="TableHeadingStyle">
+        <item name="android:layout_marginLeft">1dp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 
 
 </resources>

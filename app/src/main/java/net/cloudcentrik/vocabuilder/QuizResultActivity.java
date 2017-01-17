@@ -5,13 +5,11 @@ package net.cloudcentrik.vocabuilder;
  */
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -40,6 +38,9 @@ public class QuizResultActivity extends AppCompatActivity {
 
         ArrayList<Answer> answersList= b.getParcelableArrayList("answer");
 
+        //Answer a=(Answer) answersList.get(1);
+        //Log.d("Answer",""+a.toString());
+
         txtScore.setText("Score : :"+countScore(answersList));
 
         TextView txtResultQuestion1=(TextView)findViewById(R.id.txtResultQuestion1);
@@ -51,18 +52,26 @@ public class QuizResultActivity extends AppCompatActivity {
         txtResultQuestion3.setText(answersList.get(2).getQuestion());
 
 
-        TextView txtResultAnswer1=(TextView)findViewById(R.id.txtResultAnswer1);
-        TextView txtResultAnswer2=(TextView)findViewById(R.id.txtResultAnswer2);
-        TextView txtResultAnswer3=(TextView)findViewById(R.id.txtResultAnswer3);
+        TextView txtResultCorrectAnswer1=(TextView)findViewById(R.id.txtResultCorrectAnswer1);
+        TextView txtResultCorrectAnswer2=(TextView)findViewById(R.id.txtResultCorrectAnswer2);
+        TextView txtResultCorrectAnswer3=(TextView)findViewById(R.id.txtResultCorrectAnswer3);
 
-        txtResultAnswer1.setText(answersList.get(0).getAnswer());
-        txtResultAnswer2.setText(answersList.get(1).getAnswer());
-        txtResultAnswer3.setText(answersList.get(2).getAnswer());
+        txtResultCorrectAnswer1.setText(answersList.get(0).getCorrectAnswer());
+        txtResultCorrectAnswer2.setText(answersList.get(1).getCorrectAnswer());
+        txtResultCorrectAnswer3.setText(answersList.get(2).getCorrectAnswer());
+
+        TextView txtResultUserAnswer1=(TextView)findViewById(R.id.txtResultUserAnswer1);
+        TextView txtResultUserAnswer2=(TextView)findViewById(R.id.txtResultUserAnswer2);
+        TextView txtResultUserAnswer3=(TextView)findViewById(R.id.txtResultUserAnswer3);
+
+        txtResultUserAnswer1.setText(answersList.get(0).getUserAnswer());
+        txtResultUserAnswer2.setText(answersList.get(1).getUserAnswer());
+        txtResultUserAnswer3.setText(answersList.get(2).getUserAnswer());
 
 
         TextView txtResult1=(TextView)findViewById(R.id.txtResult1);
-        TextView txtResult2=(TextView)findViewById(R.id.txtResult1);
-        TextView txtResult3=(TextView)findViewById(R.id.txtResult1);
+        TextView txtResult2=(TextView)findViewById(R.id.txtResult2);
+        TextView txtResult3=(TextView)findViewById(R.id.txtResult3);
 
         txtResult1.setText(answersList.get(0).getResult());
         txtResult2.setText(answersList.get(1).getResult());
@@ -88,10 +97,16 @@ public class QuizResultActivity extends AppCompatActivity {
 
             if(a.getResult().equals("correct")){
                 score++;
+
             }
         }
 
         return score;
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 
 }

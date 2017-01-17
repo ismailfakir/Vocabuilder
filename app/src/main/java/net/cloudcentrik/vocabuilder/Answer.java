@@ -10,18 +10,34 @@ import android.os.Parcelable;
 public class Answer implements Parcelable{
     private int id;
     private String question;
-    private String answer;
+    private String correctAnswer;
+    private String userAnswer;
     private String result;
+
 
     public Answer(){
 
     }
 
-    public Answer(int id, String question, String answer, String result) {
+    public Answer(int id, String question, String correctAnswer, String userAnswer, String result) {
         this.id = id;
         this.question = question;
-        this.answer = answer;
+        this.correctAnswer = correctAnswer;
+        this.userAnswer = userAnswer;
         this.result = result;
+    }
+
+    public static Creator<Answer> getCREATOR() {
+
+        return CREATOR;
+    }
+
+    public String getUserAnswer() {
+        return userAnswer;
+    }
+
+    public void setUserAnswer(String userAnswer) {
+        this.userAnswer = userAnswer;
     }
 
     public int getId() {
@@ -40,12 +56,12 @@ public class Answer implements Parcelable{
         this.question = question;
     }
 
-    public String getAnswer() {
-        return answer;
+    public String getCorrectAnswer() {
+        return correctAnswer;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setCorrectAnswer(String correctAnswer) {
+        this.correctAnswer = correctAnswer;
     }
 
     public String getResult() {
@@ -61,7 +77,8 @@ public class Answer implements Parcelable{
         return "Answer{" +
                 "id=" + id +
                 ", question='" + question + '\'' +
-                ", answer='" + answer + '\'' +
+                ", correctAnswer='" + correctAnswer + '\'' +
+                ", userAnswer='" + userAnswer + '\'' +
                 ", result='" + result + '\'' +
                 '}';
     }
@@ -75,14 +92,16 @@ public class Answer implements Parcelable{
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(this.id);
         dest.writeString(this.question);
-        dest.writeString(this.answer);
+        dest.writeString(this.correctAnswer);
+        dest.writeString(this.userAnswer);
         dest.writeString(this.result);
     }
 
     protected Answer(Parcel in) {
         this.id = in.readInt();
         this.question = in.readString();
-        this.answer = in.readString();
+        this.correctAnswer = in.readString();
+        this.userAnswer=in.readString();
         this.result = in.readString();
     }
 
