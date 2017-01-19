@@ -99,7 +99,7 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onStop() {
         super.onStop();
-        dbHelper.close();
+        //dbHelper.close();
     }
 
     @Override
@@ -152,8 +152,15 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
 
             case R.id.btnEditWord:
                 //showInputDialog();
-                DictonaryWord word = getIntent().getParcelableExtra("word");
+                //DictonaryWord word = getIntent().getParcelableExtra("word");
 
+                DictonaryWord word=new DictonaryWord();
+                word.setSwedish(textSwedish.getText().toString());
+                word.setEnglish(textEnglish.getText().toString());
+                word.setSwedishExample(textSwedishExample.getText().toString());
+                word.setEnglishExample(textEnglishExample.getText().toString());
+                word.setPartOfSpeech(textPartOfSpeach.getText().toString());
+                word.setDateCreated(textDate.getText().toString());
                 //Word ww=new Word("TEST","English","Example","ETT","verb","date");
                 Intent i = new Intent(WordActivity.this, EditWordActivity.class);
 
@@ -173,9 +180,20 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
         //updateView();
     }
 
+    @Override
+    public void onRestart(){
+        super.onRestart();
+        if (dbHelper == null){
+            dbHelper = new WordDbAdapter(this);
+            dbHelper.open();
+        }
+
+        updateView();
+    }
+
     public void updateView(){
-        if(textSwedish!=null){
-            Cursor cursor=this.dbHelper.fetchWordsByName(this.textSwedish.toString());
+        if(textSwedish!=null && this.dbHelper!=null){
+            Cursor cursor=this.dbHelper.fetchWordsByName(this.textSwedish.getText().toString());
             textSwedish.setText(cursor.getString(cursor.getColumnIndex("swedish")));
             textEnglish.setText(cursor.getString(cursor.getColumnIndex("english")));
             textSwedishExample.setText(cursor.getString(cursor.getColumnIndex("example_swedish")));
