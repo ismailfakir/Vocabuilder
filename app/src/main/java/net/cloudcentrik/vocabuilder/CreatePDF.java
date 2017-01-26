@@ -66,6 +66,7 @@ public class CreatePDF {
             Font bfBold20 = new Font(Font.FontFamily.COURIER, 20, Font.BOLD, new BaseColor(0, 0, 0));
             header.setAlignment(Paragraph.ALIGN_CENTER);
             header.setFont(bfBold20);
+            header.setSpacingAfter(2.0f);
 
             //add paragraph to document
             document.add(header);
@@ -74,6 +75,7 @@ public class CreatePDF {
             Font paraFont2 = new Font(Font.FontFamily.COURIER, 14.0f, 0, CMYKColor.GREEN);
             date.setAlignment(Paragraph.ALIGN_CENTER);
             date.setFont(paraFont2);
+            date.setSpacingAfter(2.0f);
 
             document.add(date);
 
@@ -98,11 +100,11 @@ public class CreatePDF {
     private static PdfPTable createWordTable(ArrayList<DictonaryWord> words) {
 
         //specify column widths
-        float[] columnWidths = {2f, 2f, 5f};
+        float[] columnWidths = {2f, 2f, 5f,5f};
         //create PDF table with the given widths
         PdfPTable table = new PdfPTable(columnWidths);
         // set table width a percentage of the page width
-        table.setWidthPercentage(90f);
+        table.setWidthPercentage(96f);
 
 
         addTableHeader(table);
@@ -128,15 +130,18 @@ public class CreatePDF {
 
         PdfPCell cellSwedish = new PdfPCell(new Phrase("Swedish", bfBold14));
         PdfPCell cellEnglish = new PdfPCell(new Phrase("English", bfBold14));
-        PdfPCell cellExample = new PdfPCell(new Phrase("Example", bfBold14));
+        PdfPCell cellSwedishExample = new PdfPCell(new Phrase("Swedish Example", bfBold14));
+        PdfPCell cellEnglishExample = new PdfPCell(new Phrase("English Example", bfBold14));
 
         cellSwedish.setHorizontalAlignment(Element.ALIGN_LEFT);
         cellEnglish.setHorizontalAlignment(Element.ALIGN_LEFT);
-        cellExample.setHorizontalAlignment(Element.ALIGN_LEFT);
+        cellSwedishExample.setHorizontalAlignment(Element.ALIGN_LEFT);
+        cellEnglishExample.setHorizontalAlignment(Element.ALIGN_LEFT);
 
         table.addCell(cellSwedish);
         table.addCell(cellEnglish);
-        table.addCell(cellExample);
+        table.addCell(cellSwedishExample);
+        table.addCell(cellEnglishExample);
 
     }
 
@@ -144,11 +149,13 @@ public class CreatePDF {
         Font bf12 = new Font(Font.FontFamily.TIMES_ROMAN, 12);
         PdfPCell cellSwedish = new PdfPCell(new Phrase(w.getSwedish(), bf12));
         PdfPCell cellEnglish = new PdfPCell(new Phrase(w.getEnglish(), bf12));
-        PdfPCell cellExample = new PdfPCell(new Phrase(w.getPartOfSpeech(), bf12));
+        PdfPCell cellSwedishExample = new PdfPCell(new Phrase(w.getSwedishExample(), bf12));
+        PdfPCell cellEnglishExample = new PdfPCell(new Phrase(w.getEnglishExample(), bf12));
 
         table.addCell(cellSwedish);
         table.addCell(cellEnglish);
-        table.addCell(cellExample);
+        table.addCell(cellSwedishExample);
+        table.addCell(cellEnglishExample);
 
     }
 

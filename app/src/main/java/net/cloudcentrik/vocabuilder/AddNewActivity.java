@@ -33,6 +33,9 @@ public class AddNewActivity extends AppCompatActivity {
     private TextView txtSwedishExample;
     private TextView txtEnglishExample;
     private TextInputLayout inputLayoutSwedish;
+    private TextInputLayout inputLayoutEnglish;
+    private TextInputLayout inputLayoutSwedishExample;
+    private TextInputLayout inputLayoutEnglishExample;
 
 
     private String etten, partOfSpeach;
@@ -43,7 +46,7 @@ public class AddNewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Get the view from new_activity.xml
-        setContentView(R.layout.activity_addnew);
+        setContentView(R.layout.activity_add_word);
 
         // my_child_toolbar is defined in the layout file
         Toolbar myChildToolbar =
@@ -96,8 +99,9 @@ public class AddNewActivity extends AppCompatActivity {
         txtEnglishExample = (TextView) findViewById(R.id.txtEnglishExample);
 
         inputLayoutSwedish = (TextInputLayout) findViewById(R.id.input_layout_swedish);
-
-        txtSwedish.addTextChangedListener(new MyTextWatcher(txtSwedish));
+        inputLayoutEnglish = (TextInputLayout) findViewById(R.id.input_layout_english);
+        inputLayoutSwedishExample = (TextInputLayout) findViewById(R.id.input_layout_swedish_example);
+        inputLayoutEnglishExample = (TextInputLayout) findViewById(R.id.input_layout_english_example);
 
         Button addButton = (Button) findViewById(R.id.btnAddWord);
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -112,7 +116,7 @@ public class AddNewActivity extends AppCompatActivity {
     }
 
     private void insertWord() {
-        if (!validateSwedish()) {
+        if (!validateData()) {
             return;
         }
 
@@ -138,88 +142,51 @@ public class AddNewActivity extends AppCompatActivity {
 
     }
 
-    /*
-    private void updateUI(){
-        swapCursor(dbHelper.getCursor());
-        notifyDataSetChanged();
-    }*/
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                // app icon in action bar clicked; goto parent activity.
-                this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.adnew_menu, menu);
-        return true;
-    }
-
     //input validation
 
-    private void requestFocus(View view) {
-        if (view.requestFocus()) {
-            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        }
-    }
+    private boolean validateData() {
+        boolean result = true;
 
-    private boolean validateSwedish() {
-        if (txtSwedish.getText().toString().trim().isEmpty()) {
-            inputLayoutSwedish.setError(getString(R.string.error_message));
-            requestFocus(txtSwedish);
-            return false;
-        } else {
+        String swedish = txtSwedish.getText().toString();
+        if (swedish == null || swedish.length()<2) {
+            // We set the error message
+            inputLayoutSwedish.setError("value required");
+            result = false;
+        }
+        else
+        // We remove error messages
             inputLayoutSwedish.setErrorEnabled(false);
-        }
 
-        return true;
+        String english = txtEnglish.getText().toString();
+        if (english == null || english.length()<2) {
+            // We set the error message
+            inputLayoutEnglish.setError("value required");
+            result = false;
+        }
+        else
+            // We remove error messages
+            inputLayoutEnglish.setErrorEnabled(false);
+
+        String swedishExample = txtSwedishExample.getText().toString();
+        if (swedishExample == null || swedishExample.length()<2) {
+            // We set the error message
+            inputLayoutSwedishExample.setError("value required");
+            result = false;
+        }
+        else
+            // We remove error messages
+            inputLayoutSwedishExample.setErrorEnabled(false);
+
+        String englishExample = txtEnglish.getText().toString();
+        if (englishExample == null || englishExample.length()<2) {
+            // We set the error message
+            inputLayoutEnglishExample.setError("value required");
+            result = false;
+        }
+        else
+            // We remove error messages
+            inputLayoutEnglishExample.setErrorEnabled(false);
+
+        return result;
     }
-
-
-    private void hideKeyboard() {
-        View view = getCurrentFocus();
-        if (view != null) {
-            ((InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE)).
-                    hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-        }
-    }
-
-    private class MyTextWatcher implements TextWatcher {
-
-        private View view;
-
-        private MyTextWatcher(View view) {
-            this.view = view;
-        }
-
-        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        }
-
-        public void afterTextChanged(Editable editable) {
-            /*switch (view.getId()) {
-                case R.id.input_name:
-                    validateName();
-                    break;
-                case R.id.input_email:
-                    validateEmail();
-                    break;
-                case R.id.input_password:
-                    validatePassword();
-                    break;
-            }*/
-            //hideKeyboard();
-            validateSwedish();
-        }
-    }
-
 }

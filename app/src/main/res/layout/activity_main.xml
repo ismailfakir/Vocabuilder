@@ -6,7 +6,8 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:elevation="4dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/my_toolbar"
@@ -14,6 +15,8 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
+            android:elevation="4dp"
+            app:popupTheme="@style/ToolBarTheme.Popup"
             app:theme="@style/ToolBarTheme">
 
         </android.support.v7.widget.Toolbar>
@@ -34,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/activity_horizontal_margin"
-        android:src="@mipmap/ic_plus" />
+        android:src="@drawable/ic_playlist_add_white_48dp" />
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -12,7 +12,8 @@
         android:icon="@mipmap/ic_launcher3"
         android:label="@string/appName"
         android:supportsRtl="true"
-        android:theme="@style/MyMaterialTheme">
+        android:theme="@style/MyMaterialTheme"
+        android:windowSoftInputMode="stateVisible|adjustResize">
 
         <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
 
@@ -36,16 +37,9 @@
         <!-- AddNewActivity -->
         <activity
             android:name=".AddNewActivity"
-            android:label="add new"
+            android:label="Add New Word"
             android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize">
-
-            <!-- Parent activity meta-data to support 4.0 and lower -->
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="net.cloudcentrik.vocabuilder.MainActivity" />
-        </activity>
+            android:screenOrientation="portrait"/>
 
         <!-- AboutActivity -->
         <activity

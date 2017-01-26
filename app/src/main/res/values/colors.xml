@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--App theme green start-->
+
+    <color name="primary">#4CAF50</color>
+    <color name="primary_dark">#388E3C</color>
+    <color name="primary_light">#C8E6C9</color>
+    <color name="accent">#FF5722</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#757575</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="divider">#BDBDBD</color>
+
+    <!--App theme green end -->
 
     <!--Theme Blue-->
     <color name="colorPrimary">#3F51B5</color>
@@ -26,6 +38,8 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="yellow">#F7FE2E</color>
+    <color name="orange">#FF5722</color>
+    <color name="lightGreen">#689F38</color>
     <color name="appBackground1">#F79E03</color>
     <color name="appBackground2">#d5d8dc</color>
     <color name="appBackground">#e3f2fd</color>
@@ -34,7 +48,6 @@
     <color name="blueDark">#003366</color>
     <color name="blueLight">#c0e6fd</color>
     <color name="blueLight2">#e6f3fb</color>
-    <color name="orange">#ff6600</color>
     <color name="green">#77aa00</color>
     <color name="darkGrey">#292929</color>
     <color name="grey">#666666</color>
