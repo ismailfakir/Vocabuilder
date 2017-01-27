@@ -9,7 +9,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher3"
+        android:icon="@mipmap/ic_launcher_appicon"
         android:label="@string/appName"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme"
