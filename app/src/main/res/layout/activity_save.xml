@@ -32,15 +32,15 @@
 
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/textHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="20dp"
-                android:text="Save or Email Word list"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:textSize="20dp"
+                android:text="Backup word list"
+                android:textColor="@color/accent"
+                android:textStyle="normal"
+                android:textSize="30dp"
                 android:textAlignment="center" />
 
 
@@ -52,15 +52,8 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="20dp"
                 android:layout_weight="0.06"
-                android:background="@drawable/button_bg_green_shadow"
+                android:background="@drawable/button_bg_green_new"
                 android:text="Save Word List" />
-
-            <EditText
-                android:id="@+id/editTextFileName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:hint="enter your email address" />
 
             <Button
                 android:id="@+id/btnEmailWordList"
@@ -70,18 +63,9 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="20dp"
                 android:layout_weight="0.06"
-                android:background="@drawable/button_bg_green_shadow"
+                android:background="@drawable/button_bg_green_new"
                 android:text="Email Word List" />
 
-
-            <TextView
-                android:id="@+id/txtStatus"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:layout_weight="0.18"
-                android:text="Status Message"
-                android:textAlignment="center" />
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

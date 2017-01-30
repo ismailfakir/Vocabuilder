@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="net.cloudcentrik.vocabuilder"
+    package="net.cloudcentrik.wordplus"
     android:versionCode="1"
     android:versionName="1.1">
 
@@ -9,7 +9,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher_appicon"
+        android:icon="@mipmap/ic_launcher_green"
         android:label="@string/appName"
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme"
@@ -20,7 +20,7 @@
 
         <!-- SplashActivity -->
         <activity
-            android:name=".SplashActivity"
+            android:name="net.cloudcentrik.wordplus.SplashActivity"
             android:label="@string/appName"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Black.NoTitleBar">
@@ -32,55 +32,55 @@
         </activity>
 
         <!-- MainActivity -->
-        <activity android:name=".MainActivity" />
+        <activity android:name="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- AddNewActivity -->
         <activity
-            android:name=".AddNewActivity"
+            android:name="net.cloudcentrik.wordplus.AddNewActivity"
             android:label="Add New Word"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity"
             android:screenOrientation="portrait"/>
 
         <!-- AboutActivity -->
         <activity
-            android:name=".AboutActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="net.cloudcentrik.wordplus.AboutActivity"
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- StatisticsActivity -->
         <activity
-            android:name=".StatisticsActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="net.cloudcentrik.wordplus.StatisticsActivity"
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- StatisticsActivity -->
         <activity
-            android:name=".QuizActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="net.cloudcentrik.wordplus.QuizActivity"
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <activity
-            android:name=".NewQuizActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="net.cloudcentrik.wordplus.NewQuizActivity"
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <activity
-            android:name=".QuizResultActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="net.cloudcentrik.wordplus.QuizResultActivity"
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- WordActivity -->
         <activity
-            android:name=".WordActivity"
+            android:name="net.cloudcentrik.wordplus.WordActivity"
             android:label="Word"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- DictonaryWordActivity -->
         <activity
-            android:name=".DictonaryWordActivity"
+            android:name="net.cloudcentrik.wordplus.DictonaryWordActivity"
             android:label="Dictonary"
-            android:parentActivityName=".DictonaryActivity" />
+            android:parentActivityName="net.cloudcentrik.wordplus.DictonaryActivity" />
 
         <!-- SaveActivity -->
         <activity
-            android:name=".SaveActivity"
+            android:name="net.cloudcentrik.wordplus.SaveActivity"
             android:label="Save"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- ExampleActivity -->
 
@@ -94,12 +94,12 @@
             android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name=".DictonaryActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="net.cloudcentrik.wordplus.DictonaryActivity"
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <activity
-            android:name=".EditWordActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name="net.cloudcentrik.wordplus.EditWordActivity"
+            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
     </application>
 
 </manifest>

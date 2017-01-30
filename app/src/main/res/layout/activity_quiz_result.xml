@@ -112,7 +112,8 @@
                 <TextView
                     android:id="@+id/txtResult2"
                     android:text=""
-                    style="@style/TableCellStyle"/>
+                    style="@style/TableCellStyle"
+                    android:drawableLeft="@drawable/ic_wrong_red_48dp"/>
             </TableRow>
             <TableRow
                 android:background="#CCC"
@@ -136,7 +137,8 @@
                 <TextView
                     android:id="@+id/txtResult3"
                     android:text=""
-                    style="@style/TableCellStyle"/>
+                    style="@style/TableCellStyle"
+                    android:drawableLeft="@drawable/ic_correct_circle_black_48dp"/>
             </TableRow>
         </TableLayout>
 

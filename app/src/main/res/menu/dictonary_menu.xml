@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".AddNewActivity">
     <item
-        android:id="@+id/action_dictonary"
-        android:orderInCategory="100"
-        android:title="Statistics"
-        app:showAsAction="never" />
+        android:id="@+id/btnAdWord"
+        android:icon="@drawable/ic_playlist_add_white_48dp"
+        android:title="DELETE"
+        app:showAsAction="always" />
 </menu>

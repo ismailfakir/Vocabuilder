@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.2"
 
     defaultConfig {
-        applicationId "net.cloudcentrik.vocabuilder"
+        applicationId "net.cloudcentrik.wordplus"
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1

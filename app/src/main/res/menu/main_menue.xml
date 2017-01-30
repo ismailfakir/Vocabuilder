@@ -17,36 +17,36 @@
 
     <item
         android:id="@+id/action_add"
-        android:icon="@mipmap/ic_list_add"
+        android:icon="@drawable/ic_note_add_white_48dp"
         android:title="Add"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_test"
-        android:icon="@mipmap/ic_question_balack"
+        android:icon="@drawable/ic_quiz_white_48dp"
         android:title="Test"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_stat"
-        android:icon="@mipmap/ic_chart_black"
+        android:icon="@drawable/ic_stat_white_48dp"
         android:title="Statistics"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_dictonary"
-        android:icon="@mipmap/ic_dictonary_black"
+        android:icon="@drawable/ic_dictonary_white_48dp"
         android:title="Dictonary"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/action_save"
-        android:icon="@mipmap/ic_backup"
-        android:title="Save"
+        android:icon="@drawable/ic_backup_white_48dp"
+        android:title="Backup"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_about"
-        android:icon="@mipmap/ic_info_black"
+        android:icon="@drawable/ic_info_white_48dp"
         android:title="About"
         app:showAsAction="never" />
 

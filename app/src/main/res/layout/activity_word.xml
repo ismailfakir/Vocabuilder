@@ -32,13 +32,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+            <!--<TextView
+                android:id="@+id/sv"
                 style="@style/WordviewHeading"
                 android:text="Swedish"
-                />
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="SV"
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textSV"
@@ -50,13 +59,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+            <!--<TextView
+                android:id="@+id/en"
                 style="@style/WordviewHeading"
                 android:text="English"
-                />
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="EN"
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textEN"
@@ -70,13 +88,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+            <!--<TextView
+                android:id="@+id/txPartOfSpeach"
                 style="@style/WordviewHeading"
                 android:text="Part of Speach"
-                />
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="pos"
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textPartOfSpeach"
@@ -88,13 +115,22 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
+            <!-- <TextView
+                 android:id="@+id/ex"
+                 style="@style/WordviewHeading"
+                 android:text="Swedish Example"
+                 />-->
             <TextView
-                style="@style/WordviewHeading"
-                android:text="Swedish Example"
-                />
+                android:layout_width="wrap_content"
+                android:text="t.ex."
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textSwedishExample"
@@ -103,34 +139,54 @@
                 />
         </LinearLayout>
 
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+            <!--<TextView
+                android:id="@+id/txSwedishExample"
                 style="@style/WordviewHeading"
-                android:text="English Example"
-                />
+                android:text="Example English"
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="e.g."
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/textExampleEnglish"
                 style="@style/Wordviewcontentsmall"
-                android:text="Vad ska göra?"
+                android:text="what do u do?"
                 />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_marginBottom="5dp">
 
-            <TextView
+            <!--<TextView
+                android:id="@+id/txSwedishExample"
                 style="@style/WordviewHeading"
-                android:text="Date Created"
-                 />
+                android:text="Example English"
+                />-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="d.c."
+                android:textColor="@color/greyLight"
+                android:gravity="center_vertical"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/word_content_background"
+                android:layout_height="match_parent" />
 
             <TextView
                 android:id="@+id/texDateCreated"

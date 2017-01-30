@@ -1,7 +1,7 @@
 <resources>
 
     <!-- application name -->
-    <string name="appName">Voca Builder</string>
+    <string name="appName">Word Plus</string>
     <string name="app_slogan">A tool to help you building your vocabulary in swedish</string>
 
     <!-- spinner title -->
@@ -27,7 +27,7 @@
         <item>Conjunction</item>
     </string-array>
 
-    <!-- about vocabuilder -->
+    <!-- about wordplus -->
     <string name="developer">Ismail Fakir : ismail.fakir@cloudcentrik.net</string>
     <string name="about_text">Voca Builder is an application to help new language learner to develop their vocabulary. User can check their progress to new language by random test and spastics.</string>
 
