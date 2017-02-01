@@ -141,6 +141,21 @@ public class WordDbAdapter {
 
     }
 
+    public boolean wordExist(String word){
+
+        Cursor c=mDb.query(SQLITE_TABLE, new String[] {KEY_SWEDISH},
+                KEY_SWEDISH + " = ?",new String[]{word}, null, null, null);
+        c.moveToFirst();
+        int i=c.getCount();
+        if(i>0){
+            return true;
+
+        }else{
+            return false;
+
+        }
+    }
+
     public Cursor fetchAllWords() {
 
         Cursor mCursor = mDb.query(SQLITE_TABLE, new String[] {KEY_ROWID,KEY_SWEDISH,

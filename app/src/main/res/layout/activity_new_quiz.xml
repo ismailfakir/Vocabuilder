@@ -33,10 +33,10 @@
             android:id="@+id/txtQuizHeading"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Word Meaning"
+            android:text="Translate Swedish to English"
             android:textStyle="normal"
-            android:textSize="32dp"
-            android:textColor="@color/black"
+            android:textSize="16dp"
+            android:textColor="@color/grey"
             android:textAlignment="center"
             android:gravity="center_horizontal"
             android:layout_margin="5dp"/>
@@ -65,7 +65,7 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:textStyle="bold"
-            android:textColor="@color/blue"
+            android:textColor="@color/accent"
             android:padding="5dp"/>
         <RadioGroup
             android:id="@+id/radioGroup1"
@@ -112,7 +112,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:background="@drawable/button_bg_green_shadow"
+                android:background="@drawable/button_bg_green_new"
                 android:text="Next" />
 
         </LinearLayout>

@@ -70,12 +70,14 @@ public class NewQuizActivity extends AppCompatActivity {
         Typeface tf1=Typeface.createFromAsset(this.getAssets(),"font/Roboto-Thin.ttf");
         Typeface tf2=Typeface.createFromAsset(this.getAssets(),"font/Fabrica.otf");
         Typeface tf3=Typeface.createFromAsset(this.getAssets(),"font/ostrich-regular.ttf");
+        Typeface tf4=Typeface.createFromAsset(this.getAssets(),"font/Roboto-Light.ttf");
+        Typeface tf5=Typeface.createFromAsset(this.getAssets(),"font/Roboto-Bold.ttf");
 
         txtQuezHeading=(TextView) findViewById(R.id.txtQuizHeading);
-        txtQuezHeading.setTypeface(tf3);
+        txtQuezHeading.setTypeface(tf4);
 
         txtQuestion = (TextView) findViewById(R.id.textQuestion);
-        txtQuestion.setTypeface(tf1);
+        txtQuestion.setTypeface(tf5);
 
         txtProgress = (TextView) findViewById(R.id.textProgress);
 

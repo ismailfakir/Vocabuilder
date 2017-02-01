@@ -4,13 +4,20 @@ package net.cloudcentrik.wordplus;
  * Created by ismail on 12/01/17.
  */
 
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -42,7 +49,7 @@ public class QuizResultActivity extends AppCompatActivity {
         //Answer a=(Answer) answersList.get(1);
         //Log.d("Answer",""+a.toString());
 
-        txtScore.setText("Score : :"+countScore(answersList));
+        txtScore.setText("Your Score :"+countScore(answersList));
 
         TextView txtResultQuestion1=(TextView)findViewById(R.id.txtResultQuestion1);
         TextView txtResultQuestion2=(TextView)findViewById(R.id.txtResultQuestion2);
@@ -78,12 +85,6 @@ public class QuizResultActivity extends AppCompatActivity {
         txtResult2.setText(answersList.get(1).getResult());
         txtResult3.setText(answersList.get(2).getResult());
 
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-// Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main_menue, menu);
-        return true;
     }
 
     private int countScore(ArrayList<Answer> answerArrayList){

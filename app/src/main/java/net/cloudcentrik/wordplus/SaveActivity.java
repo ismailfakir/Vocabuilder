@@ -2,9 +2,11 @@ package net.cloudcentrik.wordplus;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -63,6 +65,17 @@ public class SaveActivity extends AppCompatActivity {
 
                 BackgroundTask bt = new BackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList");
                 bt.execute();
+                if(bt.getStatus() == AsyncTask.Status.FINISHED){
+                    // My AsyncTask is done and onPostExecute was called
+                    String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus/WordList.pdf";
+                    AlertDialog.Builder builder = new AlertDialog.Builder(SaveActivity.this);
+                    builder.setTitle("File Saved");
+                    builder.setMessage("File Saved in "+filePath);
+                    builder.setPositiveButton("OK", null);
+                    //builder.setNegativeButton("Cancel", null);
+                    builder.show();
+
+                }
             }
         });
 

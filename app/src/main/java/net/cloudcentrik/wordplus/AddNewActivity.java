@@ -112,7 +112,13 @@ public class AddNewActivity extends AppCompatActivity {
             return;
         }
 
-        long r = dbHelper.createWord(txtSwedish.getText().toString(), txtEnglish.getText().toString(),
+        boolean b=dbHelper.wordExist(txtSwedish.getText().toString().toLowerCase());
+        if(b){
+            Toast.makeText(AddNewActivity.this, "Word already exist", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        long r = dbHelper.createWord(txtSwedish.getText().toString().toLowerCase(), txtEnglish.getText().toString(),
                 txtSwedishExample.getText().toString(), txtEnglishExample.getText().toString(), partOfSpeach);
         if (r > 0) {
 

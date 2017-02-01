@@ -84,7 +84,13 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
 
     public void addWord() {
 
-        long r = dbHelper.createWord(txtSwedish.getText().toString(), txtEnglish.getText().toString(),
+        boolean b=dbHelper.wordExist(txtSwedish.getText().toString().toLowerCase());
+        if(b){
+            Toast.makeText(DictonaryWordActivity.this, "Word already exist", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        long r = dbHelper.createWord(txtSwedish.getText().toString().toLowerCase(), txtEnglish.getText().toString(),
                 txtExampleSwedish.getText().toString(), txtExampleEnglish.getText().toString(), txtPartOfSpeech.getText().toString());
         if (r > 0) {
 
