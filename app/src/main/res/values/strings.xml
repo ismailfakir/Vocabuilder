@@ -28,8 +28,10 @@
     </string-array>
 
     <!-- about wordplus -->
-    <string name="developer">Ismail Fakir : ismail.fakir@cloudcentrik.net</string>
-    <string name="about_text">Voca Builder is an application to help new language learner to develop their vocabulary. User can check their progress to new language by random test and spastics.</string>
+    <string name="developer">Ismail Fakir : md.ismail.fakir@gmail.com</string>
+    <string name="about_text">Word Plus is an application to help new Swedish learner to develop their vocabulary. User can keep tract of their personalize vocabulary list using this application.
+        User can check their progress to new language by random word quiz and word statistics.
+        User can also backup their personal vocabulary list as pdf file or send it to their email</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

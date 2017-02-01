@@ -29,8 +29,8 @@
             android:id="@+id/txtScore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SCORE :: 0"
-            android:textColor="@color/blue"
+            android:text="SCORE : 0"
+            android:textColor="@color/accent"
             android:gravity="center_horizontal"
             android:textSize="32dp"
             android:layout_margin="10dp"/>
@@ -83,12 +83,17 @@
                 <TextView
                     android:id="@+id/txtResultUserAnswer1"
                     android:text=""
+                    android:textColor="@color/red"
                     style="@style/TableCellStyle"
                     />
-                <TextView
+                <!--<TextView
                     android:id="@+id/txtResult1"
                     android:text=""
-                    style="@style/TableCellStyle"/>
+                    android:textColor="@color/red"
+                    style="@style/TableCellStyle"/>-->
+                <ImageView
+                    android:id="@+id/imgResult1"
+                    style="@style/ResultImageViewStyle"/>
             </TableRow>
             <TableRow
                 android:background="#CCC"
@@ -107,13 +112,18 @@
                 <TextView
                     android:id="@+id/txtResultUserAnswer2"
                     android:text=""
+                    android:textColor="@color/red"
                     style="@style/TableCellStyle"
                     />
-                <TextView
+                <!--<TextView
                     android:id="@+id/txtResult2"
                     android:text=""
+                    android:textColor="@color/red"
                     style="@style/TableCellStyle"
-                    />
+                    />-->
+                <ImageView
+                    android:id="@+id/imgResult2"
+                    style="@style/ResultImageViewStyle"/>
             </TableRow>
             <TableRow
                 android:background="#CCC"
@@ -132,14 +142,24 @@
                 <TextView
                     android:id="@+id/txtResultUserAnswer3"
                     android:text=""
+                    android:textColor="@color/red"
                     style="@style/TableCellStyle"
                     />
-                <TextView
+                <!--<TextView
                     android:id="@+id/txtResult3"
                     android:text=""
-                    style="@style/TableCellStyle" />
+                    android:textColor="@color/red"
+                    style="@style/TableCellStyle" />-->
+                <ImageView
+                    android:id="@+id/imgResult3"
+                    style="@style/ResultImageViewStyle"
+                    />
             </TableRow>
         </TableLayout>
+
+
+
+
 
     </LinearLayout>
 

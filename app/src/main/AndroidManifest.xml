@@ -44,11 +44,13 @@
         <!-- AboutActivity -->
         <activity
             android:name="net.cloudcentrik.wordplus.AboutActivity"
+            android:label="About"
             android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- StatisticsActivity -->
         <activity
             android:name="net.cloudcentrik.wordplus.StatisticsActivity"
+            android:label=" Word Statistics"
             android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- StatisticsActivity -->
@@ -58,10 +60,12 @@
 
         <activity
             android:name="net.cloudcentrik.wordplus.NewQuizActivity"
+            android:label="Quiz"
             android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <activity
             android:name="net.cloudcentrik.wordplus.QuizResultActivity"
+            android:label="Quiz Result"
             android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- WordActivity -->
