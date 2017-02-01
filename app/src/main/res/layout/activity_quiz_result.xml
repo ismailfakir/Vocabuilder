@@ -26,13 +26,23 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/txtQuizResultHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Swedish to English Translation"
+            android:textColor="@color/secondary_text"
+            android:gravity="center_horizontal"
+            android:textSize="16dp"
+            android:layout_margin="10dp"/>
+
+        <TextView
             android:id="@+id/txtScore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="SCORE : 0"
             android:textColor="@color/accent"
             android:gravity="center_horizontal"
-            android:textSize="32dp"
+            android:textSize="24dp"
             android:layout_margin="10dp"/>
 
         <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -51,19 +61,19 @@
                 android:paddingRight="1dp">
                 <TextView
                     style="@style/TableHeadingStyle"
-                    android:text="Swedish"
+                    android:text="Swedish\nWord"
                     />
                 <TextView
                     style="@style/TableHeadingStyle"
-                    android:text="English"
+                    android:text="Correct\nAnswer"
                     />
                 <TextView
                     style="@style/TableHeadingStyle"
-                    android:text="Answer"
+                    android:text="Your\nAnswer"
                     />
                 <TextView
                     style="@style/TableHeadingStyle"
-                    android:text="Result"
+                    android:text="Quiz\nResult"
                     />
             </TableRow>
             <TableRow

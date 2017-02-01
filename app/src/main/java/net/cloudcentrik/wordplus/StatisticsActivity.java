@@ -169,12 +169,6 @@ public class StatisticsActivity extends AppCompatActivity {
         dbHelper.close();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.statistics_menu, menu);
-        return true;
-    }
-
 
     private void showPieChart(PieChart mChart) {
 

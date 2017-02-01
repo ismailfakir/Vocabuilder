@@ -1,6 +1,7 @@
 package net.cloudcentrik.wordplus;
 
 import android.app.SearchManager;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.drawable.Drawable;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        myToolbar.setLogo(R.mipmap.ic_toolbar_logo1);
+        //myToolbar.setLogo(R.mipmap.ic_toolbar_logo1);
 
         Drawable drawable = ContextCompat.getDrawable(this.getApplicationContext(), R.mipmap.ic_main_menu_white);
         myToolbar.setOverflowIcon(drawable);
@@ -78,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
         //myToolbar.setNavigationIcon(R.mipmap.ic_action);
         //myToolbar.setTitleTextAppearance(this, R.style.MyTitleTextApperance);
         setSupportActionBar(myToolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setTitle("Word Plus");
+        //getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_add);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -226,6 +229,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         Cursor cursor = dbHelper.fetchAllWords();
+
+        if(cursor.getCount()<1){
+            wordListEmptyAlertDialogue();
+        }
 
         // The desired columns to be bound
         String[] columns = new String[]{
@@ -382,5 +389,20 @@ public class MainActivity extends AppCompatActivity {
             }
         }
         return super.onPrepareOptionsMenu(menu);
+    }
+
+    private void wordListEmptyAlertDialogue(){
+
+        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+        alertDialog.setTitle("Empty World List");
+        alertDialog.setMessage("Your word list is empty. Starting adding some word in your word list.");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+
     }
 }

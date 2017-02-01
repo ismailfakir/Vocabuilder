@@ -70,12 +70,22 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
         txtEnglish.setText(word.getEnglish());
         txtEnglish.setTypeface(tf);
 
+
         txtPartOfSpeech.setText(word.getPartOfSpeech());
         txtPartOfSpeech.setTypeface(tf2);
 
-        txtExampleSwedish.setText(word.getSwedishExample());
+        if(word.getSwedishExample().equals("no value")){
+            txtExampleSwedish.setText("");
+        }else{
+            txtExampleSwedish.setText(word.getSwedishExample());
+        }
         txtExampleSwedish.setTypeface(tf2);
-        txtExampleEnglish.setText(word.getEnglishExample());
+
+        if(word.getEnglishExample().equals("no value")){
+            txtExampleEnglish.setText("");
+        }else{
+            txtExampleEnglish.setText(word.getEnglishExample());
+        }
         txtExampleEnglish.setTypeface(tf2);
 
     }
@@ -90,7 +100,9 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
             return;
         }
 
-        long r = dbHelper.createWord(txtSwedish.getText().toString().toLowerCase(), txtEnglish.getText().toString(),
+        String [] swedish=txtSwedish.getText().toString().toLowerCase().split(",");
+
+        long r = dbHelper.createWord(swedish[0], txtEnglish.getText().toString(),
                 txtExampleSwedish.getText().toString(), txtExampleEnglish.getText().toString(), txtPartOfSpeech.getText().toString());
         if (r > 0) {
 
@@ -113,7 +125,7 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.dictonary_menu, menu);
+        getMenuInflater().inflate(R.menu.adnew_menu, menu);
         return true;
     }
 

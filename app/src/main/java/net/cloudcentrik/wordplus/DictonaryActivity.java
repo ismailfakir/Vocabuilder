@@ -110,7 +110,7 @@ public class DictonaryActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_menue, menu);
+        inflater.inflate(R.menu.dictonary_menu, menu);
 
         // Retrieve the SearchView and plug it into SearchManager
         final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
@@ -145,14 +145,14 @@ public class DictonaryActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         final Intent myIntent;
 
-        switch (item.getItemId()) {
+        /*switch (item.getItemId()) {
 
-            /*case R.id.add:
+            *//*case R.id.add:
                 // Start AddNewActivity.class
                 myIntent = new Intent(MainActivity.this,
                         AddNewActivity.class);
                 startActivity(myIntent);
-                return (true);*/
+                return (true);*//*
             case R.id.action_test:
                 // Start QuizActivity.class
 
@@ -194,7 +194,7 @@ public class DictonaryActivity extends AppCompatActivity {
 
                 return (true);
 
-        }
+        }*/
         return (super.onOptionsItemSelected(item));
     }
 

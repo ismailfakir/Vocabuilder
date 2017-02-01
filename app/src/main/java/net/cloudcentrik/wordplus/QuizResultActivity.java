@@ -91,7 +91,10 @@ public class QuizResultActivity extends AppCompatActivity {
         imgResult2=(ImageView)findViewById(R.id.imgResult2);
         imgResult3=(ImageView)findViewById(R.id.imgResult3);
 
-        txtScore.setText("Your Score :"+countScore(answersList));
+
+        float r=getScorePercent(3,countScore(answersList));
+
+        txtScore.setText("Your Score :"+String.format("%.2f",r)+" %");
 
     }
 
@@ -132,6 +135,10 @@ public class QuizResultActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         finish();
+    }
+
+    public float getScorePercent(int questions, int correct){
+        return 100f * correct / questions;
     }
 
 }
