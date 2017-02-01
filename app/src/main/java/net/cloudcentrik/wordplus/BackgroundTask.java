@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.os.Environment;
 
 import java.util.ArrayList;
 
@@ -40,6 +41,14 @@ public class BackgroundTask extends AsyncTask<Void, Void, Void> {
             dialog.dismiss();
             //TextView t = (TextView) activity.findViewById(R.id.txtStatus);
             //t.setText("File Saved in " + fName);
+
+            String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus/WordList.pdf";
+            android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
+            builder.setTitle("File Saved");
+            builder.setMessage("File Saved in "+filePath);
+            builder.setPositiveButton("OK", null);
+            //builder.setNegativeButton("Cancel", null);
+            builder.show();
         }
     }
 

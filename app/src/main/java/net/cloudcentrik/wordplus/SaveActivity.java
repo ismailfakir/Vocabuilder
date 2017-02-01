@@ -65,39 +65,20 @@ public class SaveActivity extends AppCompatActivity {
 
                 BackgroundTask bt = new BackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList");
                 bt.execute();
-                if(bt.getStatus() == AsyncTask.Status.FINISHED){
-                    // My AsyncTask is done and onPostExecute was called
-                    String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus/WordList.pdf";
-                    AlertDialog.Builder builder = new AlertDialog.Builder(SaveActivity.this);
-                    builder.setTitle("File Saved");
-                    builder.setMessage("File Saved in "+filePath);
-                    builder.setPositiveButton("OK", null);
-                    //builder.setNegativeButton("Cancel", null);
-                    builder.show();
 
-                }
             }
         });
 
         final Button buttonEmail = (Button) findViewById(R.id.btnEmailWordList);
         buttonEmail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action on click
-                /*String fPath=CreatePDF.createPdfWordList(dbHelper.getAllWords());
-                txtStatus.setText("Word List Saved to : "+fPath);
-                Toast.makeText(SaveActivity.this, "Word List Created in " + fPath, Toast.LENGTH_SHORT).show();*/
-                String file = fileName.getText().toString();
-                if (TextUtils.isEmpty(file)) {
-                    fileName.setError("Please enter a file name");
-                    return;
-                }
 
-                BackgroundTask bt = new BackgroundTask(SaveActivity.this, dbHelper.getAllWords(), file);
+                BackgroundTask bt = new BackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList");
                 bt.execute();
 
                 //String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus";
 
-                ShareViaEmail("wordplus","test.pdf");
+                ShareViaEmail();
             }
         });
 
@@ -109,15 +90,14 @@ public class SaveActivity extends AppCompatActivity {
         super.onStop();
     }
 
-    private void ShareViaEmail(String folder_name, String file_name) {
+    private void ShareViaEmail() {
         try {
-            File Root= Environment.getExternalStorageDirectory();
-            String filelocation=Root.getAbsolutePath() + folder_name + "/" + file_name+".pdf";
+
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setType("text/plain");
-            String message="Please find your word list attachment with this email from Vocabuilder";
+            String message="Please find your word list attachment with this email from Word Plus";
             intent.putExtra(Intent.EXTRA_SUBJECT, "Word list from wordplus");
-            String fileName = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus/test.pdf";
+            String fileName = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus/WordList.pdf";
             intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(fileName)));
             intent.putExtra(Intent.EXTRA_TEXT, message);
             intent.setData(Uri.parse("mailto:ismail7043@gmail.com"));
