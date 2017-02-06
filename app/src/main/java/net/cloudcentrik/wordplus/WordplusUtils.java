@@ -4,6 +4,9 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 import java.util.Random;
 
 /**
@@ -63,6 +66,13 @@ public class WordplusUtils {
         Typeface tf=Typeface.createFromAsset(context.getAssets(),"font/"+fontName);
         textView.setTypeface(tf);
 
+    }
+
+    public static String getDateTime() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date).toString();
     }
 
     /*

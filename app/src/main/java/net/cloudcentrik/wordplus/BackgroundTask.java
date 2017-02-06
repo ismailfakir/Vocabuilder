@@ -3,6 +3,7 @@ package net.cloudcentrik.wordplus;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Environment;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
  */
 public class BackgroundTask extends AsyncTask<Void, Void, Void> {
     Activity activity;
-    String fName;
+    String savedFileName;
     String fileName;
     private ProgressDialog dialog;
     private AlertDialog alertDialog;
@@ -23,7 +24,7 @@ public class BackgroundTask extends AsyncTask<Void, Void, Void> {
         this.activity = activity;
         dialog = new ProgressDialog(activity);
         this.words = words;
-        fName = "File saved as ";
+        this.savedFileName = "File saved as ";
         this.fileName = fileName;
 
 
@@ -42,11 +43,16 @@ public class BackgroundTask extends AsyncTask<Void, Void, Void> {
             //TextView t = (TextView) activity.findViewById(R.id.txtStatus);
             //t.setText("File Saved in " + fName);
 
-            String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus/WordList.pdf";
+            //String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus/WordList.pdf";
             android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(activity);
             builder.setTitle("File Saved");
-            builder.setMessage("File Saved in "+filePath);
-            builder.setPositiveButton("OK", null);
+            builder.setMessage("File Saved as "+this.savedFileName);
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int id) {
+                    // FIRE ZE MISSILES!
+                    activity.finish();
+                }
+            });
             //builder.setNegativeButton("Cancel", null);
             builder.show();
         }
@@ -56,7 +62,7 @@ public class BackgroundTask extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... params) {
         try {
             //fName.concat(CreatePDF.createPdfWordList(words));
-            fName = CreatePDF.createPdfWordList(words, this.fileName);
+            this.savedFileName = CreatePDF.createPdfWordList(words, this.fileName);
         } catch (Exception e) {
             e.printStackTrace();
         }

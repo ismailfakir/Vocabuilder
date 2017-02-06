@@ -83,7 +83,7 @@
         <!-- SaveActivity -->
         <activity
             android:name="net.cloudcentrik.wordplus.SaveActivity"
-            android:label="Save"
+            android:label="Backup"
             android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- ExampleActivity -->
