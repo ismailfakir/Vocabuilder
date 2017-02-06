@@ -81,10 +81,12 @@ public class SaveActivity extends AppCompatActivity {
 
                 if(validateEmail()){
 
-                    SaveWordList saveWordListTask = new SaveWordList(SaveActivity.this, dbHelper.getAllWords(), "Processing for email");
+                    SaveFileBackgroundTask saveFileBackgroundTask = new SaveFileBackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList"+WordplusUtils.getDateTime());
+                    saveFileBackgroundTask.execute();
+
+                    //SaveWordList saveWordListTask = new SaveWordList(SaveActivity.this, dbHelper.getAllWords(), "Processing for email");
                     try{
-                        saveWordListTask.execute();
-                        String createdFileName=saveWordListTask.get();
+                        String createdFileName=saveFileBackgroundTask.get();
                         shareViaEmail(txtEmailAddress.getText().toString(),createdFileName);
                     }catch (Exception e){
                         Log.d("Send email Error",e.getMessage());
