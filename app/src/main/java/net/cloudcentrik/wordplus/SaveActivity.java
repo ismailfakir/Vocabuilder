@@ -16,6 +16,7 @@ import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -31,12 +32,9 @@ public class SaveActivity extends AppCompatActivity {
 
     private WordDbAdapter dbHelper;
     private TextView txtEmailAddress;
-    private EditText txtFileName;
-    private TextView txtHeading1,txtHeading2;
-    private String emailAddress="";
-    public String fileName="";
     private TextInputLayout inputLayoutEmail;
-
+    private String emailAddress="";
+    private View dialogView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +53,13 @@ public class SaveActivity extends AppCompatActivity {
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setDisplayShowHomeEnabled(true);
 
-        txtEmailAddress=(TextView)findViewById(R.id.txtEmailAddress);
-        inputLayoutEmail=(TextInputLayout) findViewById(R.id.input_layout_email_address);
+        LayoutInflater inflater = this.getLayoutInflater();
+        dialogView = inflater.inflate(R.layout.dialoge_email, null);
 
-        txtEmailAddress.addTextChangedListener(new EmailTextWatcher(txtEmailAddress));
+        txtEmailAddress=(TextView)dialogView.findViewById(R.id.txtDialogueEmailAddress);
+        inputLayoutEmail=(TextInputLayout) dialogView.findViewById(R.id.dialogue_email_address);
+
+        //txtEmailAddress.addTextChangedListener(new EmailTextWatcher(txtEmailAddress));
 
 
         dbHelper = new WordDbAdapter(this);
@@ -79,6 +80,9 @@ public class SaveActivity extends AppCompatActivity {
         buttonEmail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
+                /*//showEmailDialog();
+                showEmailDialogueTest();
+
                 if(validateEmail()){
 
                     SaveFileBackgroundTask saveFileBackgroundTask = new SaveFileBackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList"+WordplusUtils.getDateTime());
@@ -94,7 +98,19 @@ public class SaveActivity extends AppCompatActivity {
 
                     finish();
 
+                }else{
+                    showInvalidEmailDialog();
+                }*/
+
+                SaveFileBackgroundTask saveFileBackgroundTask = new SaveFileBackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList"+WordplusUtils.getDateTime());
+                saveFileBackgroundTask.execute();
+                try{
+                    String createdFileName=saveFileBackgroundTask.get();
+                    shareViaEmail(emailAddress,createdFileName);
+                }catch (Exception e){
+                    Log.d("Send email Error",e.getMessage());
                 }
+                finish();
 
             }
         });
@@ -119,7 +135,7 @@ public class SaveActivity extends AppCompatActivity {
             //String fileName = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus/WordList.pdf";
             intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(fileName)));
             intent.putExtra(Intent.EXTRA_TEXT, message);
-            intent.setData(Uri.parse(emailAddress));
+            //intent.setData(Uri.parse(emailAddress));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
             intent.setClassName("com.google.android.gm", "com.google.android.gm.ComposeActivityGmail");
@@ -132,19 +148,17 @@ public class SaveActivity extends AppCompatActivity {
     }
 
     private void showEmailDialog(){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Send To");
-
-
-        final EditText input = new EditText(this);
-        input.setInputType(InputType.TYPE_TEXT_VARIATION_EMAIL_ADDRESS);
-        builder.setView(input);
-
+        Log.d("EMAIL DIALOGUE","INSIADE EMAIL DIALOGUE");
+        AlertDialog.Builder builder = new AlertDialog.Builder(SaveActivity.this);
+        builder.setTitle("Enter Your Email");
+        builder.setView(dialogView);
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                emailAddress = input.getText().toString();
+                emailAddress = txtEmailAddress.getText().toString();
+                //dialog.dismiss();
+                dialog.cancel();
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -169,7 +183,9 @@ public class SaveActivity extends AppCompatActivity {
     }
 
     private boolean validateEmail() {
-        String email = txtEmailAddress.getText().toString().trim();
+        //showEmailDialog();
+        //String email = txtEmailAddress.getText().toString().trim();
+        String email = this.emailAddress;
 
         if (email.isEmpty() || !isValidEmail(email)) {
             inputLayoutEmail.setError("Invalid email address");
@@ -199,5 +215,47 @@ public class SaveActivity extends AppCompatActivity {
         public void afterTextChanged(Editable editable) {
             validateEmail();
         }
+    }
+
+    private void showInvalidEmailDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("invalid email");
+        builder.setMessage("Please enter valid email address");
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
+    private void showEmailDialogueTest(){
+        LayoutInflater linf = LayoutInflater.from(this);
+        final View inflator = linf.inflate(R.layout.dialoge_email, null);
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+
+        alert.setTitle("Tilte");
+        alert.setMessage("Message");
+        alert.setView(inflator);
+
+        final EditText et1 = (EditText) inflator.findViewById(R.id.txtDialogueEmailAddress);
+
+        alert.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton)
+            {
+                //String s1=et1.getText().toString();
+                emailAddress=et1.getText().toString();
+
+            }
+        });
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.cancel();
+            }
+        });
+
+        alert.show();
     }
 }

@@ -104,6 +104,7 @@
 
         <activity
             android:name="net.cloudcentrik.wordplus.EditWordActivity"
+            android:label="Edit Word"
             android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
     </application>
 

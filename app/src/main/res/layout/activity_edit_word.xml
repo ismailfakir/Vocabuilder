@@ -17,7 +17,6 @@
             android:background="?attr/colorPrimary"
             android:elevation="4dp"
             android:minHeight="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/ToolBarTheme.Popup"
             app:theme="@style/ToolBarTheme" />
     </android.support.design.widget.AppBarLayout>
@@ -31,7 +30,6 @@
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="?attr/actionBarSize"
             android:orientation="vertical"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
@@ -49,6 +47,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hints_swedish"
+                    android:textColor="@color/blue"
                     android:maxLines="1" />
             </android.support.design.widget.TextInputLayout>
 

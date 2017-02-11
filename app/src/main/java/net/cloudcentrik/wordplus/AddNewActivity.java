@@ -1,15 +1,19 @@
 package net.cloudcentrik.wordplus;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -114,7 +118,8 @@ public class AddNewActivity extends AppCompatActivity {
 
         boolean b=dbHelper.wordExist(txtSwedish.getText().toString().toLowerCase());
         if(b){
-            Toast.makeText(AddNewActivity.this, "Word already exist", Toast.LENGTH_LONG).show();
+            showWordExistDialog();
+            //Toast.makeText(AddNewActivity.this, "Word already exist", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -186,5 +191,20 @@ public class AddNewActivity extends AppCompatActivity {
             inputLayoutEnglishExample.setErrorEnabled(false);
 
         return result;
+    }
+
+    private void showWordExistDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Word Exist");
+        builder.setMessage("Word already exist in the word list. Try to add new word");
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                clearText();
+                dialog.cancel();
+            }
+        });
+        builder.show();
     }
 }

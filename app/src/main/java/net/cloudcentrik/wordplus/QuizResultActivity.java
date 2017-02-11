@@ -28,7 +28,7 @@ public class QuizResultActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz_result);
+        setContentView(R.layout.activity_quiz_result_new);
 
         // my_child_toolbar is defined in the layout file
         Toolbar myChildToolbar =
