@@ -71,6 +71,11 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
         txtEnglish.setTypeface(tf);
 
 
+        if(word.getPartOfSpeech().equals("no value")){
+            txtPartOfSpeech.setText("Noun");
+        }else if(word.getPartOfSpeech().equals("interjektion")){
+            txtPartOfSpeech.setText("Interjection");
+        }
         txtPartOfSpeech.setText(word.getPartOfSpeech());
         txtPartOfSpeech.setTypeface(tf2);
 
@@ -102,8 +107,10 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
 
         String [] swedish=txtSwedish.getText().toString().toLowerCase().split(",");
 
+        String partOfSpeech=WordplusUtils.capitalizeString(txtPartOfSpeech.getText().toString());
+
         long r = dbHelper.createWord(swedish[0], txtEnglish.getText().toString(),
-                txtExampleSwedish.getText().toString(), txtExampleEnglish.getText().toString(), txtPartOfSpeech.getText().toString());
+                txtExampleSwedish.getText().toString(), txtExampleEnglish.getText().toString(), partOfSpeech);
         if (r > 0) {
 
             Toast.makeText(DictonaryWordActivity.this, "Word added to list", Toast.LENGTH_SHORT).show();

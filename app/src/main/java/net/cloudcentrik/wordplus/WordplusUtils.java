@@ -75,6 +75,18 @@ public class WordplusUtils {
         return dateFormat.format(date).toString();
     }
 
+    public static String capitalizeString(String string) {
+
+        if (string == null || string.trim().isEmpty()) {
+            return string;
+        }
+        char c[] = string.trim().toLowerCase().toCharArray();
+        c[0] = Character.toUpperCase(c[0]);
+
+        return new String(c);
+
+    }
+
     /*
     // Create an array
 Integer[] array = new Integer[]{1, 2, 3, 4};

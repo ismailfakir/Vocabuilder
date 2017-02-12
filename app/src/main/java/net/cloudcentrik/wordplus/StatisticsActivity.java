@@ -82,8 +82,9 @@ public class StatisticsActivity extends AppCompatActivity {
         entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Verb"), 3));
         entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Adverb"), 4));
         entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Preposition"), 5));
-        entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Interjection"), 6));
-        entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Conjunction"), 7));
+        entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Conjunction"), 6));
+        entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Interjection"), 7));
+
 
         BarDataSet dataset = new BarDataSet(entries, "# of Calls");
 
@@ -179,8 +180,9 @@ public class StatisticsActivity extends AppCompatActivity {
         entries.add(new Entry((float) dbHelper.countPartofSpeach("Verb"), 3));
         entries.add(new Entry((float) dbHelper.countPartofSpeach("Adverb"), 4));
         entries.add(new Entry((float) dbHelper.countPartofSpeach("Preposition"), 5));
-        entries.add(new Entry((float) dbHelper.countPartofSpeach("Interjection"), 6));
-        entries.add(new Entry((float) dbHelper.countPartofSpeach("Conjunction"), 7));
+        entries.add(new Entry((float) dbHelper.countPartofSpeach("Conjunction"), 6));
+        entries.add(new Entry((float) dbHelper.countPartofSpeach("Interjection"), 7));
+
 
         PieDataSet dataset = new PieDataSet(entries, "");
 
@@ -192,8 +194,9 @@ public class StatisticsActivity extends AppCompatActivity {
         labels.add("Verb");
         labels.add("Adverb");
         labels.add("Preposition");
-        labels.add("Interjection");
         labels.add("Conjunction");
+        labels.add("Interjection");
+
 
         PieData data = new PieData(labels, dataset); // initialize Piedata
         mChart.setDescription("");  // set the description
