@@ -76,7 +76,7 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
         }else if(word.getPartOfSpeech().equals("interjektion")){
             txtPartOfSpeech.setText("Interjection");
         }
-        txtPartOfSpeech.setText(word.getPartOfSpeech());
+        //txtPartOfSpeech.setText(word.getPartOfSpeech());
         txtPartOfSpeech.setTypeface(tf2);
 
         if(word.getSwedishExample().equals("no value")){
