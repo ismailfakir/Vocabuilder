@@ -49,13 +49,7 @@ public class DictonaryActivity extends AppCompatActivity {
         ListView listView = (ListView) findViewById(R.id.dictonary_wordlist);
 
         db = new DictonaryDatabase(this);
-        words = db.getEmployees(); // you would not typically call this on the main thread
-
-        /*ListAdapter adapter = new SimpleCursorAdapter(this,
-                R.layout.dictonary_list,
-                words,
-                new String[] {"English","Swedish","PartOfSpeech","SwedishExample","EnglishExample"},
-                new int[] {R.id.textEN,R.id.textSV,R.id.textPartOfSpeach,R.id.textEX,R.id.texEnglishExample});*/
+        words = db.getAllDictionaryWords();
 
         adapter = new SimpleCursorAdapter(
                 this, R.layout.dictonary_list_backup,
@@ -84,16 +78,13 @@ public class DictonaryActivity extends AppCompatActivity {
                 String partOfSpeech =
                         cursor.getString(cursor.getColumnIndexOrThrow("PartOfSpeech"));
 
-                //Toast.makeText(getApplicationContext(),swedish+" "+exampleSwedish, Toast.LENGTH_SHORT).show();
+                DictionaryWord w = new DictionaryWord(swedish, english,exampleSwedish, exampleEnglish,partOfSpeech, DictionaryWord.getCurrentDate());
 
-                DictonaryWord w = new DictonaryWord(swedish, english,exampleSwedish, exampleEnglish,partOfSpeech,DictonaryWord.getCurrentDate());
+                Intent i = new Intent(DictonaryActivity.this, DictionaryWordActivity.class);
 
-                Intent i = new Intent(DictonaryActivity.this, DictonaryWordActivity.class);
-
-                i.putExtra("DictonaryWord", w);
+                i.putExtra("DictionaryWord", w);
 
                 startActivity(i);
-
 
             }
         });
@@ -144,57 +135,6 @@ public class DictonaryActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         final Intent myIntent;
-
-        /*switch (item.getItemId()) {
-
-            *//*case R.id.add:
-                // Start AddNewActivity.class
-                myIntent = new Intent(MainActivity.this,
-                        AddNewActivity.class);
-                startActivity(myIntent);
-                return (true);*//*
-            case R.id.action_test:
-                // Start QuizActivity.class
-
-                myIntent = new Intent(DictonaryActivity.this,
-                        QuizActivity.class);
-                startActivity(myIntent);
-                return (true);
-            case R.id.action_stat:
-                // Start AboutActivity.class
-                myIntent = new Intent(DictonaryActivity.this,
-                        StatisticsActivity.class);
-                startActivity(myIntent);
-                return (true);
-            case R.id.action_about:
-                // Start AboutActivity.class
-                myIntent = new Intent(DictonaryActivity.this,
-                        AboutActivity.class);
-                startActivity(myIntent);
-                return (true);
-
-            case R.id.action_dictonary:
-                // Start ExampleActivity
-                myIntent = new Intent(DictonaryActivity.this,
-                        DictonaryActivity.class);
-                startActivity(myIntent);
-                return (true);
-            case R.id.action_save:
-                myIntent = new Intent(DictonaryActivity.this,
-                        SaveActivity.class);
-                startActivity(myIntent);
-                return (true);
-            case R.id.action_add:
-                myIntent = new Intent(DictonaryActivity.this,
-                        AddNewActivity.class);
-                startActivity(myIntent);
-                return (true);
-
-            case R.id.action_search:
-
-                return (true);
-
-        }*/
         return (super.onOptionsItemSelected(item));
     }
 

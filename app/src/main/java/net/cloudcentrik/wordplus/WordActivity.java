@@ -65,7 +65,7 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
     private void createWordView() {
 
         Typeface tf=Typeface.createFromAsset(this.getAssets(),"font/Roboto-Thin.ttf");
-        DictonaryWord word = getIntent().getParcelableExtra("word");
+        DictionaryWord word = getIntent().getParcelableExtra("word");
 
         this.setTitle(word.getSwedish());
 
@@ -152,9 +152,9 @@ public class WordActivity extends AppCompatActivity implements AdapterView.OnIte
 
             case R.id.btnEditWord:
                 //showInputDialog();
-                //DictonaryWord word = getIntent().getParcelableExtra("word");
+                //DictionaryWord word = getIntent().getParcelableExtra("word");
 
-                DictonaryWord word=new DictonaryWord();
+                DictionaryWord word=new DictionaryWord();
                 word.setSwedish(textSwedish.getText().toString());
                 word.setEnglish(textEnglish.getText().toString());
                 word.setSwedishExample(textSwedishExample.getText().toString());

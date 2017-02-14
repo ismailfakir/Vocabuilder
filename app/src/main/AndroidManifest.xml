@@ -54,9 +54,6 @@
             android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <!-- StatisticsActivity -->
-        <activity
-            android:name="net.cloudcentrik.wordplus.QuizActivity"
-            android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
         <activity
             android:name="net.cloudcentrik.wordplus.NewQuizActivity"
@@ -74,9 +71,9 @@
             android:label="Word"
             android:parentActivityName="net.cloudcentrik.wordplus.MainActivity" />
 
-        <!-- DictonaryWordActivity -->
+        <!-- DictionaryWordActivity -->
         <activity
-            android:name="net.cloudcentrik.wordplus.DictonaryWordActivity"
+            android:name="net.cloudcentrik.wordplus.DictionaryWordActivity"
             android:label="Dictonary"
             android:parentActivityName="net.cloudcentrik.wordplus.DictonaryActivity" />
 

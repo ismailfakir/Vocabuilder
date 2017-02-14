@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.WindowManager;
 
 import com.github.mikephil.charting.charts.HorizontalBarChart;
@@ -55,17 +54,6 @@ public class StatisticsActivity extends AppCompatActivity {
         dbHelper = new WordDbAdapter(this);
         dbHelper.open();
 
-        //graph
-        //mChart = (PieChart) findViewById(R.id.chart);
-        //showPieChart(mChart);
-
-        //pie chart parameters
-
-       /* final LinearLayout lv1 = (LinearLayout) findViewById(R.id.linear);
-
-        values = calculateData(values);
-        MyGraphview graphview = new MyGraphview(this,values);
-        lv1.addView(graphview);*/
 
         HorizontalBarChart barChart = (HorizontalBarChart) findViewById(R.id.chart);
 
@@ -109,7 +97,7 @@ public class StatisticsActivity extends AppCompatActivity {
 
         BarData data = new BarData(labels, dataset);
 
-        data.setValueFormatter(new MyValueFormatter());
+        data.setValueFormatter(new WordPlusValueFormatter());
 
 
         XAxis xl = barChart.getXAxis();
@@ -127,7 +115,7 @@ public class StatisticsActivity extends AppCompatActivity {
         yl.setGridLineWidth(0.3f);
         yl.setAxisMinValue(0f); // this replaces setStartAtZero(true)
 //        yl.setInverted(true);
-        yl.setValueFormatter(new MyYAxisValueFormatter());
+        yl.setValueFormatter(new WordPlusYAxisValueFormatter());
         yl.setDrawZeroLine(false);
         yl.setDrawTopYLabelEntry(false);
         yl.setDrawLabels(false);
@@ -139,7 +127,7 @@ public class StatisticsActivity extends AppCompatActivity {
         yr.setDrawGridLines(false);
         yr.setAxisMinValue(0f); // this replaces setStartAtZero(true)
 //        yr.setInverted(true);
-        yr.setValueFormatter(new MyYAxisValueFormatter());
+        yr.setValueFormatter(new WordPlusYAxisValueFormatter());
 
         barChart.setDescription("");    // Hide the description
         barChart.getAxisLeft().setDrawLabels(false);

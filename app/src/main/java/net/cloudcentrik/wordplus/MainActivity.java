@@ -21,7 +21,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.EditText;
 import android.widget.FilterQueryProvider;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -39,7 +38,6 @@ import java.lang.reflect.Method;
  */
 public class MainActivity extends AppCompatActivity {
 
-    TextView count;
     private WordDbAdapter dbHelper;
     private SimpleCursorAdapter dataAdapter;
     private boolean mSearchOpened;
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private Drawable mIconCloseSearch;
     private MenuItem mSearchAction;
     private Toolbar myToolbar;
-    private EditText mSearchEt;
+
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -76,12 +74,10 @@ public class MainActivity extends AppCompatActivity {
 
         Drawable drawable = ContextCompat.getDrawable(this.getApplicationContext(), R.mipmap.ic_main_menu_white);
         myToolbar.setOverflowIcon(drawable);
-        //myToolbar.setOverflowIcon(R.drawable.button_bg_green);
-        //myToolbar.setNavigationIcon(R.mipmap.ic_action);
-        //myToolbar.setTitleTextAppearance(this, R.style.MyTitleTextApperance);
+
         setSupportActionBar(myToolbar);
         getSupportActionBar().setTitle("Word Plus");
-        //getSupportActionBar().setDisplayShowTitleEnabled(false);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_add);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -97,27 +93,11 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new WordDbAdapter(this);
         dbHelper.open();
 
-        // Getting the icons.
-        /*mIconOpenSearch = getResources()
-                .getDrawable(R.mipmap.ic_search);
-        mIconCloseSearch = getResources()
-                .getDrawable(R.mipmap.ic_cancel);*/
-
         mIconOpenSearch = ContextCompat.getDrawable(this, R.mipmap.ic_search);
         mIconCloseSearch = ContextCompat.getDrawable(this, R.mipmap.ic_cancel);
 
-        //Clean all data
-        //dbHelper.deleteAllWords();
-        //Add some data
-        //dbHelper.insertSomeWords();
-
-        //Generate ListView from SQLite Database
         displayListView();
 
-        //CreatePDF.createPdfWordList(dbHelper.getAllWords());
-
-        //Generate Spinner menue
-        //displaySpinner();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -174,14 +154,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            /*case R.id.add:
-                // Start AddNewActivity.class
-                myIntent = new Intent(MainActivity.this,
-                        AddNewActivity.class);
-                startActivity(myIntent);
-                return (true);*/
             case R.id.action_test:
-                // Start QuizActivity.class
 
                 myIntent = new Intent(MainActivity.this,
                         NewQuizActivity.class);
@@ -230,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor cursor = dbHelper.fetchAllWords();
 
-        if(cursor.getCount()<1){
+        if (cursor.getCount() < 1) {
             wordListEmptyAlertDialogue();
         }
 
@@ -238,10 +211,6 @@ public class MainActivity extends AppCompatActivity {
         String[] columns = new String[]{
                 WordDbAdapter.KEY_SWEDISH,
                 WordDbAdapter.KEY_ENGLISH,
-                //WordDbAdapter.KEY_EXAMPLE,
-                //WordDbAdapter.KEY_ETTEN,
-                //WordDbAdapter.KEY_PARTOFSPEACH,
-                //WordDbAdapter.KEY_DATE
         };
 
         // the XML defined views which the data will be bound to
@@ -286,8 +255,7 @@ public class MainActivity extends AppCompatActivity {
                 String dateCreated =
                         cursor.getString(cursor.getColumnIndexOrThrow("created_at"));
 
-
-                DictonaryWord w = new DictonaryWord(swedish, english, exampleSwedish, exampleEnglish, partOfSpeach, dateCreated);
+                DictionaryWord w = new DictionaryWord(swedish, english, exampleSwedish, exampleEnglish, partOfSpeach, dateCreated);
 
                 Intent i = new Intent(MainActivity.this, WordActivity.class);
 
@@ -299,21 +267,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       /* EditText myFilter = (EditText) findViewById(R.id.myFilter);
-        myFilter.addTextChangedListener(new TextWatcher() {
-
-            public void afterTextChanged(Editable s) {
-            }
-
-            public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
-            }
-
-            public void onTextChanged(CharSequence s, int start,
-                                      int before, int count) {
-                dataAdapter.getFilter().filter(s.toString());
-            }
-        });*/
 
         dataAdapter.setFilterQueryProvider(new FilterQueryProvider() {
             public Cursor runQuery(CharSequence constraint) {
@@ -391,7 +344,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onPrepareOptionsMenu(menu);
     }
 
-    private void wordListEmptyAlertDialogue(){
+    /**
+     * Display a message dialogue about empty word list.
+     */
+    private void wordListEmptyAlertDialogue() {
 
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle("Empty World List");

@@ -2,18 +2,15 @@
 
     <!-- application name -->
     <string name="appName">Word Plus</string>
-    <string name="app_slogan">A tool to help you building your vocabulary in swedish</string>
 
     <!-- spinner title -->
     <string name="spinner_title">Part of Speech</string>
 
     <!-- error message add new word -->
-    <string name="error_message">Value Required</string>
 
     <!-- Hints -->
     <string name="hints_english">English</string>
     <string name="hints_swedish">Swedish</string>
-    <string name="hints_example">Example</string>
 
     <!-- Part of Speech -->
     <string-array name="part_of_speech">
@@ -34,7 +31,6 @@
         User can also backup their personal vocabulary list as pdf file or send it to their email</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

@@ -84,7 +84,7 @@ public class EditWordActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                DictonaryWord w = new DictonaryWord(textSwedish.getText().toString(), textEnglish.getText().toString(),textSwedishExample.getText().toString(), textEnglishExample.getText().toString(), partOfSpeach,  "new Date");
+                DictionaryWord w = new DictionaryWord(textSwedish.getText().toString(), textEnglish.getText().toString(),textSwedishExample.getText().toString(), textEnglishExample.getText().toString(), partOfSpeach,  "new Date");
 
                 //Word w=new Word("TEST","English","Example","ETT","verb","date");
 
@@ -96,7 +96,7 @@ public class EditWordActivity extends AppCompatActivity {
 
     private void createWordView() {
 
-        DictonaryWord word = getIntent().getParcelableExtra("editedword");
+        DictionaryWord word = getIntent().getParcelableExtra("editedword");
         textSwedish.setText(word.getSwedish());
         textEnglish.setText(word.getEnglish());
         textSwedishExample.setText(word.getSwedishExample());
@@ -136,7 +136,7 @@ public class EditWordActivity extends AppCompatActivity {
 
     }
 
-    public void editWord(DictonaryWord w) {
+    public void editWord(DictionaryWord w) {
 
         if (dbHelper.updateWord(w)) {
             Toast.makeText(EditWordActivity.this, "Word Updated", Toast.LENGTH_SHORT).show();

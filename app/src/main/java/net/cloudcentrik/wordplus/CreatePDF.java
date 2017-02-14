@@ -27,17 +27,7 @@ import java.util.Locale;
  */
 public class CreatePDF {
 
-   /* public static void createPDFFile(){
-        Document document = new Document();
-        File file = Environment.getExternalStorageDirectory().getPath() + "/Hello.pdf"
-        PdfWriter.getInstance(document, new FileOutputStream(file));
-        document.open();
-        Paragraph p = new Paragraph("Hello PDF");
-        document.add(p);
-        document.close();
-    }*/
-
-    public static String createPdfWordList(ArrayList<DictonaryWord> words, String fileName) {
+    public static String createPdfWordList(ArrayList<DictionaryWord> words, String fileName) {
         // TODO Auto-generated method stub
         com.itextpdf.text.Document document = new com.itextpdf.text.Document();
         String fPath = "";
@@ -97,7 +87,7 @@ public class CreatePDF {
 
     }
 
-    private static PdfPTable createWordTable(ArrayList<DictonaryWord> words) {
+    private static PdfPTable createWordTable(ArrayList<DictionaryWord> words) {
 
         //specify column widths
         float[] columnWidths = {2f, 2f, 5f,5f};
@@ -114,7 +104,7 @@ public class CreatePDF {
                 addTableRow(table, words.get(i));
             }
         } else {
-            DictonaryWord w = new DictonaryWord("No Data", "No Data", "No Data", "No Data","no data", "no data");
+            DictionaryWord w = new DictionaryWord("No Data", "No Data", "No Data", "No Data","no data", "no data");
             addTableRow(table, w);
         }
 
@@ -145,7 +135,7 @@ public class CreatePDF {
 
     }
 
-    private static void addTableRow(PdfPTable table, DictonaryWord w) {
+    private static void addTableRow(PdfPTable table, DictionaryWord w) {
         Font bf12 = new Font(Font.FontFamily.TIMES_ROMAN, 12);
         PdfPCell cellSwedish = new PdfPCell(new Phrase(w.getSwedish(), bf12));
         PdfPCell cellEnglish = new PdfPCell(new Phrase(w.getEnglish(), bf12));

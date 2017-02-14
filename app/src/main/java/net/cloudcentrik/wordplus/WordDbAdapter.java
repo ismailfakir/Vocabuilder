@@ -82,11 +82,10 @@ public class WordDbAdapter {
     //---deletes a particular word
     public boolean deleteWord(String word) {
         return mDb.delete(SQLITE_TABLE, KEY_SWEDISH + " ='" + word + "'", null) > 0;
-        //return mDb.delete(SQLITE_TABLE, KEY_SWEDISH +" ='Jag'", null) > 0;
     }
 
     // Updating single word
-    public boolean updateWord(DictonaryWord w) {
+    public boolean updateWord(DictionaryWord w) {
 
         ContentValues values = new ContentValues();
         values.put(KEY_ENGLISH, w.getEnglish());
@@ -168,9 +167,9 @@ public class WordDbAdapter {
         return mCursor;
     }
 
-    public ArrayList<DictonaryWord> getAllWords() {
+    public ArrayList<DictionaryWord> getAllWords() {
 
-        ArrayList<DictonaryWord> list = new ArrayList<DictonaryWord>();
+        ArrayList<DictionaryWord> list = new ArrayList<DictionaryWord>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + SQLITE_TABLE + " ORDER BY " + KEY_SWEDISH + " COLLATE NOCASE ASC";
 
@@ -187,7 +186,7 @@ public class WordDbAdapter {
                     do {
                         //Word obj = new Word(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4), cursor.getString(5));
 
-                        DictonaryWord obj = new DictonaryWord();
+                        DictionaryWord obj = new DictionaryWord();
                         //get all column
                         obj.setSwedish(cursor.getString(cursor.getColumnIndex("swedish")));
                         obj.setEnglish(cursor.getString(cursor.getColumnIndex("english")));

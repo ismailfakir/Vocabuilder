@@ -3,28 +3,22 @@ package net.cloudcentrik.wordplus;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.File;
 
@@ -70,7 +64,7 @@ public class SaveActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                BackgroundTask bt = new BackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList"+WordplusUtils.getDateTime());
+                SaveFileBackgroundTask bt = new SaveFileBackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList"+ WordPlusUtils.getDateTime());
                 bt.execute();
 
             }
@@ -80,32 +74,10 @@ public class SaveActivity extends AppCompatActivity {
         buttonEmail.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                /*//showEmailDialog();
-                showEmailDialogueTest();
-
-                if(validateEmail()){
-
-                    SaveFileBackgroundTask saveFileBackgroundTask = new SaveFileBackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList"+WordplusUtils.getDateTime());
-                    saveFileBackgroundTask.execute();
-
-                    //SaveWordList saveWordListTask = new SaveWordList(SaveActivity.this, dbHelper.getAllWords(), "Processing for email");
-                    try{
-                        String createdFileName=saveFileBackgroundTask.get();
-                        shareViaEmail(txtEmailAddress.getText().toString(),createdFileName);
-                    }catch (Exception e){
-                        Log.d("Send email Error",e.getMessage());
-                    }
-
-                    finish();
-
-                }else{
-                    showInvalidEmailDialog();
-                }*/
-
-                SaveFileBackgroundTask saveFileBackgroundTask = new SaveFileBackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList"+WordplusUtils.getDateTime());
-                saveFileBackgroundTask.execute();
+                EmailFileBackgroundTask emailFileBackgroundTask = new EmailFileBackgroundTask(SaveActivity.this, dbHelper.getAllWords(), "WordList"+ WordPlusUtils.getDateTime());
+                emailFileBackgroundTask.execute();
                 try{
-                    String createdFileName=saveFileBackgroundTask.get();
+                    String createdFileName= emailFileBackgroundTask.get();
                     shareViaEmail(emailAddress,createdFileName);
                 }catch (Exception e){
                     Log.d("Send email Error",e.getMessage());
@@ -131,7 +103,7 @@ public class SaveActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_SENDTO);
             intent.setType("text/plain");
             String message="Please find your word list attachment with this email from Word Plus";
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Word list from Word Plus "+WordplusUtils.getDateTime());
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Word list from Word Plus "+ WordPlusUtils.getDateTime());
             //String fileName = Environment.getExternalStorageDirectory().getAbsolutePath() + "/wordplus/WordList.pdf";
             intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(fileName)));
             intent.putExtra(Intent.EXTRA_TEXT, message);

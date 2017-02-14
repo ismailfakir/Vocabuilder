@@ -15,7 +15,7 @@ public class Quiz {
     private int noOfQuestion;
     private ArrayList<Question> questions;
     private WordDbAdapter dbHelper;
-    private ArrayList<DictonaryWord> allWords;
+    private ArrayList<DictionaryWord> allWords;
 
     public Quiz(int noOfQuestion,Context ctx) {
         this.noOfQuestion = noOfQuestion;
@@ -46,7 +46,7 @@ public class Quiz {
         q.setQuestion(allWords.get(id).getSwedish());
         q.setAnswer(allWords.get(id).getEnglish());
 
-        int option[] = WordplusUtils.RandomizeArray(0, 2);
+        int option[] = WordPlusUtils.RandomizeArray(0, 2);
 
         q.setOptionA(allWords.get(id+option[0]).getEnglish());
         q.setOptionB(allWords.get(id+option[1]).getEnglish());

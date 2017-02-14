@@ -12,10 +12,11 @@ import java.util.Random;
 /**
  * Created by ismail on 2016-02-09.
  */
-public class WordplusUtils {
+public class WordPlusUtils {
 
     public static int[] RandomizeArray(int a, int b) {
-        Random rgen = new Random();  // Random number generator
+        // Random number generator
+        Random rgen = new Random();
         int size = b - a + 1;
         int[] array = new int[size];
 
@@ -30,14 +31,12 @@ public class WordplusUtils {
             array[randomPosition] = temp;
         }
 
-        for (int s : array)
-            System.out.println(s);
-
         return array;
     }
 
     public static int[] RandomizeArray(int[] array) {
-        Random rgen = new Random();  // Random number generator
+        // Random number generator
+        Random rgen = new Random();
 
         for (int i = 0; i < array.length; i++) {
             int randomPosition = rgen.nextInt(array.length);
@@ -86,16 +85,4 @@ public class WordplusUtils {
         return new String(c);
 
     }
-
-    /*
-    // Create an array
-Integer[] array = new Integer[]{1, 2, 3, 4};
-
-//int[] array = new int[]{1, 2, 3, 4}; //does not work
-
-// Shuffle the elements in the array
-Collections.shuffle(Arrays.asList(array));
-     */
-
-
 }
