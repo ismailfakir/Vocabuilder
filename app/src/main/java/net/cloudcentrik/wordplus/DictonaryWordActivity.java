@@ -75,8 +75,10 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
             txtPartOfSpeech.setText("Noun");
         }else if(word.getPartOfSpeech().equals("interjektion")){
             txtPartOfSpeech.setText("Interjection");
+        }else{
+            txtPartOfSpeech.setText(word.getPartOfSpeech());
         }
-        //txtPartOfSpeech.setText(word.getPartOfSpeech());
+
         txtPartOfSpeech.setTypeface(tf2);
 
         if(word.getSwedishExample().equals("no value")){
@@ -185,7 +187,6 @@ public class DictonaryWordActivity extends AppCompatActivity implements AdapterV
     @Override
     public void onResume(){
         super.onResume();
-        //ts.setText("test");
     }
 
 }

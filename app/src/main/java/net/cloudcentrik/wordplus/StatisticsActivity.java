@@ -84,11 +84,13 @@ public class StatisticsActivity extends AppCompatActivity {
         entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Preposition"), 5));
         entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Conjunction"), 6));
         entries.add(new BarEntry((float) dbHelper.countPartofSpeach("Interjection"), 7));
+        entries.add(new BarEntry((float) dbHelper.getAllWords().size(), 8));
 
 
         BarDataSet dataset = new BarDataSet(entries, "# of Calls");
 
-        dataset.setColors(ColorTemplate.COLORFUL_COLORS);
+        //dataset.setColors(ColorTemplate.COLORFUL_COLORS);
+        dataset.setColors(ColorTemplate.JOYFUL_COLORS);
 
         dataset.setBarSpacePercent(35f);
 
@@ -102,6 +104,7 @@ public class StatisticsActivity extends AppCompatActivity {
         labels.add("Preposition");
         labels.add("Conjunction");
         labels.add("Interjection");
+        labels.add("Total");
 
 
         BarData data = new BarData(labels, dataset);
