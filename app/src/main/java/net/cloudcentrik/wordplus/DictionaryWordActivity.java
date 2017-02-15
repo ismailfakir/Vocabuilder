@@ -189,4 +189,13 @@ public class DictionaryWordActivity extends AppCompatActivity implements Adapter
         super.onResume();
     }
 
+    @Override
+    public void onRestart(){
+        super.onRestart();
+        if (dbHelper == null){
+            dbHelper = new WordDbAdapter(this);
+            dbHelper.open();
+        }
+    }
+
 }

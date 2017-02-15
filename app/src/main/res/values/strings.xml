@@ -26,9 +26,15 @@
 
     <!-- about wordplus -->
     <string name="developer">Ismail Fakir : md.ismail.fakir@gmail.com</string>
-    <string name="about_text">Word Plus is an application to help new Swedish learner to develop their vocabulary. User can keep tract of their personalize vocabulary list using this application.
-        User can check their progress to new language by random word quiz and word statistics.
-        User can also backup their personal vocabulary list as pdf file or send it to their email</string>
+    <string name="about_text">Word Plus is a vocabulary app that aims to improve your Swedish vocabulary in the best way possible. If you are learning Swedish language, this app allows you to create your own Swedish word list. A very simple and an effective way to improve your Swedish vocabulary. If you are preparing for SFI or simply planning to improve your Swedish vocabulary, then this app is for you. Word Plus includes an offline English to Swedish dictionary as well, you can add words from dictionary to your own word list.
+    \n\nFeatures:\n
+- Add/Edit/Delete words with meanings and examples.\n
+- Search word in the word list.\n
+- Random word quiz for practice vocabulary.\n
+- Statistics about words of your word list.\n
+- Includes an offline English to Swedish dictionary.\n
+- Backup your word list to pdf file or email.
+    </string>
 
     <!-- TODO: Remove or change this placeholder text -->
 
