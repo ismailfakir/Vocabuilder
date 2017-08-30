@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -162,12 +163,15 @@ public class NewQuizActivity extends AppCompatActivity {
     }
 
     private void setQuizView() {
+        final LinearLayout quizLayout = (LinearLayout) findViewById(R.id.quiz_layout);
 
         if(questionList.size()<3){
 
+            quizLayout.setVisibility(View.GONE);
             showNotEnoughQuestionAlertDialogue();
 
         }else {
+            quizLayout.setVisibility(View.VISIBLE);
             currentQuestion = questionList.get(questionNo);
             //Log.d("Current question",""+currentQuestion.toString());
 
@@ -197,8 +201,8 @@ public class NewQuizActivity extends AppCompatActivity {
     private void showNotEnoughQuestionAlertDialogue(){
 
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Not Enough World");
-        alertDialog.setMessage("Yon need atleast 6 world in the word list to start the quiz");
+        alertDialog.setTitle("Not enough word");
+        alertDialog.setMessage("Yon need at least 6 word in the word list to start the quiz");
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

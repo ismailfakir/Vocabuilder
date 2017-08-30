@@ -36,7 +36,7 @@
     <item
         android:id="@+id/action_dictonary"
         android:icon="@drawable/ic_dictonary_white_48dp"
-        android:title="Dictonary"
+        android:title="Dictionary"
         app:showAsAction="never" />
 
     <item

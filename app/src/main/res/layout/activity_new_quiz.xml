@@ -27,7 +27,8 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:id="@+id/quiz_layout">
 
         <TextView
             android:id="@+id/txtQuizHeading"

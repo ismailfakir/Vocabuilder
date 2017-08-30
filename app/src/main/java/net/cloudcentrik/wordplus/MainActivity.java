@@ -350,8 +350,8 @@ public class MainActivity extends AppCompatActivity {
     private void wordListEmptyAlertDialogue() {
 
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        alertDialog.setTitle("Empty World List");
-        alertDialog.setMessage("Your word list is empty. Start adding some word in your word list.");
+        alertDialog.setTitle("Empty word list");
+        alertDialog.setMessage("Your word list is empty. Start adding some words in your list.");
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
